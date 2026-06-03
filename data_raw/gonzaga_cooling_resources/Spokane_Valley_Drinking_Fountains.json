@@ -1,0 +1,159 @@
+{
+  "title": "Drinking Fountains",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Valley_Cooling_Resources/FeatureServer/2",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Browns Park",
+        "Type_of_Location": "Park",
+        "Address": "3101 S Pines Road Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Street_Address": "3101 S Pines Road",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.23904904177363,
+        "y": 47.62874563099929
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Greenacres Park",
+        "Type_of_Location": "Park",
+        "Address": "1311 N Long Road Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Street_Address": "1311 N Long Road",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.16497358884007,
+        "y": 47.669314869531625
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Mirabeau Point Park",
+        "Type_of_Location": "Park",
+        "Address": "13500 Mirabeau Parkway Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Street_Address": "13500 Mirabeau Parkway",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22579635550535,
+        "y": 47.68494875781904
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "Discovery Playground",
+        "Type_of_Location": "Park",
+        "Address": "2426 N Discovery Pl, Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Street_Address": "2426 N Discovery Pl",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22395786902625,
+        "y": 47.67810280131593
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "Terrace View Park",
+        "Type_of_Location": "Park",
+        "Address": "13525 E 24th Avenue Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Street_Address": "13525 E 24th Avenue",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22234711852923,
+        "y": 47.63597186758661
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "Name": "Valley Mission Park",
+        "Type_of_Location": "Park",
+        "Address": "11123 E Mission Spokane Valley, WA 99206",
+        "Maintenance": "(509) 720-5200",
+        "Street_Address": "11123 E Mission",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99206"
+      },
+      "geometry": {
+        "x": -117.25459392743504,
+        "y": 47.67201783406933
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 8,
+        "Name": "Edgecliff Park",
+        "Type_of_Location": "Park",
+        "Address": "800 S Park Rd, Spokane Valley, WA",
+        "Maintenance": "(509) 720-5200",
+        "Street_Address": "800 S Park Rd",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99212"
+      },
+      "geometry": {
+        "x": -117.304836621241,
+        "y": 47.651002613715725
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 9,
+        "Name": "Appleway Trail",
+        "Type_of_Location": "Trail",
+        "Address": "213 S University Rd, Ste 1, Spokane Valley, Washington, 99206",
+        "Maintenance": "(509) 720-5200",
+        "Street_Address": "213 S University Rd Ste 1",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99206"
+      },
+      "geometry": {
+        "x": -117.2608747039496,
+        "y": 47.65498318713291
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 10,
+        "Name": "Water Fountain - Out of Order ",
+        "Type_of_Location": "Park ",
+        "Address": null,
+        "Maintenance": "311",
+        "Street_Address": null,
+        "City": "Spokane Valley",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.34984656155235,
+        "y": 47.69844046178862
+      }
+    }
+  ]
+}

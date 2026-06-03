@@ -1,0 +1,70 @@
+{
+  "title": "Splash Pads",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Valley_Cooling_Resources/FeatureServer/1",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Browns Park",
+        "Address": "3101 S Pines Road Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5201",
+        "Street_Address": "3101 S Pines Road",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.23924081934987,
+        "y": 47.62841342826235
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Edgecliff Park",
+        "Address": "800 S Park Rd, Spokane Valley, WA",
+        "Maintenance": "(509) 720-5204",
+        "Street_Address": "800 S Park Rd",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99212"
+      },
+      "geometry": {
+        "x": -117.30498439595944,
+        "y": 47.650846022720415
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "Greenacres Park",
+        "Address": "1311 N Long Road Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5205",
+        "Street_Address": "1311 N Long Road",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.16519695568083,
+        "y": 47.668426148015506
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "Discovery Playground",
+        "Address": "2426 N Discovery Pl, Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5207",
+        "Street_Address": "2426 N Discovery Pl",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22403593650698,
+        "y": 47.67786272407196
+      }
+    }
+  ]
+}

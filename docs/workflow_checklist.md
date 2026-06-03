@@ -15,7 +15,7 @@
 - [x] Collect Census/ACS demographic variables.
 - [x] Add FEMA NRI social vulnerability fields.
 - [x] Add FEMA NRI heat-wave risk fields.
-- [x] Collect public cooling-resource candidates.
+- [x] Collect public cooling-resource candidates from Gonzaga/SRHD FeatureServer layers.
 - [x] Document source dates and access URLs.
 
 ## Analysis
@@ -33,5 +33,6 @@
 - [x] Create first map layout.
 - [x] Export map to PNG and PDF.
 - [x] Create ranked high-concern table.
+- [x] Create top high-concern tract chart.
 - [x] Update README with final results.
 - [x] Add limitations and version notes.

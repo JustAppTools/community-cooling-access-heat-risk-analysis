@@ -1,0 +1,52 @@
+{
+  "title": "Parks",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/Town_of_Fairfield_Cooling_Resources_Map/FeatureServer/4",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Thiel Park",
+        "Address": "110 1st St, Fairfield, WA 99012",
+        "Maintenance": "(509) 283-2414",
+        "Electricity": "Unknown",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Play Field",
+        "Street_Address": "110 1st St",
+        "City": " Fairfield",
+        "State": "WA",
+        "Zip_Code": "99012"
+      },
+      "geometry": {
+        "x": -117.1738738260641,
+        "y": 47.38602822403101
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Hart Park",
+        "Address": "317 E Main St, Fairfield, WA 99012",
+        "Maintenance": "(509) 283-2414",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Unknown",
+        "Play_Equipment": "No",
+        "Sports": "Play Field",
+        "Street_Address": "317 E Main St",
+        "City": " Fairfield",
+        "State": "WA",
+        "Zip_Code": "99012"
+      },
+      "geometry": {
+        "x": -117.16870880553958,
+        "y": 47.38594088738929
+      }
+    }
+  ]
+}

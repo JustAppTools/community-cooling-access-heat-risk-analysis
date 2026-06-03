@@ -1,0 +1,121 @@
+{
+  "title": "Parks",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Medical_Lake_Cooling_Resources_Map/FeatureServer/4",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Waterfront Park",
+        "Address": "1300 S Lefevre St, Medical Lake, WA 99022",
+        "Maintenance": "(509) 565-5007",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Play Field, Baseball Diamond, Water Sports, Swimming",
+        "Street_Address": "1300 S Lefevre St",
+        "City": " Medical Lake",
+        "State": "WA",
+        "Zip_Code": "99022"
+      },
+      "geometry": {
+        "x": -117.69464794295689,
+        "y": 47.56437789223411
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Coney Island Park",
+        "Address": "N Jefferson St, Medical Lake, WA 99022",
+        "Maintenance": "(509) 565-5007",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes ",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Sports": "Play Field, Water Sports, Swimming",
+        "Street_Address": "N Jefferson St",
+        "City": " Medical Lake",
+        "State": "WA",
+        "Zip_Code": "99022"
+      },
+      "geometry": {
+        "x": -117.68441252294352,
+        "y": 47.57296957352669
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "Peper Park",
+        "Address": "Peper Park, W 4th St, Medical Lake, WA, 99022, USA",
+        "Maintenance": "(509) 565-5007",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Sports": "Fishing, Water Sports",
+        "Street_Address": "Peper Park W 4th St",
+        "City": " Medical Lake",
+        "State": "WA",
+        "Zip_Code": "99022"
+      },
+      "geometry": {
+        "x": -117.6882600527082,
+        "y": 47.577425976188934
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "Name": "Shepard Field",
+        "Address": "320 E Norma Lee Ave, Medical Lake, WA 99022",
+        "Maintenance": "(509) 565-5007",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Unknown",
+        "Play_Equipment": "No",
+        "Sports": "Play Field, Soccer",
+        "Street_Address": "320 E Norma Lee Ave",
+        "City": " Medical Lake",
+        "State": "WA",
+        "Zip_Code": "99022"
+      },
+      "geometry": {
+        "x": -117.67935515022126,
+        "y": 47.584100990516816
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 8,
+        "Name": "Pioneer Park",
+        "Address": "E. 515 Barker St.",
+        "Maintenance": "(509) 565-5007",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Unknown",
+        "Play_Equipment": "Yes",
+        "Sports": "No",
+        "Street_Address": "E. 515 Barker St.",
+        "City": "Medical Lake",
+        "State": "WA",
+        "Zip_Code": "99022"
+      },
+      "geometry": {
+        "x": -117.6769169688494,
+        "y": 47.576154298455066
+      }
+    }
+  ]
+}

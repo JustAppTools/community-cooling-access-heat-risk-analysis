@@ -1,0 +1,91 @@
+{
+  "title": "Cooling Centers and Spaces",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Valley_Cooling_Resources/FeatureServer/0",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Spokane Valley Senior Center",
+        "Type_of_Center": "Senior Center",
+        "Address": "2426 N Discovery Pl, Spokane Valley, WA 99216",
+        "Hours_Information": "(509) 926-1937",
+        "Street_Address": "2426 N Discovery Pl",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22353139762932,
+        "y": 47.6800766328802
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Spokane Valley Library",
+        "Type_of_Center": "Library",
+        "Address": "22 N Herald Rd, Spokane Valley, WA 99206",
+        "Hours_Information": "(509) 893-8400",
+        "Street_Address": "22 N Herald Rd",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99206"
+      },
+      "geometry": {
+        "x": -117.26873055920947,
+        "y": 47.65777688225507
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Argonne Library",
+        "Type_of_Center": "Library",
+        "Address": "4322 N Argonne Rd, Spokane Valley, WA 99212",
+        "Hours_Information": "(509) 893-8260",
+        "Street_Address": "4322 N Argonne Rd",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99212"
+      },
+      "geometry": {
+        "x": -117.28205334268597,
+        "y": 47.69638474420953
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Spokane Valley Mall",
+        "Type_of_Center": "Shopping Mall",
+        "Address": "14700 East Indiana Avenue, Spokane Valley, WA 99216",
+        "Hours_Information": "(509) 926-5575",
+        "Street_Address": "14700 East Indiana Avenue",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.20770720262418,
+        "y": 47.67359447151288
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "Spokane Valley YMCA",
+        "Type_of_Center": "Recreation Center",
+        "Address": "2421 N Discovery Pl, Spokane Valley, WA 99216",
+        "Hours_Information": "(509) 777-9622",
+        "Street_Address": "2421 N Discovery Pl",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.2265860146034,
+        "y": 47.68005930853906
+      }
+    }
+  ]
+}

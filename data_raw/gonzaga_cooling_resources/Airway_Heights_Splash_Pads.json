@@ -1,0 +1,22 @@
+{
+  "title": "Splash Pads",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Airway_Heights_Cooling_Resources_Map/FeatureServer/1",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Sunset Park",
+        "Address": "913 S Lawson St, Airway Heights, Wa 99001",
+        "Maintenance": "(509) 244-4845",
+        "Street_Address": "913 S Lawson St",
+        "City": " Airway Heights",
+        "State": "WA",
+        "Zip_Code": "99001"
+      },
+      "geometry": {
+        "x": -117.58837974541333,
+        "y": 47.647222579085465
+      }
+    }
+  ]
+}

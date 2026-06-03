@@ -29,10 +29,16 @@ Heat and land-cover context
   https://hazards.fema.gov/nri/
 
 Cooling resources and public facilities
+- Spokane Regional Health District Cooling Center Locations:
+  https://srhd.org/health-topics/environmental-health/extreme-heat/cooling-center-locations
+- Gonzaga Spokane Regional Cooling Resources interactive map:
+  https://gonz.maps.arcgis.com/apps/webappviewer/index.html?id=f1e9424b84954502ba1163b9765480dd
+- Gonzaga Cooling Resources FeatureServer example:
+  https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Cooling_Resources_Map/FeatureServer
+- City of Spokane 2024 cooling resources release:
+  https://my.spokanecity.org/news/releases/2024/07/12/city-continues-to-offer-cooling-resources/
 - Spokane Public Library locations:
   https://www.spokanelibrary.org/locations/
-- OpenStreetMap Overpass API:
-  https://overpass-api.de/
 - Spokane County GIS and open data starting point:
   https://www.spokanecounty.org/1211/Geographic-Information-Systems-GIS
 - City of Spokane GIS/open data starting point:

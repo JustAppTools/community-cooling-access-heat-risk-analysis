@@ -1,0 +1,22 @@
+{
+  "title": "Public Pools",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Airway_Heights_Cooling_Resources_Map/FeatureServer/3",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Airway Heights Aquatic Center",
+        "Address": "11405 W Deno Rd, Spokane, WA 99224",
+        "Phone": "(509) 244-4845",
+        "Street_Address": "11405 W Deno Rd",
+        "City": " Spokane",
+        "State": "WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.56909807083167,
+        "y": 47.67093511572159
+      }
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "title": "Splash Pads",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Cooling_Resources_Map/FeatureServer/1",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Audubon Park",
+        "Address": "3405 N Milton St, Spokane, WA 99205",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "3405 N Milton St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.45355040658602,
+        "y": 47.6899223717864
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Carson Park",
+        "Address": "5225 N Assembly St, Spokane, WA 99205",
+        "Call": "311",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "5225 N Assembly St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.47798691568899,
+        "y": 47.707563727368
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Chief Garry Park",
+        "Address": "2515 E Sinto Ave Spokane, WA 99202",
+        "Call": "311",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "2515 E Sinto Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.37292975595899,
+        "y": 47.67127329532259
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Coeur d'Alene Park",
+        "Address": "2195 W 2nd Ave, Spokane, WA 99201",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "2195 W 2nd Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.44495276699301,
+        "y": 47.652956796145695
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "Friendship Park",
+        "Address": "631 E Greta Ave, Spokane, WA 99208",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "631 E Greta Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.39922063431926,
+        "y": 47.726264061195096
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "Name": "Glass Park",
+        "Address": "627 E Heroy Ave, Spokane, WA 99207",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "627 E Heroy Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.39907309286468,
+        "y": 47.6986102823833
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 8,
+        "Name": "Grandview Park",
+        "Address": "3203 W 17th Ave, Spokane, WA 99224",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "3203 W 17th Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.460537566584,
+        "y": 47.63913949465369
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 9,
+        "Name": "Manito Park",
+        "Address": "Manito Park, 2406 S Tekoa St, Spokane, WA 99203",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "2406 S Tekoa St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.410190684031,
+        "y": 47.6328371374874
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 10,
+        "Name": "Mission Park",
+        "Address": "1208 E Mission AveSpokane, WA 99202",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "1208 E Mission Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.392408321833,
+        "y": 47.67035789777749
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 11,
+        "Name": "Pacific Park",
+        "Address": "5211 W Lowell Ave, Spokane, WA 99208",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "5211 W Lowell Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.48530762152998,
+        "y": 47.73666757064059
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 12,
+        "Name": "Rotary Fountain",
+        "Address": "507 N Howard St, Spokane, WA 99201",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "507 N Howard St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.42111475252202,
+        "y": 47.660574125935796
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 13,
+        "Name": "Ice Age Floods Playground",
+        "Address": "832 N Howard St, Spokane, WA 99201",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "832 N Howard St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.42043749523698,
+        "y": 47.66513961710089
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 14,
+        "Name": "Shadle Park",
+        "Address": "2005 W Wellesley Ave, Spokane, WA 99207",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "2005 W Wellesley Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.440862702381,
+        "y": 47.699388821912805
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 15,
+        "Name": "Sharpley-Harmon Park - Not Working ",
+        "Address": "2900\u20132998 E Bismark Ave, Spokane, WA 99208, United States",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "2900\u20132998 E Bismark Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.36615030098001,
+        "y": 47.712457615427695
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 16,
+        "Name": "Thornton Murphy Park",
+        "Address": "3101 E 27th Ave, Spokane",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "3101 E 27th Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.36488923065099,
+        "y": 47.63082854295819
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 17,
+        "Name": "Underhill Park",
+        "Address": "2910 E Hartson Ave, Spokane, WA 99202, United States",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "2910 E Hartson Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.36792364809752,
+        "y": 47.64973090299854
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 18,
+        "Name": "Grant Park",
+        "Address": "1015 S Arthur St, Spokane, WA 99202, United States",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "1015 S Arthur St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.39323512548368,
+        "y": 47.645871661862664
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 19,
+        "Name": "Nevada Park - Splashpad out of order ",
+        "Address": "903 E Joseph Ave, Spokane, WA 99208, United States",
+        "Call": "(509) 625-6960",
+        "Website": "https://my.spokanecity.org/recreation/aquatics/splash-pads/",
+        "Street_Address": "903 E Joseph Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.39696072573399,
+        "y": 47.710067195947396
+      }
+    }
+  ]
+}

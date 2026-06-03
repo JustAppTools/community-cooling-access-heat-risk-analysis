@@ -1,0 +1,23 @@
+{
+  "title": "Cooling Centers and Spaces",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/Town_of_Fairfield_Cooling_Resources_Map/FeatureServer/0",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Fairfield Library",
+        "Type_of_Center": "Library",
+        "Address": "305 E. Main Street Fairfield, WA 99012",
+        "Hours": "(509) 893-8320",
+        "Street_Address": "305 E. Main Street ",
+        "City": "Fairfield",
+        "State": "WA",
+        "Zip_Code": "99012"
+      },
+      "geometry": {
+        "x": -117.17027789781345,
+        "y": 47.385637766980615
+      }
+    }
+  ]
+}

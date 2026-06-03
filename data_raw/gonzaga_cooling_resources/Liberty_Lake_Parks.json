@@ -1,0 +1,98 @@
+{
+  "title": "Parks",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Liberty_Lake/FeatureServer/4",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Orchard Park",
+        "Address": "20298 E Indiana Ave, Liberty Lake, Wa 99019",
+        "Maintenance": "(509) 755-6714",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Trails, Basketball Court, Tennis Courts, Pickleball Courts",
+        "Street_Address": "20298 E Indiana Ave",
+        "City": " Liberty Lake",
+        "State": "WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.13191974688894,
+        "y": 47.675053117910345
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Pavillion Park",
+        "Address": "727 N Molter Rd, Liberty Lake, WA 99019",
+        "Maintenance": "(509) 755-6714",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Basketball Courts, Tennis Courts, Baseball Fields, Skate Park, Play Field",
+        "Street_Address": "727 N Molter Rd",
+        "City": " Liberty Lake",
+        "State": "WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.09202492102521,
+        "y": 47.663715173896435
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Rocky Hill Park",
+        "Address": "24901 E Mission Ave, Liberty Lake, WA",
+        "Maintenance": "(509) 755-6714",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Fitness Station, Basket Ball Courts, Tennis Courts",
+        "Street_Address": "24901 E Mission Ave",
+        "City": " Liberty Lake",
+        "State": "WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.07030945901994,
+        "y": 47.67192456337342
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "Town Square Park",
+        "Address": "1421 N Meadowwood Ln, Liberty Lake, WA 99019",
+        "Maintenance": "(509) 755-6714",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Sports": "No",
+        "Street_Address": "1421 N Meadowwood Ln",
+        "City": "Liberty Lake",
+        "State": "WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.1022021290776,
+        "y": 47.67153097201141
+      }
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "title": "Parks",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Deer_Park_Cooling_Resources_Map/FeatureServer/4",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Earl D. Mix Park",
+        "Address": "301 W 4th St, Deer Park, WA 99006",
+        "Maintenance": "(509) 276-8801",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Play Fields",
+        "Street_Address": "301 W 4th St",
+        "City": " Deer Park",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.48259151324747,
+        "y": 47.95810799670499
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "James G Swinyard Park",
+        "Address": " 200 E B St, Deer Park, WA, 99006, USA",
+        "Maintenance": "(509) 276-8801",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Sports": "Swimming, Skate Park",
+        "Street_Address": "James G Swinyard Park 200 E B St",
+        "City": " Deer Park",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.47400106124687,
+        "y": 47.95209664833676
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "Perrins Field",
+        "Address": "14 N Arnim Ave, Deer Park, WA 99006",
+        "Maintenance": "(509) 276-8801",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Sports": "Play Fields",
+        "Street_Address": "14 N Arnim Ave",
+        "City": " Deer Park",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.47302198882426,
+        "y": 47.954547099784556
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "Name": "Deer Park Meadows Park",
+        "Address": "1100 N Main St, Deer Park, WA 99006",
+        "Maintenance": "(509) 276-8801",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "No",
+        "Street_Address": "1100 N Main St",
+        "City": "Deer Park",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.4762075810634,
+        "y": 47.96410728743735
+      }
+    }
+  ]
+}

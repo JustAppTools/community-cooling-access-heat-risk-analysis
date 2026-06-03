@@ -1,4 +1,4 @@
-"""Build the first analysis outputs for the cooling access heat-risk project.
+"""Build analysis outputs for the cooling access heat-risk project.
 
 Run with the ArcGIS Pro Python interpreter:
     "C:\\Program Files\\ArcGIS\\Pro\\bin\\Python\\envs\\arcgispro-py3\\python.exe" scripts\\build_analysis.py
@@ -9,7 +9,7 @@ from __future__ import annotations
 import csv
 import json
 import math
-import time
+import textwrap
 import urllib.request
 import zipfile
 from collections import Counter
@@ -17,6 +17,7 @@ from pathlib import Path
 
 import arcpy
 import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
 import matplotlib.patches as patches
 import pandas as pd
 import requests
@@ -39,6 +40,7 @@ WGS84 = arcpy.SpatialReference(4326)
 
 TIGER_TRACTS_URL = "https://www2.census.gov/geo/tiger/TIGER2024/TRACT/tl_2024_53_tract.zip"
 TIGER_COUNTIES_URL = "https://www2.census.gov/geo/tiger/TIGER2024/COUNTY/tl_2024_us_county.zip"
+TIGER_ROADS_URL = "https://www2.census.gov/geo/tiger/TIGER2024/ROADS/tl_2024_53063_roads.zip"
 CENSUS_REPORTER_URL = (
     "https://api.censusreporter.org/1.0/data/show/latest"
     "?table_ids=B01001,B17001,B08201&geo_ids=140|05000US53063"
@@ -47,10 +49,31 @@ NRI_QUERY_URL = (
     "https://services.arcgis.com/XG15cJAlne2vxtgt/arcgis/rest/services/"
     "National_Risk_Index_Census_Tracts/FeatureServer/0/query"
 )
+GONZAGA_COOLING_APP_ITEM = "f1e9424b84954502ba1163b9765480dd"
+GONZAGA_PORTAL = "https://gonz.maps.arcgis.com"
+
+PLACE_LABELS = [
+    ("Spokane", -117.4235, 47.6588),
+    ("Spokane Valley", -117.2394, 47.6732),
+    ("Cheney", -117.5758, 47.4874),
+    ("Airway Heights", -117.5933, 47.6446),
+    ("Medical Lake", -117.6826, 47.5729),
+    ("Deer Park", -117.4769, 47.9543),
+    ("Liberty Lake", -117.1182, 47.6759),
+]
 
 
 def ensure_dirs() -> None:
-    for path in [RAW, PROCESSED, MAPS, FIGURES, RAW / "tiger", RAW / "osm", RAW / "acs", RAW / "nri"]:
+    for path in [
+        RAW,
+        PROCESSED,
+        MAPS,
+        FIGURES,
+        RAW / "tiger",
+        RAW / "acs",
+        RAW / "nri",
+        RAW / "gonzaga_cooling_resources",
+    ]:
         path.mkdir(parents=True, exist_ok=True)
 
 
@@ -76,6 +99,15 @@ def unzip(zip_path: Path, destination: Path) -> None:
 def delete_if_exists(dataset: str | Path) -> None:
     if arcpy.Exists(str(dataset)):
         arcpy.management.Delete(str(dataset))
+
+
+def cleanup_obsolete_outputs() -> None:
+    for name in [
+        "Cooling_Resource_Candidates",
+        "Cooling_Resource_Candidates_UTM11N",
+        "Cooling_Resource_Candidates_WGS84",
+    ]:
+        delete_if_exists(GDB / name)
 
 
 def prepare_boundaries() -> tuple[Path, Path]:
@@ -111,6 +143,24 @@ def prepare_boundaries() -> tuple[Path, Path]:
         arcpy.management.Project(str(src), str(dest), ANALYSIS_SR)
 
     return tracts_projected, county_projected
+
+
+def prepare_roads() -> Path:
+    tiger_dir = RAW / "tiger"
+    roads_zip = tiger_dir / "tl_2024_53063_roads.zip"
+    roads_dir = tiger_dir / "tl_2024_53063_roads"
+    download(TIGER_ROADS_URL, roads_zip)
+    unzip(roads_zip, roads_dir)
+    roads_shp = next(roads_dir.glob("tl_2024_53063_roads.shp"))
+
+    roads_fc = GDB / "Spokane_County_Major_Roads"
+    roads_projected = GDB / "Spokane_County_Major_Roads_UTM11N"
+    delete_if_exists(roads_fc)
+    arcpy.management.MakeFeatureLayer(str(roads_shp), "roads_lyr", "MTFCC IN ('S1100', 'S1200')")
+    arcpy.management.CopyFeatures("roads_lyr", str(roads_fc))
+    delete_if_exists(roads_projected)
+    arcpy.management.Project(str(roads_fc), str(roads_projected), ANALYSIS_SR)
+    return roads_projected
 
 
 def value(row: dict, table: str, field: str) -> float:
@@ -195,103 +245,128 @@ def safe_pct(numerator: float, denominator: float) -> float:
     return round((numerator / denominator) * 100, 2)
 
 
-def overpass_query() -> dict | None:
-    query = """[out:json][timeout:45];
-(
-  node["amenity"~"library|community_centre"](47.20,-117.90,48.10,-116.90);
-  way["amenity"~"library|community_centre"](47.20,-117.90,48.10,-116.90);
-  relation["amenity"~"library|community_centre"](47.20,-117.90,48.10,-116.90);
-);
-out center tags;"""
-    endpoints = [
-        "https://overpass-api.de/api/interpreter",
-        "https://overpass.kumi.systems/api/interpreter",
-        "https://overpass.openstreetmap.ru/api/interpreter",
-    ]
-    for endpoint in endpoints:
-        try:
-            response = requests.post(
-                endpoint,
-                data={"data": query},
-                timeout=75,
-                headers={"User-Agent": "JustAppTools GIS portfolio project"},
-            )
-            if response.ok:
-                return response.json()
-            print(f"Overpass returned {response.status_code} from {endpoint}")
-        except Exception as exc:
-            print(f"Overpass failed from {endpoint}: {exc}")
-        time.sleep(2)
-    return None
+def query_feature_layer(url: str) -> list[dict]:
+    params = {
+        "f": "json",
+        "where": "1=1",
+        "outFields": "*",
+        "returnGeometry": "true",
+        "outSR": "4326",
+    }
+    response = requests.get(f"{url}/query", params=params, timeout=60)
+    response.raise_for_status()
+    return response.json().get("features", [])
 
 
-def fallback_cooling_resources() -> list[dict]:
-    return [
-        {"name": "Central Library", "category": "library", "lat": 47.6579, "lon": -117.4234},
-        {"name": "Shadle Park Library", "category": "library", "lat": 47.7062, "lon": -117.4385},
-        {"name": "Hillyard Library", "category": "library", "lat": 47.7135, "lon": -117.3578},
-        {"name": "Liberty Park Library", "category": "library", "lat": 47.6572, "lon": -117.3794},
-        {"name": "South Hill Library", "category": "library", "lat": 47.6307, "lon": -117.4018},
-        {"name": "Indian Trail Library", "category": "library", "lat": 47.7524, "lon": -117.4367},
-        {"name": "Spokane Valley Library", "category": "library", "lat": 47.6573, "lon": -117.2395},
-        {"name": "Argonne Library", "category": "library", "lat": 47.6799, "lon": -117.2823},
-        {"name": "Cheney Library", "category": "library", "lat": 47.4881, "lon": -117.5784},
-        {"name": "Deer Park Library", "category": "library", "lat": 47.9546, "lon": -117.4761},
-        {"name": "Medical Lake Library", "category": "library", "lat": 47.5724, "lon": -117.6828},
-        {"name": "Moran Prairie Library", "category": "library", "lat": 47.5945, "lon": -117.3972},
-    ]
+def service_community_name(url: str) -> str:
+    service_name = url.split("/FeatureServer/")[0].rstrip("/").split("/")[-1]
+    service_name = service_name.replace("_Cooling_Resources_Map", "")
+    service_name = service_name.replace("_Cooling_Resources", "")
+    service_name = service_name.replace("Town_of_", "")
+    service_name = service_name.replace("City_of_", "")
+    return service_name.replace("_", " ")
 
 
-def fetch_cooling_resources(county_fc: Path) -> Path:
-    raw_json = RAW / "osm" / "osm_cooling_resource_candidates.json"
-    resources_csv = RAW / "osm" / "osm_cooling_resource_candidates.csv"
-    payload = overpass_query()
-    resources = []
+def fetch_gonzaga_cooling_resources(county_fc: Path) -> tuple[Path, Path]:
+    raw_dir = RAW / "gonzaga_cooling_resources"
+    app_data_url = f"{GONZAGA_PORTAL}/sharing/rest/content/items/{GONZAGA_COOLING_APP_ITEM}/data?f=json"
+    app_data = requests.get(app_data_url, timeout=60).json()
+    map_item = app_data["map"]["itemId"]
+    webmap_url = f"{GONZAGA_PORTAL}/sharing/rest/content/items/{map_item}/data?f=json"
+    webmap = requests.get(webmap_url, timeout=60).json()
+    (raw_dir / "gonzaga_cooling_resources_webmap.json").write_text(json.dumps(webmap, indent=2), encoding="utf-8")
 
-    if payload:
-        raw_json.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-        for element in payload.get("elements", []):
-            tags = element.get("tags", {})
-            lat = element.get("lat") or element.get("center", {}).get("lat")
-            lon = element.get("lon") or element.get("center", {}).get("lon")
-            if lat is None or lon is None:
+    rows = []
+    seen = set()
+    for layer in webmap.get("operationalLayers", []):
+        title = layer.get("title", "")
+        url = layer.get("url")
+        if not url:
+            continue
+        features = query_feature_layer(url)
+        layer_payload = {"title": title, "url": url, "features": features}
+        safe_title = f"{service_community_name(url)}_{title}".replace(" ", "_").replace("/", "_")
+        (raw_dir / f"{safe_title}.json").write_text(json.dumps(layer_payload, indent=2), encoding="utf-8")
+        for feature in features:
+            geom = feature.get("geometry") or {}
+            attrs = feature.get("attributes") or {}
+            if "x" not in geom or "y" not in geom:
                 continue
-            amenity = tags.get("amenity", "unknown")
-            resources.append(
+            name = attrs.get("Name") or attrs.get("NAME") or "Unnamed resource"
+            address = attrs.get("Address") or ""
+            key = (title, name.strip().lower(), address.strip().lower(), round(geom["x"], 5), round(geom["y"], 5))
+            if key in seen:
+                continue
+            seen.add(key)
+            is_primary = title == "Cooling Centers and Spaces"
+            rows.append(
                 {
-                    "name": tags.get("name") or f"OSM {amenity} {element.get('id')}",
-                    "category": amenity,
-                    "lat": float(lat),
-                    "lon": float(lon),
+                    "name": name,
+                    "category": title,
+                    "access_use": 1 if is_primary else 0,
+                    "resource_type": attrs.get("Type_of_Center") or attrs.get("Type_of_Location") or title,
+                    "community": service_community_name(url),
+                    "address": address,
+                    "lat": float(geom["y"]),
+                    "lon": float(geom["x"]),
+                    "source_url": url,
                 }
             )
-    else:
-        resources = fallback_cooling_resources()
-        raw_json.write_text(json.dumps({"fallback_resources": resources}, indent=2), encoding="utf-8")
 
+    resources_csv = raw_dir / "gonzaga_cooling_resources.csv"
     with resources_csv.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["name", "category", "lat", "lon"])
+        writer = csv.DictWriter(
+            f,
+            fieldnames=["name", "category", "access_use", "resource_type", "community", "address", "lat", "lon", "source_url"],
+        )
         writer.writeheader()
-        writer.writerows(resources)
+        writer.writerows(rows)
 
-    points_wgs = GDB / "Cooling_Resource_Candidates_WGS84"
-    points_utm = GDB / "Cooling_Resource_Candidates_UTM11N"
-    points_in_county = GDB / "Cooling_Resource_Candidates"
+    points_wgs = GDB / "Regional_Cooling_Resources_WGS84"
+    points_utm = GDB / "Regional_Cooling_Resources_UTM11N"
+    all_resources = GDB / "Regional_Cooling_Resources"
+    primary_resources = GDB / "Cooling_Centers_and_Spaces"
     delete_if_exists(points_wgs)
     arcpy.management.CreateFeatureclass(str(GDB), points_wgs.name, "POINT", spatial_reference=WGS84)
-    arcpy.management.AddField(str(points_wgs), "Name", "TEXT", field_length=160)
-    arcpy.management.AddField(str(points_wgs), "Category", "TEXT", field_length=80)
-    with arcpy.da.InsertCursor(str(points_wgs), ["SHAPE@XY", "Name", "Category"]) as cursor:
-        for item in resources:
-            cursor.insertRow(((item["lon"], item["lat"]), item["name"][:160], item["category"][:80]))
+    for field, length in [
+        ("Name", 180),
+        ("Category", 60),
+        ("ResourceType", 120),
+        ("Community", 80),
+        ("Address", 180),
+        ("SourceURL", 255),
+    ]:
+        arcpy.management.AddField(str(points_wgs), field, "TEXT", field_length=length)
+    arcpy.management.AddField(str(points_wgs), "AccessUse", "SHORT")
+    with arcpy.da.InsertCursor(
+        str(points_wgs),
+        ["SHAPE@XY", "Name", "Category", "AccessUse", "ResourceType", "Community", "Address", "SourceURL"],
+    ) as cursor:
+        for item in rows:
+            cursor.insertRow(
+                (
+                    (item["lon"], item["lat"]),
+                    item["name"][:180],
+                    item["category"][:60],
+                    item["access_use"],
+                    item["resource_type"][:120],
+                    item["community"][:80],
+                    item["address"][:180],
+                    item["source_url"][:255],
+                )
+            )
 
     delete_if_exists(points_utm)
     arcpy.management.Project(str(points_wgs), str(points_utm), ANALYSIS_SR)
-    delete_if_exists(points_in_county)
-    arcpy.management.MakeFeatureLayer(str(points_utm), "cooling_candidates_lyr")
-    arcpy.management.SelectLayerByLocation("cooling_candidates_lyr", "WITHIN", str(county_fc))
-    arcpy.management.CopyFeatures("cooling_candidates_lyr", str(points_in_county))
-    return points_in_county
+    delete_if_exists(all_resources)
+    arcpy.management.MakeFeatureLayer(str(points_utm), "regional_resources_lyr")
+    arcpy.management.SelectLayerByLocation("regional_resources_lyr", "WITHIN", str(county_fc))
+    arcpy.management.CopyFeatures("regional_resources_lyr", str(all_resources))
+
+    delete_if_exists(primary_resources)
+    arcpy.management.MakeFeatureLayer(str(all_resources), "primary_resources_lyr", "AccessUse = 1")
+    arcpy.management.CopyFeatures("primary_resources_lyr", str(primary_resources))
+    return primary_resources, all_resources
 
 
 def percentile_scores(values: pd.Series) -> pd.Series:
@@ -316,6 +391,7 @@ def add_analysis_fields(tracts_fc: Path) -> None:
         ("NEAREST_COOLING_MI", "DOUBLE"),
         ("COOLING_WITHIN_3MI", "LONG"),
         ("COOLING_WITHIN_5MI", "LONG"),
+        ("ACCESS_POINT_METHOD", "TEXT"),
         ("HEAT_CONCERN_SCORE", "SHORT"),
         ("SOVI_CONCERN_SCORE", "SHORT"),
         ("TRANSPORT_BARRIER_SCORE", "SHORT"),
@@ -329,11 +405,21 @@ def add_analysis_fields(tracts_fc: Path) -> None:
             arcpy.management.AddField(str(tracts_fc), name, field_type, **kwargs)
 
 
+def tract_representative_point(row: tuple) -> arcpy.PointGeometry:
+    _, intptlat, intptlon, geom = row
+    try:
+        point_wgs = arcpy.PointGeometry(arcpy.Point(float(intptlon), float(intptlat)), WGS84)
+        return point_wgs.projectAs(ANALYSIS_SR)
+    except Exception:
+        return arcpy.PointGeometry(geom.trueCentroid, ANALYSIS_SR)
+
+
 def compute_access_metrics(tracts_fc: Path, resources_fc: Path) -> dict[str, dict]:
     resources = [row[0] for row in arcpy.da.SearchCursor(str(resources_fc), ["SHAPE@"])]
     metrics = {}
-    for geoid, geom in arcpy.da.SearchCursor(str(tracts_fc), ["GEOID", "SHAPE@"]):
-        point = arcpy.PointGeometry(geom.trueCentroid, ANALYSIS_SR)
+    for row in arcpy.da.SearchCursor(str(tracts_fc), ["GEOID", "INTPTLAT", "INTPTLON", "SHAPE@"]):
+        geoid = row[0]
+        point = tract_representative_point(row)
         distances_m = [point.distanceTo(resource) for resource in resources]
         if not distances_m:
             nearest = math.nan
@@ -347,6 +433,7 @@ def compute_access_metrics(tracts_fc: Path, resources_fc: Path) -> dict[str, dic
             "NEAREST_COOLING_MI": round(nearest, 2) if not math.isnan(nearest) else None,
             "COOLING_WITHIN_3MI": within_3,
             "COOLING_WITHIN_5MI": within_5,
+            "ACCESS_POINT_METHOD": "Census tract internal point",
         }
     return metrics
 
@@ -394,6 +481,7 @@ def build_summary(tracts_fc: Path, resources_fc: Path, acs: pd.DataFrame, nri: p
         "NEAREST_COOLING_MI",
         "COOLING_WITHIN_3MI",
         "COOLING_WITHIN_5MI",
+        "ACCESS_POINT_METHOD",
         "HEAT_CONCERN_SCORE",
         "SOVI_CONCERN_SCORE",
         "TRANSPORT_BARRIER_SCORE",
@@ -424,11 +512,61 @@ def polygon_parts(geometry: arcpy.Geometry) -> list[list[tuple[float, float]]]:
     return parts
 
 
-def draw_map(tracts_fc: Path, county_fc: Path, resources_fc: Path, summary: pd.DataFrame) -> None:
-    colors = {"Low": "#bfe3c0", "Medium": "#ffe08a", "High": "#df6b57"}
-    fig, ax = plt.subplots(figsize=(11, 8.5))
-    ax.set_facecolor("#f6f7f5")
+def line_parts(geometry: arcpy.Geometry) -> list[list[tuple[float, float]]]:
+    parts = []
+    for part in geometry:
+        coords = []
+        for point in part:
+            if point:
+                coords.append((point.X, point.Y))
+        if len(coords) > 1:
+            parts.append(coords)
+    return parts
 
+
+def project_xy(lon: float, lat: float) -> tuple[float, float]:
+    geom = arcpy.PointGeometry(arcpy.Point(lon, lat), WGS84).projectAs(ANALYSIS_SR)
+    return geom.centroid.X, geom.centroid.Y
+
+
+def draw_scale_bar(ax, miles: int = 10) -> None:
+    x0, x1 = ax.get_xlim()
+    y0, y1 = ax.get_ylim()
+    length = miles * 1609.344
+    start_x = x0 + (x1 - x0) * 0.06
+    start_y = y0 + (y1 - y0) * 0.055
+    ax.plot([start_x, start_x + length], [start_y, start_y], color="#2f3437", linewidth=2.2, solid_capstyle="butt")
+    ax.plot([start_x, start_x], [start_y - 850, start_y + 850], color="#2f3437", linewidth=1.1)
+    ax.plot([start_x + length, start_x + length], [start_y - 850, start_y + 850], color="#2f3437", linewidth=1.1)
+    ax.text(start_x + length / 2, start_y + 1500, f"{miles} mi", ha="center", va="bottom", fontsize=8, color="#2f3437")
+
+
+def draw_north_arrow(ax) -> None:
+    ax.annotate(
+        "N",
+        xy=(0.94, 0.91),
+        xytext=(0.94, 0.82),
+        xycoords="axes fraction",
+        ha="center",
+        va="center",
+        fontsize=10,
+        weight="bold",
+        arrowprops={"arrowstyle": "-|>", "lw": 1.4, "color": "#2f3437"},
+        color="#2f3437",
+    )
+
+
+def set_extent_from_wgs(ax, xmin: float, ymin: float, xmax: float, ymax: float) -> None:
+    ll = project_xy(xmin, ymin)
+    ur = project_xy(xmax, ymax)
+    ax.set_xlim(ll[0], ur[0])
+    ax.set_ylim(ll[1], ur[1])
+
+
+def draw_layers(ax, tracts_fc: Path, county_fc: Path, roads_fc: Path, all_resources_fc: Path, *, inset: bool = False) -> None:
+    colors = {"Low": "#d9edf7", "Medium": "#f6d37a", "High": "#c84f4a"}
+    ax.set_facecolor("#f8f7f2")
+    tract_edge = "#ffffff" if not inset else "#f5f5f0"
     for geom, concern in arcpy.da.SearchCursor(str(tracts_fc), ["SHAPE@", "CONCERN_CLASS"]):
         for part in polygon_parts(geom):
             ax.add_patch(
@@ -436,57 +574,152 @@ def draw_map(tracts_fc: Path, county_fc: Path, resources_fc: Path, summary: pd.D
                     part,
                     closed=True,
                     facecolor=colors.get(concern, "#dddddd"),
-                    edgecolor="#ffffff",
-                    linewidth=0.45,
+                    edgecolor=tract_edge,
+                    linewidth=0.4 if not inset else 0.35,
+                    zorder=1,
                 )
             )
 
+    for geom, mtfcc in arcpy.da.SearchCursor(str(roads_fc), ["SHAPE@", "MTFCC"]):
+        color = "#9b9690" if mtfcc == "S1100" else "#bdb7af"
+        width = 0.65 if mtfcc == "S1100" else 0.38
+        for part in line_parts(geom):
+            xs, ys = zip(*part)
+            ax.plot(xs, ys, color=color, linewidth=width if not inset else width * 1.4, alpha=0.65, zorder=3)
+
+    supplemental_x, supplemental_y = [], []
+    primary_x, primary_y = [], []
+    for geom, access_use in arcpy.da.SearchCursor(str(all_resources_fc), ["SHAPE@", "AccessUse"]):
+        if access_use == 1:
+            primary_x.append(geom.centroid.X)
+            primary_y.append(geom.centroid.Y)
+        else:
+            supplemental_x.append(geom.centroid.X)
+            supplemental_y.append(geom.centroid.Y)
+    ax.scatter(
+        supplemental_x,
+        supplemental_y,
+        s=10 if not inset else 16,
+        c="#4fa7a0",
+        edgecolors="white",
+        linewidths=0.35,
+        alpha=0.8,
+        zorder=5,
+    )
+    ax.scatter(
+        primary_x,
+        primary_y,
+        s=34 if not inset else 48,
+        marker="^",
+        c="#165a8f",
+        edgecolors="white",
+        linewidths=0.65,
+        zorder=6,
+    )
+
     for geom in arcpy.da.SearchCursor(str(county_fc), ["SHAPE@"]):
         for part in polygon_parts(geom[0]):
-            ax.add_patch(patches.Polygon(part, closed=True, fill=False, edgecolor="#2f3437", linewidth=1.1))
+            ax.add_patch(patches.Polygon(part, closed=True, fill=False, edgecolor="#2f3437", linewidth=1.0, zorder=7))
 
-    xs, ys, categories = [], [], []
-    for geom, category in arcpy.da.SearchCursor(str(resources_fc), ["SHAPE@", "Category"]):
-        xs.append(geom.centroid.X)
-        ys.append(geom.centroid.Y)
-        categories.append(category)
-    ax.scatter(xs, ys, s=32, c="#176d9c", edgecolors="white", linewidths=0.8, zorder=5)
+    if not inset:
+        for name, lon, lat in PLACE_LABELS:
+            x, y = project_xy(lon, lat)
+            ax.text(x, y, name, fontsize=7.5, color="#363a3d", ha="center", va="center", zorder=8)
+    ax.set_aspect("equal")
+    ax.axis("off")
+
+
+def draw_map(
+    tracts_fc: Path,
+    county_fc: Path,
+    roads_fc: Path,
+    primary_resources_fc: Path,
+    all_resources_fc: Path,
+    summary: pd.DataFrame,
+) -> None:
+    colors = {"Low": "#d9edf7", "Medium": "#f6d37a", "High": "#c84f4a"}
+    fig = plt.figure(figsize=(14, 9), facecolor="white")
+    ax = fig.add_axes([0.035, 0.095, 0.58, 0.78])
+    inset_ax = fig.add_axes([0.66, 0.47, 0.30, 0.36])
+    info_ax = fig.add_axes([0.66, 0.12, 0.31, 0.29])
+    info_ax.axis("off")
+
+    draw_layers(ax, tracts_fc, county_fc, roads_fc, all_resources_fc)
+    draw_layers(inset_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, inset=True)
+    set_extent_from_wgs(inset_ax, -117.52, 47.58, -117.18, 47.76)
+    inset_ax.set_title("Urban Core Inset", fontsize=10, weight="bold", loc="left", pad=4)
 
     extent = arcpy.Describe(str(county_fc)).extent
     pad_x = (extent.XMax - extent.XMin) * 0.04
     pad_y = (extent.YMax - extent.YMin) * 0.04
     ax.set_xlim(extent.XMin - pad_x, extent.XMax + pad_x)
     ax.set_ylim(extent.YMin - pad_y, extent.YMax + pad_y)
-    ax.set_aspect("equal")
-    ax.axis("off")
+    draw_scale_bar(ax, 10)
+    draw_north_arrow(ax)
 
     class_counts = summary["CONCERN_CLASS"].value_counts().reindex(["Low", "Medium", "High"]).fillna(0).astype(int)
-    resource_counts = Counter(categories)
-    subtitle = (
-        f"{STUDY_NAME} | {len(summary)} Census tracts | "
-        f"{len(xs)} cooling-resource candidates "
-        f"({', '.join(f'{k}: {v}' for k, v in sorted(resource_counts.items()))})"
+    primary_count = int(arcpy.management.GetCount(str(primary_resources_fc))[0])
+    all_count = int(arcpy.management.GetCount(str(all_resources_fc))[0])
+    fig.text(0.035, 0.95, "Spokane County Cooling Access & Heat Risk Screening", fontsize=22, weight="bold", ha="left")
+    fig.text(
+        0.035,
+        0.92,
+        f"{len(summary)} Census tracts | {primary_count} cooling centers/spaces used for access scoring | "
+        f"{all_count} total mapped cooling resources",
+        fontsize=10,
+        color="#4a4f52",
+        ha="left",
     )
-    ax.set_title("Cooling Access & Heat Risk Screening", fontsize=18, weight="bold", loc="left", pad=14)
-    ax.text(0, 1.01, subtitle, transform=ax.transAxes, fontsize=9.5, color="#4a4f52")
 
     legend_items = [
         patches.Patch(facecolor=colors["Low"], edgecolor="white", label=f"Low concern ({class_counts['Low']})"),
         patches.Patch(facecolor=colors["Medium"], edgecolor="white", label=f"Medium concern ({class_counts['Medium']})"),
         patches.Patch(facecolor=colors["High"], edgecolor="white", label=f"High concern ({class_counts['High']})"),
+        mlines.Line2D([], [], color="#165a8f", marker="^", linestyle="None", markersize=8, label="Cooling centers/spaces"),
+        mlines.Line2D([], [], color="#4fa7a0", marker="o", linestyle="None", markersize=6, label="Supplemental cooling resources"),
+        mlines.Line2D([], [], color="#9b9690", linewidth=1.2, label="Major roads"),
     ]
-    ax.legend(handles=legend_items, loc="lower left", frameon=True, framealpha=0.95, facecolor="white")
+    fig.legend(
+        handles=legend_items,
+        loc="lower left",
+        bbox_to_anchor=(0.045, 0.015),
+        ncol=3,
+        frameon=False,
+        fontsize=8.5,
+    )
+
+    info_text = "\n\n".join(
+        [
+            "Screening score\n"
+            + textwrap.fill(
+                "Heat-wave risk + social vulnerability + no-vehicle households + distance to nearest cooling center/space.",
+                60,
+            ),
+            "Access method\n"
+            + textwrap.fill(
+                "Distance uses Census tract internal points and Gonzaga/SRHD cooling centers and spaces. "
+                "Pools, splash pads, drinking fountains, and parks are mapped as supplemental context only.",
+                60,
+            ),
+            "Interpretation\n"
+            + textwrap.fill(
+                "Classes are relative tertiles within Spokane County. This is not an official heat-response map.",
+                60,
+            ),
+        ]
+    )
+    info_ax.text(0, 1, info_text, ha="left", va="top", fontsize=9.2, color="#303437", linespacing=1.35)
+
     fig.text(
-        0.5,
-        0.018,
-        "Sources: Census TIGER/Line 2024; Census Reporter ACS latest; FEMA National Risk Index; OpenStreetMap.",
-        ha="center",
+        0.035,
+        0.006,
+        "Sources: SRHD/Gonzaga Spokane Regional Cooling Resources; Census TIGER/Line 2024; Census Reporter ACS; FEMA National Risk Index.",
+        ha="left",
         va="bottom",
         fontsize=7.5,
         color="#4a4f52",
     )
 
-    fig.tight_layout(rect=[0, 0.04, 1, 1])
     fig.savefig(MAPS / "spokane_cooling_access_heat_risk_map.png", dpi=220)
     fig.savefig(MAPS / "spokane_cooling_access_heat_risk_map.pdf")
     plt.close(fig)
@@ -494,7 +727,7 @@ def draw_map(tracts_fc: Path, county_fc: Path, resources_fc: Path, summary: pd.D
 
 def draw_chart(summary: pd.DataFrame) -> None:
     order = ["Low", "Medium", "High"]
-    colors = ["#88c58a", "#f0c95a", "#d95847"]
+    colors = ["#83bfd8", "#f2c45f", "#c84f4a"]
     counts = summary["CONCERN_CLASS"].value_counts().reindex(order).fillna(0)
     fig, ax = plt.subplots(figsize=(7.2, 4.2))
     bars = ax.bar(order, counts.values, color=colors, edgecolor="#2f3437", linewidth=0.6)
@@ -509,23 +742,51 @@ def draw_chart(summary: pd.DataFrame) -> None:
     plt.close(fig)
 
 
+def draw_top_tracts_chart(summary: pd.DataFrame) -> None:
+    top = summary.head(10).sort_values("FINAL_CONCERN_SCORE")
+    labels = top["NAME"].str.replace(", Spokane, WA", "", regex=False)
+    fig, ax = plt.subplots(figsize=(8.4, 5.2))
+    ax.barh(labels, top["FINAL_CONCERN_SCORE"], color="#c84f4a", edgecolor="#2f3437", linewidth=0.5)
+    ax.set_xlim(0, 12.5)
+    ax.set_xlabel("Final concern score")
+    ax.set_title("Top 10 High-Concern Census Tracts", fontsize=13, weight="bold", loc="left")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.grid(axis="x", alpha=0.25)
+    for y, (_, row) in enumerate(top.iterrows()):
+        ax.text(
+            row["FINAL_CONCERN_SCORE"] + 0.15,
+            y,
+            f'{row["NEAREST_COOLING_MI"]:.1f} mi to nearest center',
+            va="center",
+            fontsize=8,
+            color="#4a4f52",
+        )
+    fig.tight_layout()
+    fig.savefig(FIGURES / "top_high_concern_tracts.png", dpi=220)
+    plt.close(fig)
+
+
 def main() -> None:
     ensure_dirs()
     arcpy.env.workspace = str(GDB)
     arcpy.env.overwriteOutput = True
+    cleanup_obsolete_outputs()
 
     tracts_fc, county_fc = prepare_boundaries()
+    roads_fc = prepare_roads()
     acs = fetch_acs()
     nri = fetch_nri()
-    resources_fc = fetch_cooling_resources(county_fc)
-    summary = build_summary(tracts_fc, resources_fc, acs, nri)
-    draw_map(tracts_fc, county_fc, resources_fc, summary)
+    primary_resources_fc, all_resources_fc = fetch_gonzaga_cooling_resources(county_fc)
+    summary = build_summary(tracts_fc, primary_resources_fc, acs, nri)
+    draw_map(tracts_fc, county_fc, roads_fc, primary_resources_fc, all_resources_fc, summary)
     draw_chart(summary)
+    draw_top_tracts_chart(summary)
 
     print(f"Created {PROCESSED / 'cooling_heat_risk_tract_summary.csv'}")
     print(f"Created {OUTPUTS / 'high_concern_tracts.csv'}")
     print(f"Created {MAPS / 'spokane_cooling_access_heat_risk_map.png'}")
     print(f"Created {FIGURES / 'concern_class_counts.png'}")
+    print(f"Created {FIGURES / 'top_high_concern_tracts.png'}")
 
 
 if __name__ == "__main__":

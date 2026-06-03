@@ -1,0 +1,108 @@
+{
+  "title": "Public Pools",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Cooling_Resources_Map/FeatureServer/3",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "A.M. Cannon Aquatic Center",
+        "Address": "1900 W Mission Ave, Spokane, Washington, 99201",
+        "Splash": "Additionally, swim for free starting June 20th from 1-4 Monday - Saturday at all 6 outdoor pools in Spokane.. Check out free night swims at the facility!",
+        "Call": "(509) 363-5401",
+        "Street_Address": "1900 W Mission Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.44049788762119,
+        "y": 47.67145863657947
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Comstock Aquatic Center",
+        "Address": "600 W 29th Ave, Spokane, WA, 99203, USA",
+        "Splash": "Additionally, swim for free starting June 20th from 1-4 Monday - Saturday at all 6 outdoor pools in Spokane.. Check out free night swims at the facility!",
+        "Call": "(509) 363-5402",
+        "Street_Address": "600 W 29th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.4209647844163,
+        "y": 47.6274746096822
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Hillyard Aquatic Center",
+        "Address": "3000 E Columbia Ave, Spokane, Washington, 99208",
+        "Splash": "Additionally, swim for free starting June 20th from 1-4 Monday - Saturday at all 6 outdoor pools in Spokane.. Check out free night swims at the facility!",
+        "Call": "(509) 363-5403",
+        "Street_Address": "3000 E Columbia Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.36570362621066,
+        "y": 47.71020002599065
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Liberty Aquatic Center",
+        "Address": "1300 E 5th Ave, Spokane, WA, 99202, USA",
+        "Splash": "Additionally, swim for free starting June 20th from 1-4 Monday - Saturday at all 6 outdoor pools in Spokane.. Check out free night swims at the facility!",
+        "Call": "(509) 363-5404",
+        "Street_Address": "1300 E 5th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.385213577578,
+        "y": 47.6513600631531
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "Shadle Aquatic Center",
+        "Address": "2005 W Wellesley Ave, Spokane, WA, 99205, USA",
+        "Splash": "Additionally, swim for free starting June 20th from 1-4 Monday - Saturday at all 6 outdoor pools in Spokane.. Check out free night swims at the facility!",
+        "Call": "(509) 363-5405",
+        "Street_Address": "2005 W Wellesley Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.44120759748387,
+        "y": 47.7000978062702
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "Witter Aquatic Center",
+        "Address": "1300 E Mission Ave, Spokane, WA, 99202, USA",
+        "Splash": "Additionally, swim for free starting June 20th from 1-4 Monday - Saturday at all 6 outdoor pools in Spokane.. Check out free night swims at the facility!",
+        "Call": "(509) 363-5406",
+        "Street_Address": "1300 E Mission Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.3891222909778,
+        "y": 47.671101924651815
+      }
+    }
+  ]
+}

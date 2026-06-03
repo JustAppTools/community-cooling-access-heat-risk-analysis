@@ -1,0 +1,23 @@
+{
+  "title": "Drinking Fountains",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/Town_of_Rockford_Cooling_Resources_Map/FeatureServer/2",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Earl Mix Park",
+        "Type_of_Location": "Park",
+        "Address": "301 W. 4th St, Deer Park, Wa 99006",
+        "Maintenance": "509-276-8801",
+        "Street_Address": null,
+        "City": "Deer Park ",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.4822929093957,
+        "y": 47.957460270426374
+      }
+    }
+  ]
+}

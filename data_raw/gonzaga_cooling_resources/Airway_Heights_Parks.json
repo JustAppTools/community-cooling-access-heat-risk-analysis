@@ -1,0 +1,98 @@
+{
+  "title": "Parks",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Airway_Heights_Cooling_Resources_Map/FeatureServer/4",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Sunset Park",
+        "Address": "913 S Lawson St, Airway Heights, Wa 99001",
+        "Maintenance": "(509) 244-4845",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Baseball/Softball Field, Skate Park, Volleyball Court, Basketball Court, Trails",
+        "Street_Address": "913 S Lawson St",
+        "City": " Airway Heights",
+        "State": "WA",
+        "Zip_Code": "99001"
+      },
+      "geometry": {
+        "x": -117.58914825394116,
+        "y": 47.64769363416504
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Shorty Combs Park",
+        "Address": "E 18th Ave, Airway Heights, WA 99001",
+        "Maintenance": "(509) 244-4846",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Sports": "Basketball Court, Youth Soccer Field, T-Ball Field",
+        "Street_Address": "E 18th Ave",
+        "City": " Airway Heights",
+        "State": "WA",
+        "Zip_Code": "99001"
+      },
+      "geometry": {
+        "x": -117.58460572415706,
+        "y": 47.63940137582308
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Cleveland Park",
+        "Address": "335 S Campbell St, Airway Heights, Wa 99001",
+        "Maintenance": "(509) 244-4847",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Trails, Play Fields",
+        "Street_Address": "335 S Campbell St",
+        "City": " Airway Heights",
+        "State": "WA",
+        "Zip_Code": "99001"
+      },
+      "geometry": {
+        "x": -117.58529318626857,
+        "y": 47.65231616417434
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Traditions Park",
+        "Address": "508 South Lawson St, Airway Heights, WA 99001",
+        "Maintenance": "(509) 244-4848",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Sports": "Play Fields",
+        "Street_Address": "508 South Lawson St",
+        "City": " Airway Heights",
+        "State": "WA",
+        "Zip_Code": "99001"
+      },
+      "geometry": {
+        "x": -117.58829096340988,
+        "y": 47.6510677190256
+      }
+    }
+  ]
+}

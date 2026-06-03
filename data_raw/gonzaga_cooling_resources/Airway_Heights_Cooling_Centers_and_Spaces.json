@@ -1,0 +1,40 @@
+{
+  "title": "Cooling Centers and Spaces",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Airway_Heights_Cooling_Resources_Map/FeatureServer/0",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Airway Heights Aquatic Center",
+        "Type_of_Center": "Recreation Center",
+        "Address": "11405 W Deno Rd, Spokane, WA 99224",
+        "Hours": "(509) 244-4845",
+        "Street_Address": "11405 W Deno Rd",
+        "City": " Spokane",
+        "State": "WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.56873060835981,
+        "y": 47.670861062792994
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Airway Heights Library",
+        "Type_of_Center": "Library",
+        "Address": "1213 S Lundstrom St, Airway Heights, WA 99001",
+        "Hours": "(509) 893-8250",
+        "Street_Address": "1213 S Lundstrom St",
+        "City": " Airway Heights",
+        "State": "WA",
+        "Zip_Code": "99001"
+      },
+      "geometry": {
+        "x": -117.59271953146931,
+        "y": 47.64446996376162
+      }
+    }
+  ]
+}

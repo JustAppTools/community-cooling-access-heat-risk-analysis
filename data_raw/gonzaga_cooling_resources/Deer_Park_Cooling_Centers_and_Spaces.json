@@ -1,0 +1,23 @@
+{
+  "title": "Cooling Centers and Spaces",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Deer_Park_Cooling_Resources_Map/FeatureServer/0",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Deer Park Library",
+        "Type_of_Center": "Library",
+        "Address": "208 S Forest Ave Deer Park, WA 99006",
+        "Hours": "(509) 893-8300",
+        "Street_Address": "208 S Forest Ave",
+        "City": " Deer Park",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.46091386159542,
+        "y": 47.95245689471457
+      }
+    }
+  ]
+}

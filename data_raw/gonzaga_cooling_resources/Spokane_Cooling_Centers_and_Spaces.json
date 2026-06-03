@@ -1,0 +1,312 @@
+{
+  "title": "Cooling Centers and Spaces",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Cooling_Resources_Map/FeatureServer/0",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Dr. Martin Luther King Jr. Community Center",
+        "Type_of_Center": "Community Center",
+        "Address": "500 S Stone St, Spokane, WA 99202",
+        "Call": "(509) 868-0856",
+        "Street_Address": "500 S Stone St.",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.37759737186701,
+        "y": 47.6512475780604
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Northeast Community Center and Hillyard Senior Center",
+        "Type_of_Center": "Community Center ; Senior Center",
+        "Address": "4001 N Cook St, Spokane, WA 99207",
+        "Call": "(509) 487-1603",
+        "Street_Address": "4001 N Cook St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.374355754633,
+        "y": 47.694182824817
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "West Central Community Center",
+        "Type_of_Center": "Community Center",
+        "Address": "1603 N Belt St, Spokane, WA 99205",
+        "Call": "(509) 326-9540",
+        "Street_Address": "1603 N Belt St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.443291124738,
+        "y": 47.6727972451002
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Southside Senior and Community Center",
+        "Type_of_Center": "Southside Senior and Community Center\tCommunity Center ; Senior Center",
+        "Address": "3151 E 27th Ave, Spokane, WA 99223",
+        "Call": "(509) 535-0803",
+        "Street_Address": "3151 E 27th Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.363825988769,
+        "y": 47.631525280056394
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "Southwest Spokane Community Center",
+        "Type_of_Center": "Community Center",
+        "Address": "310 S Spruce St, Spokane, WA 99201",
+        "Call": "(509) 624-8634",
+        "Street_Address": "310 S Spruce St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.446700575667,
+        "y": 47.653057780512896
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "American Indian Community Center",
+        "Type_of_Center": "Community Center",
+        "Address": "1025 W Indiana Ave, Spokane, WA 99205",
+        "Call": "(509) 535-0886",
+        "Street_Address": "1025 W Indiana Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.427709565512,
+        "y": 47.67475252224099
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "Name": "Sinto Senior Center",
+        "Type_of_Center": "Senior Center",
+        "Address": "1124 W Sinto Ave, Spokane, WA 99201",
+        "Call": "(509) 327-2861",
+        "Street_Address": "1124 W Sinto Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.429272894591,
+        "y": 47.670403205348194
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 8,
+        "Name": "Corbin Senior Activity Center",
+        "Type_of_Center": "Senior Center",
+        "Address": "827 W Cleveland Ave, Spokane, WA 99205",
+        "Call": "(509) 327-1584",
+        "Street_Address": "827 W Cleveland Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.424814644111,
+        "y": 47.68368581014009
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 9,
+        "Name": "River Park Square Shopping Mall",
+        "Type_of_Center": "Shopping Mall",
+        "Address": "808 W Main Ave, Spokane, WA 99201",
+        "Call": "(509) 363-0304",
+        "Street_Address": "808 W Main Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.42357806193502,
+        "y": 47.65934369022029
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 13,
+        "Name": "Northtown Shopping Mall",
+        "Type_of_Center": "Shopping Mall",
+        "Address": "4750 N Division St, Spokane, WA 99207",
+        "Call": "N/A",
+        "Street_Address": "4750 N Division St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.40884161848885,
+        "y": 47.70265404129756
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 23,
+        "Name": "Spokane Public Library Hillyard",
+        "Type_of_Center": "Public Library",
+        "Address": "4110 N Cook St, Spokane, WA 99207",
+        "Call": "(509) 444-5300",
+        "Street_Address": "4110 N Cook St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "9920"
+      },
+      "geometry": {
+        "x": -117.37404160090199,
+        "y": 47.6946696350237
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 24,
+        "Name": "Spokane Public Library Shadle",
+        "Type_of_Center": "Public Library",
+        "Address": "2111 W Wellesley Ave, Spokane, WA 99205",
+        "Call": "(509) 444-5300",
+        "Street_Address": "2111 W Wellesley Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.44206633248831,
+        "y": 47.700479477291104
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 25,
+        "Name": "Spokane Public Library Indian Trail",
+        "Type_of_Center": "Public Library",
+        "Address": "4909 W. Barnes Rd. Spokane, WA 99208",
+        "Call": "(509) 444-5300",
+        "Street_Address": "4909 W. Barnes Rd.",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.48264432778402,
+        "y": 47.740427878391394
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 26,
+        "Name": "Spokane Public Library Central",
+        "Type_of_Center": "Public Library",
+        "Address": "906 W Main Ave, Spokane, WA 99201",
+        "Call": "(509) 444-5300",
+        "Street_Address": "906 W Main Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.425388050107,
+        "y": 47.659266781728505
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 27,
+        "Name": "Spokane Public Library Liberty Park",
+        "Type_of_Center": "Public Library",
+        "Address": "402 S. Pittsburg St. Spokane, WA 99202",
+        "Call": "(509) 444-5300",
+        "Street_Address": "402 S. Pittsburg St. ",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.385073358947,
+        "y": 47.65236477868879
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 28,
+        "Name": "Spokane Public Library The Hive",
+        "Type_of_Center": "Public Library",
+        "Address": "2904 E Sprague Ave, Spokane, WA 99202",
+        "Call": "(509) 444-5300",
+        "Street_Address": "2904 E Sprague Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.36774251074101,
+        "y": 47.6570959982646
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 29,
+        "Name": "Spokane Public Library South Hill",
+        "Type_of_Center": "Public Library",
+        "Address": "3324 S Perry St, Spokane, WA 99203",
+        "Call": "(509) 444-5300",
+        "Street_Address": "3324 S Perry St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.390661489975,
+        "y": 47.62433368094229
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 30,
+        "Name": "Carl Maxey Center",
+        "Type_of_Center": "Community Center",
+        "Address": "3114 E 5th Ave, Spokane, WA 99202",
+        "Call": "(509) 557-0179",
+        "Street_Address": "3114 E 5th Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.36494949907,
+        "y": 47.651614256545095
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "title": "Public Pools",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Valley_Cooling_Resources/FeatureServer/3",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Spokane Valley YMCA",
+        "Address": "2421 N Discovery Pl, Spokane Valley, WA 99216",
+        "Information": "(509) 777-9622",
+        "Street_Address": "2421 N Discovery Pl",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22638753113634,
+        "y": 47.679961792517695
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Park Road Pool with Slide Feature",
+        "Address": "906 N Park Rd, Spokane, WA 99212",
+        "Information": "(509) 720-5380",
+        "Street_Address": "906 N Park Rd",
+        "City": " Spokane",
+        "State": "WA",
+        "Zip_Code": "99212"
+      },
+      "geometry": {
+        "x": -117.30281674193819,
+        "y": 47.6653473761561
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Terrace View with Lazy River Feature",
+        "Address": "13525 E 24th Ave, Spokane, WA 99216",
+        "Information": "(509) 720-5370",
+        "Street_Address": "13525 E 24th Ave",
+        "City": " Spokane",
+        "State": "WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22139501853526,
+        "y": 47.63626417032042
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Valley Mission Pool with Zero Depth Entry Pool",
+        "Address": "11123 E Mission Ave, Spokane Valley, WA 99206",
+        "Information": "(509) 720-5360",
+        "Street_Address": "11123 E Mission Ave",
+        "City": " Spokane Valley",
+        "State": "WA",
+        "Zip_Code": "99206"
+      },
+      "geometry": {
+        "x": -117.25179388138508,
+        "y": 47.67256064005875
+      }
+    }
+  ]
+}

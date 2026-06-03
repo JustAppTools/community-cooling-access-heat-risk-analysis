@@ -1,0 +1,38 @@
+{
+  "title": "Splash Pads",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Liberty_Lake/FeatureServer/1",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Orchard Park",
+        "Address": "20298 E Indiana Ave, Liberty Lake, Wa 99019",
+        "Maintenance": "(509) 755-6714",
+        "Street_Address": "20298 E Indiana Ave",
+        "City": " Liberty Lake",
+        "State": "WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.13097104058079,
+        "y": 47.675092687151874
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Pavillion Park",
+        "Address": "727 N Molter Rd, Liberty Lake, WA 99019",
+        "Maintenance": "(509) 755-6714",
+        "Street_Address": "727 N Molter Rd",
+        "City": " Liberty Lake",
+        "State": "WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.09038059354671,
+        "y": 47.66305998219906
+      }
+    }
+  ]
+}

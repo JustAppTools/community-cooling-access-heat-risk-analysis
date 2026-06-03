@@ -1,0 +1,23 @@
+{
+  "title": "Drinking Fountains",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Liberty_Lake/FeatureServer/2",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Pavillion Park",
+        "Type_of_Location": "Park",
+        "Address": "727 N Molter Rd, Liberty Lake, WA 99019",
+        "Maintenance": "(509) 755-6714",
+        "Street_Address": "727 N Molter Rd",
+        "City": " Liberty Lake",
+        "State": "WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.09168159827139,
+        "y": 47.66320937490528
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Public Pools",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Liberty_Lake/FeatureServer/3",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Liberty Lake Athletic Club",
+        "Address": "23410 E Mission Ave, Liberty Lake, WA 99019",
+        "Phone": "(509) 891-2582",
+        "Street_Address": "23410 E Mission Ave",
+        "City": " Liberty Lake",
+        "State": "WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.09068736857314,
+        "y": 47.6708174443265
+      }
+    }
+  ]
+}

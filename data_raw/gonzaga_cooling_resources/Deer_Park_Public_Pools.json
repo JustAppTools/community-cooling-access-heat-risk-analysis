@@ -1,0 +1,22 @@
+{
+  "title": "Public Pools",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Deer_Park_Cooling_Resources_Map/FeatureServer/3",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Deer Park City Kids Pool",
+        "Address": "226 South Margaret Deer Park, WA 99006",
+        "Phone": "(509) 276-2114",
+        "Street_Address": "226 South Margaret",
+        "City": " Deer Park",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.47322086479289,
+        "y": 47.95185707338436
+      }
+    }
+  ]
+}

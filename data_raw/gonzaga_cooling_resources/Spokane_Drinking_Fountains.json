@@ -1,0 +1,992 @@
+{
+  "title": "Drinking Fountains",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Cooling_Resources_Map/FeatureServer/2",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Audubon Park",
+        "Type_of_Location": "Park",
+        "Address": "3405 N Milton St, Spokane, Washington, 99205",
+        "Call": "311",
+        "Street_Address": "3405 N Milton St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.45350563742413,
+        "y": 47.68966569266494
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Ben Burr Park",
+        "Type_of_Location": "Park",
+        "Address": "4401 S Havana St, Spokane, Washington, 99223",
+        "Call": "311",
+        "Street_Address": "4401 S Havana St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.34628551157,
+        "y": 47.61408068664629
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Chief Garry Park",
+        "Type_of_Location": "Park",
+        "Address": "2515 E Sinto Ave, Spokane, Washington, 99202",
+        "Call": "311",
+        "Street_Address": "2515 E Sinto Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.372269094343,
+        "y": 47.67105469123919
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "B.A. Clark Park",
+        "Type_of_Location": "Park",
+        "Address": "3922 N Normandie St, Spokane, WA, 99207, USA",
+        "Call": "311",
+        "Street_Address": "3922 N Normandie St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.41218523690783,
+        "y": 47.69488717521333
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "Comstock Park",
+        "Type_of_Location": "Park",
+        "Address": "601 W 29th Ave, Spokane, WA, 99203, USA",
+        "Call": "311",
+        "Street_Address": "601 W 29th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.42281681792909,
+        "y": 47.625703304947464
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "Name": "Corbin Park",
+        "Type_of_Location": "Park",
+        "Address": "2914 N West Oval St, Spokane, Washington, 99205",
+        "Call": "311",
+        "Street_Address": "2914 N West Oval St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.41973615258098,
+        "y": 47.68489975861364
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 8,
+        "Name": "Cowley Park",
+        "Type_of_Location": "Park",
+        "Address": "602 S Division St, Spokane, WA, 99202, USA",
+        "Call": "311",
+        "Street_Address": "602 S Division St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.411589510512,
+        "y": 47.64975434395839
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 9,
+        "Name": "Dutch Jakes Park",
+        "Type_of_Location": "Park",
+        "Address": "2104 W College Ave, Spokane, WA, 99201, USA",
+        "Call": "311",
+        "Street_Address": "2104 W College Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.44357692355702,
+        "y": 47.6638240171084
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 10,
+        "Name": "Edwidge Woldson Park",
+        "Type_of_Location": "Park",
+        "Address": "W 7th Ave, Spokane, WA, 99204, USA",
+        "Call": "311",
+        "Street_Address": "W 7th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99204"
+      },
+      "geometry": {
+        "x": -117.42031992797101,
+        "y": 47.648389191893926
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 11,
+        "Name": "Emerson Park",
+        "Type_of_Location": "Park",
+        "Address": "3325 N Madison St, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Street_Address": "3325 N Madison St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.42924702444272,
+        "y": 47.688282571425134
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 12,
+        "Name": "Franklin Park",
+        "Type_of_Location": "Park",
+        "Address": "302 W Queen Ave, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Street_Address": "302 W Queen Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.41289048082399,
+        "y": 47.705099082729504
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 13,
+        "Name": "Friendship Park",
+        "Type_of_Location": "Park",
+        "Address": "631 E Greta Ave, Spokane, WA, 99208, USA",
+        "Call": "311",
+        "Street_Address": "631 E Greta Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.39984190555919,
+        "y": 47.72650499372532
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 14,
+        "Name": "Glass Park",
+        "Type_of_Location": "Park",
+        "Address": "627 E Heroy Ave, Spokane, WA, 99207, USA",
+        "Call": "311",
+        "Street_Address": "627 E Heroy Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.39980878329365,
+        "y": 47.69894189742174
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 15,
+        "Name": "Grant Park",
+        "Type_of_Location": "Park",
+        "Address": "1015 S Arthur St, Spokane, WA, 99202, USA",
+        "Call": "311",
+        "Street_Address": "1015 S Arthur St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.393756743259,
+        "y": 47.645986788295794
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 16,
+        "Name": "Hill N' Dale Rotary Park - Out of Order ",
+        "Type_of_Location": "Park",
+        "Address": "502 E Jay Ave, Spokane, WA, 99218, USA",
+        "Call": "311",
+        "Street_Address": "502 E Jay Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99218"
+      },
+      "geometry": {
+        "x": -117.405518773155,
+        "y": 47.739906859386394
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 17,
+        "Name": "Indian Trail Park",
+        "Type_of_Location": "Park",
+        "Address": "3990 W Woodside Ave, Spokane, WA, 99208, USA",
+        "Call": "311",
+        "Street_Address": "3990 W Woodside Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.470541457672,
+        "y": 47.721056151060594
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 18,
+        "Name": "Kehoe Park - Out of Order ",
+        "Type_of_Location": "Park",
+        "Address": "4903 N Nelson St, Spokane, WA, 99217, USA",
+        "Call": "311",
+        "Street_Address": "4903 N Nelson St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99217"
+      },
+      "geometry": {
+        "x": -117.37002253505702,
+        "y": 47.70298962678409
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 19,
+        "Name": "Liberty Park",
+        "Type_of_Location": "Park",
+        "Address": "1704 E 4th Ave, Spokane, WA, 99202, USA",
+        "Call": "311",
+        "Street_Address": "1704 E 4th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.386367315483,
+        "y": 47.6522663351299
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 20,
+        "Name": "Lincoln Park",
+        "Type_of_Location": "Park",
+        "Address": "2300 E 17th Ave, Spokane, WA, 99203, USA",
+        "Call": "311",
+        "Street_Address": "2300 E 17th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.37618338161498,
+        "y": 47.639764574594395
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 23,
+        "Name": "Manito Park",
+        "Type_of_Location": "Park",
+        "Address": "1702 S Grand Blvd, Spokane, WA, 99203, USA",
+        "Call": "311",
+        "Street_Address": "1702 S Grand Blvd",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.40990099145388,
+        "y": 47.638215943210675
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 26,
+        "Name": "Pacific Park",
+        "Type_of_Location": "Park",
+        "Address": "5211 W Lowell Ave, Spokane, WA, 99208, USA",
+        "Call": "311",
+        "Street_Address": "5211 W Lowell Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.485782682209,
+        "y": 47.736877784608694
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 27,
+        "Name": "Peaceful Valley Park",
+        "Type_of_Location": "Park",
+        "Address": "1602 W Water Ave, Spokane, WA, 99201, USA",
+        "Call": "311",
+        "Street_Address": "1602 W Water Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.43550772715199,
+        "y": 47.6600062104656
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 28,
+        "Name": "Polly Judd Park",
+        "Type_of_Location": "Park",
+        "Address": "1802 W 14th Ave, Spokane, WA, 99204, USA",
+        "Call": "311",
+        "Street_Address": "1802 W 14th Ave",
+        "City": "Spokane",
+        "State": " WA",
+        "Zip_Code": "99204"
+      },
+      "geometry": {
+        "x": -117.43941407984093,
+        "y": 47.64297891510978
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 29,
+        "Name": "Riverfront Park",
+        "Type_of_Location": "Park",
+        "Address": "507 N Howard St, Spokane, WA, 99201, USA",
+        "Call": "311",
+        "Street_Address": "507 N Howard St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.42135961723699,
+        "y": 47.66233936809041
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 30,
+        "Name": "Shadle Park",
+        "Type_of_Location": "Park",
+        "Address": "2050 W Longfellow Ave, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Street_Address": "2050 W Longfellow Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.44123702001302,
+        "y": 47.69925924957942
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 31,
+        "Name": "Sky Prairie Park",
+        "Type_of_Location": "Park",
+        "Address": "8501 N Nettleton Ct, Spokane, WA, 99208, USA",
+        "Call": "311",
+        "Street_Address": "8501 N Nettleton Ct",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.444953815438,
+        "y": 47.735659148650996
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 32,
+        "Name": "Stone Park",
+        "Type_of_Location": "Park",
+        "Address": "2304 E Desmet Ave, Spokane, Washington, 99202",
+        "Call": "311",
+        "Street_Address": "2304 E Desmet Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.37563184243301,
+        "y": 47.667181170943536
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 33,
+        "Name": "Thornton Murphy Park",
+        "Type_of_Location": "Park",
+        "Address": "3105 E 27th Ave, Spokane, WA, 99223, USA",
+        "Call": "311",
+        "Street_Address": "3105 E 27th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.36578702579499,
+        "y": 47.6309677244272
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 34,
+        "Name": "Underhill Park",
+        "Type_of_Location": "Park",
+        "Address": "2910 E Hartson Ave, Spokane, WA, 99202, USA",
+        "Call": "311",
+        "Street_Address": "2910 E Hartson Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.36728230259364,
+        "y": 47.6497618210559
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 35,
+        "Name": "Webster Park",
+        "Type_of_Location": "Park",
+        "Address": "3721 W Lacrosse Ave, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Street_Address": "3721 W Lacrosse Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.46652550926198,
+        "y": 47.69503852122371
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 36,
+        "Name": "Wentel Grant Park",
+        "Type_of_Location": "Park",
+        "Address": "1708 S Inland Empire Way, Spokane, WA, 99224, USA",
+        "Call": "311",
+        "Street_Address": "1708 S Inland Empire Way",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.44083207191939,
+        "y": 47.639267312514264
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 37,
+        "Name": "Dwight Merkel Sports Complex",
+        "Type_of_Location": "Sports Complex",
+        "Address": "N Assembly St, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Street_Address": "N Assembly St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.477140774753,
+        "y": 47.711296680077105
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 38,
+        "Name": "Southeast Sports Complex",
+        "Type_of_Location": "Sports Complex",
+        "Address": "2700 E 46th Ave, Spokane, WA, 99223, USA",
+        "Call": "311",
+        "Street_Address": "2700 E 46th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.370024164696,
+        "y": 47.61028781932679
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 39,
+        "Name": "Esmeralda Golf Course",
+        "Type_of_Location": "Golf Course",
+        "Address": "3933 E Courtland Ave, Spokane, WA, 99217, USA",
+        "Call": "311",
+        "Street_Address": "3933 E Courtland Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99217"
+      },
+      "geometry": {
+        "x": -117.3515236498196,
+        "y": 47.689764398436665
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 40,
+        "Name": "Indian Canyon Golf Course",
+        "Type_of_Location": "Golf Course",
+        "Address": "1000 S Assembly Rd, Spokane, WA, 99224, USA",
+        "Call": "311",
+        "Street_Address": "1000 S Assembly Rd",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.47361866004898,
+        "y": 47.646759459443196
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 41,
+        "Name": "The Creek at Qualchan Golf Course",
+        "Type_of_Location": "Golf Course",
+        "Address": "301 E Meadowlane Rd, Spokane, WA, 99224, USA",
+        "Call": "311",
+        "Street_Address": "301 E Meadowlane Rd",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.411598687172,
+        "y": 47.609401607853094
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 42,
+        "Name": "Witter Aquatic Center",
+        "Type_of_Location": "Aquatic Center",
+        "Address": "1300 E Mission Ave, Spokane, WA, 99202, USA",
+        "Call": "311",
+        "Street_Address": "1300 E Mission Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.38927900859801,
+        "y": 47.670808520664096
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 43,
+        "Name": "Hillyard Aquatic Center",
+        "Type_of_Location": "Aquatic Center",
+        "Address": "3000 E Columbia Ave, Spokane, Washington, 99208",
+        "Call": "311",
+        "Street_Address": "3000 E Columbia Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.366090758103,
+        "y": 47.7100869244017
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 44,
+        "Name": "A.M. Cannon Aquatic Center",
+        "Type_of_Location": "Aquatic Center",
+        "Address": "1900 W Mission Ave, Spokane, Washington, 99201",
+        "Call": "311",
+        "Street_Address": "1900 W Mission Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.440430533533,
+        "y": 47.671123094004784
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 45,
+        "Name": "Comstock Aquatic Center",
+        "Type_of_Location": "Aquatic Center",
+        "Address": "600 W 29th Ave, Spokane, WA, 99203, USA",
+        "Call": "311",
+        "Street_Address": "600 W 29th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.42094120705234,
+        "y": 47.62789050161107
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 46,
+        "Name": "Liberty Aquatic Center",
+        "Type_of_Location": "Aquatic Center",
+        "Address": "1300 E 5th Ave, Spokane, WA, 99202, USA",
+        "Call": "311",
+        "Street_Address": "1300 E 5th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.3848850064,
+        "y": 47.6513302493961
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 48,
+        "Name": "Finch Arboretum",
+        "Type_of_Location": "Aboreta",
+        "Address": "3404 W Woodland Blvd, Spokane, Washington, 99224",
+        "Call": "311",
+        "Street_Address": "3404 W Woodland Blvd",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.46267393857599,
+        "y": 47.64349608646679
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 49,
+        "Name": "Perrins Field ",
+        "Type_of_Location": "Park",
+        "Address": "14 Arnim Ave, Deer Park, Wa 99006",
+        "Call": "509-276-8801",
+        "Street_Address": null,
+        "City": "Deer Park",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.47378154299861,
+        "y": 47.95490695099239
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 50,
+        "Name": "James Swinyard Park ",
+        "Type_of_Location": "Park",
+        "Address": " 200 E B St, Deer Park, WA, 99006, USA",
+        "Call": "509-276-8801",
+        "Street_Address": null,
+        "City": "Deer Park",
+        "State": "WA",
+        "Zip_Code": "99006"
+      },
+      "geometry": {
+        "x": -117.47341557011605,
+        "y": 47.952124182516066
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 51,
+        "Name": "Dwight Merkel Sports Complex",
+        "Type_of_Location": "5225 N. Assembly Street, Spokane, Wa, 99205",
+        "Address": null,
+        "Call": "311",
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.47871321045162,
+        "y": 47.70758592483841
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 52,
+        "Name": "Edwidge Woldson Park",
+        "Type_of_Location": "Park ",
+        "Address": null,
+        "Call": "311",
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.41960106547097,
+        "y": 47.648180800488326
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 53,
+        "Name": "Southside Sports Complex ",
+        "Type_of_Location": "Sports Complex ",
+        "Address": null,
+        "Call": "311",
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.37274164549177,
+        "y": 47.61089243233324
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 54,
+        "Name": "Whittier Park ",
+        "Type_of_Location": "Park",
+        "Address": null,
+        "Call": "311",
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.4633650763476,
+        "y": 47.65000010536557
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 55,
+        "Name": "Coeur d'Alene Park",
+        "Type_of_Location": "Park ",
+        "Address": "2195 W 2nd Ave, Spokane, WA, 99201, USA",
+        "Call": "311",
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.44419123980497,
+        "y": 47.65298838028433
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 56,
+        "Name": "Harmon Park",
+        "Type_of_Location": "Park",
+        "Address": "6018 N Regal St, Spokane, WA, 99208, USA",
+        "Call": "311",
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.36657100163217,
+        "y": 47.71283403629085
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 57,
+        "Name": "Thiel Park ",
+        "Type_of_Location": "Park",
+        "Address": null,
+        "Call": null,
+        "Street_Address": "110 1st St, Fairfield, WA 99012",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.17377016976545,
+        "y": 47.38601387714242
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 58,
+        "Name": "Town Square Park ",
+        "Type_of_Location": null,
+        "Address": "1421 N Meadowwood Ln, Liberty Lake, WA 99019",
+        "Call": "(509) 755-6714",
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.10199687562016,
+        "y": 47.67146043065834
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 59,
+        "Name": "Rocky Hill Park ",
+        "Type_of_Location": "Park",
+        "Address": "24901 E Mission Ave, Liberty Lake, WA",
+        "Call": "(509) 755-6714",
+        "Street_Address": null,
+        "City": "Liberty Lake ",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.06950352299188,
+        "y": 47.67158758426118
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 60,
+        "Name": "Orchard Park ",
+        "Type_of_Location": "Park ",
+        "Address": "20298 E Indiana Ave, Liberty Lake, Wa 99019",
+        "Call": "(509) 755-6714",
+        "Street_Address": null,
+        "City": "Liberty Lake ",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.13143895093962,
+        "y": 47.674899227235194
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 61,
+        "Name": "Waterfront Park ",
+        "Type_of_Location": "Park ",
+        "Address": "1300 S Lefevre St, Medical Lake, WA 99022",
+        "Call": null,
+        "Street_Address": null,
+        "City": "Medical Lake ",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.69500521771874,
+        "y": 47.562679853300224
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 62,
+        "Name": "Sunset Park ",
+        "Type_of_Location": "Park",
+        "Address": "913 S Lawson St, Airway Heights, Wa 99001",
+        "Call": null,
+        "Street_Address": null,
+        "City": "Airway Heights ",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.58843205859034,
+        "y": 47.64660104304581
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 63,
+        "Name": "Sullivan Park ",
+        "Type_of_Location": "Park ",
+        "Address": "1901 N Sullivan Road Spokane Valley, WA 99216",
+        "Call": "311",
+        "Street_Address": null,
+        "City": "Spokane Valley",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.19731112289665,
+        "y": 47.67529437127803
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 64,
+        "Name": "Hillyard Library ",
+        "Type_of_Location": null,
+        "Address": null,
+        "Call": "311",
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.37437082806822,
+        "y": 47.69473129500269
+      }
+    }
+  ]
+}

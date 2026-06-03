@@ -1,0 +1,1556 @@
+{
+  "title": "Parks",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Cooling_Resources_Map/FeatureServer/4",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "A.M. Cannon Park",
+        "Address": "1511 N Elm St, Spokane, WA 99205, United States",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/am-cannon.pdf",
+        "Street_Address": "1511 N Elm St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.44172604065001,
+        "y": 47.671554764369496
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 2,
+        "Name": "Audubon Park",
+        "Address": "3405 N Milton St, Spokane, Washington, 99205",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/audubon-park-08-20-2014.pdf",
+        "Street_Address": "3405 N Milton St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.45381207086528,
+        "y": 47.6904124650732
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Ben Burr Park",
+        "Address": "4401 S Havana St, Spokane, Washington, 99223",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/ben-burr-park.pdf",
+        "Street_Address": "4401 S Havana St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.34549403500299,
+        "y": 47.6137274052347
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Bryne, Patrick S. Park",
+        "Address": "125 E Walton Ave, Spokane, Washington, 99207",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/byrne-park.pdf",
+        "Street_Address": "125 E Walton Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.4083290509642,
+        "y": 47.69495286067311
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "Cannon Hill Park",
+        "Address": "W. 19th Ave, Spokane, WA, 99203, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/cannon-hill-park.pdf",
+        "Street_Address": "W. 19th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.42195207796074,
+        "y": 47.638419797503914
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "Name": "Chief Garry Park",
+        "Address": "2515 E Sinto Ave, Spokane, Washington, 99202",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/chief-garry-park.pdf",
+        "Street_Address": "2515 E Sinto Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.37239718314899,
+        "y": 47.671417590460585
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 8,
+        "Name": "B.A. Clark",
+        "Address": "3922 N Normandie St, Spokane, WA, 99207, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/clark-ba-park.pdf",
+        "Street_Address": "3922 N Normandie St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.413131807658,
+        "y": 47.69466975838589
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 9,
+        "Name": "Coeur D'Alene Park",
+        "Address": "2195 W 2nd Ave, Spokane, WA, 99201, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/coeur-dalene-park.pdf",
+        "Street_Address": "2195 W 2nd Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.44465370021244,
+        "y": 47.65388969252833
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 10,
+        "Name": "Comstock Park",
+        "Address": "601 W 29th Ave, Spokane, WA, 99203, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/comstock-park.pdf",
+        "Street_Address": "601 W 29th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.42260525414099,
+        "y": 47.6266571347001
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 11,
+        "Name": "Courtland Park",
+        "Address": "3514 N Stone St, Spokane, WA, 99207, USA",
+        "Call": "(509) 625-6960 ",
+        "Electricity": "Yes - Out of Service",
+        "Public_Bathroom": "Yes - Out of Service ",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/courtland-park.pdf",
+        "Street_Address": "3514 N Stone St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.37444386803271,
+        "y": 47.68903830992637
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 12,
+        "Name": "Cowley Park",
+        "Address": "602 S Division St, Spokane, WA, 99202, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/cowley-park.pdf",
+        "Street_Address": "602 S Division St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.411855637302,
+        "y": 47.6500678085161
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 13,
+        "Name": "Corbin Park",
+        "Address": "2914 N West Oval St, Spokane, Washington, 99205",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/corbin-park.pdf",
+        "Street_Address": "2914 N West Oval St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.42074113115501,
+        "y": 47.68501033974649
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 14,
+        "Name": "Dutch Jakes Park",
+        "Address": "2104 W College Ave, Spokane, WA, 99201, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/dutch-jakes-park.pdf",
+        "Street_Address": "2104 W College Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.44356294655064,
+        "y": 47.664239506233464
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 15,
+        "Name": "Dwight Merkel Sports Complex",
+        "Address": "N Assembly St, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/dwight-merkel-sports-complex.pdf",
+        "Street_Address": "N Assembly St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.47820591622019,
+        "y": 47.708460109631474
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 16,
+        "Name": "Emerson Park",
+        "Address": "3325 N Madison St, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/emerson-park.pdf",
+        "Street_Address": "3325 N Madison St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.42892784045819,
+        "y": 47.68854618293882
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 17,
+        "Name": "Fairview Park",
+        "Address": "N Dakota St, Spokane, WA, 99207, USA",
+        "Call": "311",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/fairview-park.pdf",
+        "Street_Address": "N Dakota St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.39926109601204,
+        "y": 47.685709055263686
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 18,
+        "Name": "Franklin Park and Sports Complex",
+        "Address": "302 W Queen Ave, Spokane, WA, 99205, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/franklin-park.pdf",
+        "Street_Address": "302 W Queen Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.41438507494304,
+        "y": 47.70720601055848
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 19,
+        "Name": "Friendship Park",
+        "Address": "631 E Greta Ave, Spokane, WA, 99208, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/friendship-park.pdf",
+        "Street_Address": "631 E Greta Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.4011831194572,
+        "y": 47.72557884188958
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 20,
+        "Name": "Glass Park",
+        "Address": "627 E Heroy Ave, Spokane, WA, 99207, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/glass-park.pdf",
+        "Street_Address": "627 E Heroy Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.39857658827462,
+        "y": 47.69898977616705
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 21,
+        "Name": "Redband / Glover Field Park",
+        "Address": "216 N Cedar St, Spokane, WA, 99201, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/glover-field-park.pdf",
+        "Street_Address": "216 N Cedar St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.43223509665401,
+        "y": 47.6597028887756
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 22,
+        "Name": "Grandview Park",
+        "Address": "3203 W 17th Ave, Spokane, WA, 99224, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/grandview-park.pdf",
+        "Street_Address": "3203 W 17th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.46018609371201,
+        "y": 47.63896957384429
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 23,
+        "Name": "Grant Park",
+        "Address": "1015 S Arthur St, Spokane, WA, 99202, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/grant-park.pdf",
+        "Street_Address": "1015 S Arthur St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.39223126253343,
+        "y": 47.646169189230775
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 24,
+        "Name": "Harmon-Shipley Park",
+        "Address": "6018 N Regal St, Spokane, WA, 99208, USA",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes - Out of Service ",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/harmon-shipley-park.pdf",
+        "Street_Address": "6018 N Regal St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.36716712702498,
+        "y": 47.71294785729209
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 25,
+        "Name": "Hays Park",
+        "Address": "1812 E Providence Ave, Spokane, WA, 99207, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/hays-park.pdf",
+        "Street_Address": "1812 E Providence Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.3832743004772,
+        "y": 47.69171540964843
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 26,
+        "Name": "High Bridge Park",
+        "Address": "S A St, Spokane, WA, 99224, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/high-bridge-park.pdf",
+        "Street_Address": "S A St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.45571682111002,
+        "y": 47.654028203398305
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 27,
+        "Name": "Hill, James J. Park",
+        "Address": "2579 E Nebraska Ave, Spokane, WA, 99208, US",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/hill-james-j-park.pdf",
+        "Street_Address": "2579 E Nebraska Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.3726837178114,
+        "y": 47.70926935761346
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 28,
+        "Name": "Hill N' Dale Park",
+        "Address": "502 E Jay Ave, Spokane, WA, 99218, USA",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/hill-ndale-rotary-park.pdf",
+        "Street_Address": "502 E Jay Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99218"
+      },
+      "geometry": {
+        "x": -117.40476380687043,
+        "y": 47.73964604504431
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 29,
+        "Name": "Indian Trail Park",
+        "Address": "3990 W Woodside Ave, Spokane, WA, 99208, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/indian-trail-park.pdf",
+        "Street_Address": "3990 W Woodside Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.47146681978201,
+        "y": 47.72092262299189
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 30,
+        "Name": "Kehoe Park",
+        "Address": "4903 N Nelson St, Spokane, WA, 99217, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/kehoe-park.pdf",
+        "Street_Address": "4903 N Nelson St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99217"
+      },
+      "geometry": {
+        "x": -117.37010056993503,
+        "y": 47.70256799038529
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 31,
+        "Name": "Liberty Park",
+        "Address": "1704 E 4th Ave, Spokane, WA, 99202, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/liberty-park.pdf",
+        "Street_Address": "1704 E 4th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.38689839286802,
+        "y": 47.65237835737631
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 32,
+        "Name": "Lincoln Park",
+        "Address": "2300 E 17th Ave, Spokane, WA, 99203, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/lincoln-park.pdf",
+        "Street_Address": "2300 E 17th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.376904929683,
+        "y": 47.6399972942304
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 33,
+        "Name": "Logan Peace Park",
+        "Address": "2535 N Morton St, Spokane, WA, 99207, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/logan-peace-park.pdf",
+        "Street_Address": "2535 N Morton St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.39253185568,
+        "y": 47.681164857063486
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 34,
+        "Name": "Loma Vista Park",
+        "Address": "5804 N Alberta St, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/loma-vista-park.pdf",
+        "Street_Address": "5804 N Alberta St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.44747162851208,
+        "y": 47.711420800189785
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 35,
+        "Name": "Loren Kondo Park",
+        "Address": "4119 E Longfellow Ave, Spokane, WA, 99217, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes - Out of Service ",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/loren-kondo-park.pdf",
+        "Street_Address": "4119 E Longfellow Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99217"
+      },
+      "geometry": {
+        "x": -117.34987063216606,
+        "y": 47.698705233651786
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 36,
+        "Name": "Manito Park",
+        "Address": "1702 S Grand Blvd, Spokane, WA, 99203, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/manito-park.pdf",
+        "Street_Address": "1702 S Grand Blvd",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.41050197355116,
+        "y": 47.637378635314015
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 38,
+        "Name": "Minnehaha Park",
+        "Address": "4055 E Euclid Ave, Spokane, WA, 99217, USA",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/minnehaha-park.pdf",
+        "Street_Address": "4055 E Euclid Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99217"
+      },
+      "geometry": {
+        "x": -117.34810871723788,
+        "y": 47.687130886405065
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 39,
+        "Name": "Mission Park ",
+        "Address": "1208 E Mission Ave, Spokane, WA, 99202, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes - Out of Service",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/mission-park.pdf",
+        "Street_Address": "1208 E Mission Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.39099908541382,
+        "y": 47.6711186981754
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 40,
+        "Name": "Nevada Park",
+        "Address": "800 E Joseph Ave, Spokane, WA, 99208, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "Yes - Out of Service",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/nevada-park-2018-03-14.pdf",
+        "Street_Address": "800 E Joseph Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.39733159602,
+        "y": 47.71030950626089
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 41,
+        "Name": "Pacific Park",
+        "Address": "5211 W Lowell Ave, Spokane, WA, 99208, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/pacific-park.pdf",
+        "Street_Address": "5211 W Lowell Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.48596059108138,
+        "y": 47.73615225673337
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 42,
+        "Name": "Parkwater Park",
+        "Address": "5428 E Commerce Ave, Spokane, WA, 99212, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/parkwater-park.pdf",
+        "Street_Address": "5428 E Commerce Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99212"
+      },
+      "geometry": {
+        "x": -117.328948749848,
+        "y": 47.67612627409759
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 43,
+        "Name": "Peaceful Valley Park",
+        "Address": "1602 W Water Ave, Spokane, WA, 99201, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/peaceful-valley-park.pdf",
+        "Street_Address": "1602 W Water Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.43579847103,
+        "y": 47.6599821631824
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 44,
+        "Name": "Polly Judd Park",
+        "Address": "1802 W 14th Ave, Spokane, WA, 99204, USA",
+        "Call": "311",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/polly-judd-park.pdf",
+        "Street_Address": "1802 W 14th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99204"
+      },
+      "geometry": {
+        "x": -117.43966224585986,
+        "y": 47.64312599833056
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 45,
+        "Name": "Rochester Park",
+        "Address": "1801 E Everett Ave, Spokane, WA, 99207, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/rochester-heights-park.pdf",
+        "Street_Address": "1801 E Everett Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99207"
+      },
+      "geometry": {
+        "x": -117.38167363066252,
+        "y": 47.707321356249636
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 47,
+        "Name": "Shadle Park",
+        "Address": "2050 W Longfellow Ave, Spokane, WA, 99205, USA",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/shadle-park.pdf",
+        "Street_Address": "2050 W Longfellow Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.44032983720669,
+        "y": 47.69926707240564
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 48,
+        "Name": "Sky Prairie Park",
+        "Address": "8501 N Nettleton Ct, Spokane, WA, 99208, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/sky-prairie-park.pdf",
+        "Street_Address": "8501 N Nettleton Ct",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.44696785730086,
+        "y": 47.73517989107859
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 49,
+        "Name": "South Side Sports Complex",
+        "Address": "2700 E 46th Ave, Spokane, WA, 99223, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/southeast-sports-complex.pdf",
+        "Street_Address": "2700 E 46th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.370993717281,
+        "y": 47.61097482513128
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 50,
+        "Name": "Stone Park",
+        "Address": "2304 E Desmet Ave, Spokane, Washington, 99202",
+        "Call": "311",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "Yes",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/stone-park.pdf",
+        "Street_Address": "2304 E Desmet Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.37563301208044,
+        "y": 47.66741333888837
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 51,
+        "Name": "Thornton Murphy Park",
+        "Address": "3105 E 27th Ave, Spokane, WA, 99223, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/thornton-murphy-park.pdf",
+        "Street_Address": "3105 E 27th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99223"
+      },
+      "geometry": {
+        "x": -117.365057150538,
+        "y": 47.6307040484595
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 52,
+        "Name": "Underhill Park",
+        "Address": "2910 E Hartson Ave, Spokane, WA, 99202, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/underhill-park.pdf",
+        "Street_Address": "2910 E Hartson Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99202"
+      },
+      "geometry": {
+        "x": -117.367087247487,
+        "y": 47.6490324638175
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 53,
+        "Name": "Webster Park",
+        "Address": "3721 W Lacrosse Ave, Spokane, WA, 99205, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/webster-park.pdf",
+        "Street_Address": "3721 W Lacrosse Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99205"
+      },
+      "geometry": {
+        "x": -117.466204127607,
+        "y": 47.6952014932271
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 54,
+        "Name": "Wentel Grant Park",
+        "Address": "1708 S Inland Empire Way, Spokane, WA, 99224, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/wentel-grant-park.pdf",
+        "Street_Address": "1708 S Inland Empire Way",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.44091606732191,
+        "y": 47.638767900073304
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 55,
+        "Name": "Westgate Park",
+        "Address": "5402 W Conestoga Ave, Spokane, WA, 99208, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes - Out of Service",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/westgate-park.pdf",
+        "Street_Address": "5402 W Conestoga Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99208"
+      },
+      "geometry": {
+        "x": -117.49068492816365,
+        "y": 47.720466406727624
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 56,
+        "Name": "Whittier Park",
+        "Address": "3400 W 7th Ave, Spokane, WA, 99224, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/whittier-park.pdf",
+        "Street_Address": "3400 W 7th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99224"
+      },
+      "geometry": {
+        "x": -117.46241827662135,
+        "y": 47.64953959775087
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 57,
+        "Name": "Wildhorse Park",
+        "Address": "3717 N Ralph St, Spokane, WA, 99217, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/wildhorse-park.pdf",
+        "Street_Address": "3717 N Ralph St",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99217"
+      },
+      "geometry": {
+        "x": -117.361802880967,
+        "y": 47.69274594226481
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 58,
+        "Name": "Edwidge Woldson Park",
+        "Address": "W 7th Ave, Spokane, WA, 99204, USA",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/edwidge-woldson-park.pdf",
+        "Street_Address": "W 7th Ave",
+        "City": " Spokane",
+        "State": " WA",
+        "Zip_Code": "99204"
+      },
+      "geometry": {
+        "x": -117.42013574869677,
+        "y": 47.64882446331627
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 59,
+        "Name": "Riverfront Park",
+        "Address": "507 N Howard St",
+        "Call": "(509) 625-6960",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://my.spokanecity.org/riverfrontspokane",
+        "Street_Address": "507 N Howard St",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.41987557816738,
+        "y": 47.662153884866925
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 60,
+        "Name": "Cliff Park",
+        "Address": "426 W 12th Ave",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/cliff-park.pdf",
+        "Street_Address": "426 W 12th Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99201"
+      },
+      "geometry": {
+        "x": -117.41875353552595,
+        "y": 47.64413908905059
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 61,
+        "Name": "Downriver Park River Access Point ",
+        "Address": "\u00a04440 N Riverside State Park Dr",
+        "Call": "311",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes ",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/downriver-park.pdf",
+        "Street_Address": "\u00a04440 N Riverside State Park Dr",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.45540742332572,
+        "y": 47.68252433596985
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 62,
+        "Name": "Hamblen Park ",
+        "Address": "2103 E 37th Ave",
+        "Call": "(509) 625-6960",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": "https://static.spokanecity.org/documents/parks/park-maps/hamblen-park-2020-10-30.pdf",
+        "Street_Address": "2103 E 37th Ave",
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": "99203"
+      },
+      "geometry": {
+        "x": -117.38074457153442,
+        "y": 47.62008815713952
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 64,
+        "Name": "Finch Arboretum ",
+        "Address": "3404 W Woodland Blvd, Spokane, WA 99224",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "Yes",
+        "Map": null,
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.46417786827224,
+        "y": 47.64256819727108
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 65,
+        "Name": "Hillyard Park",
+        "Address": "5718 N Haven St, Spokane, WA 99208, United States",
+        "Call": "311",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "Yes",
+        "Picnic_Area": "Yes",
+        "Map": null,
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.36572878701922,
+        "y": 47.70966084866845
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 66,
+        "Name": "Little Lower Spokane Natural Area ",
+        "Address": null,
+        "Call": "311",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No ",
+        "ADA": "No",
+        "Play_Equipment": "No",
+        "Softball_Baseball": "No",
+        "Picnic_Area": "No",
+        "Map": null,
+        "Street_Address": null,
+        "City": "Spokane",
+        "State": "WA",
+        "Zip_Code": null
+      },
+      "geometry": {
+        "x": -117.47952804626937,
+        "y": 47.7720228632571
+      }
+    }
+  ]
+}

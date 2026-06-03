@@ -1,0 +1,22 @@
+{
+  "title": "Public Pools",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Millwood_Cooling_Resources_Map/FeatureServer/3",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 1,
+        "Name": "Millwood City Park Wading Pool",
+        "Address": "9241 E Frederick Ave, Spokane, WA 99206",
+        "Phone": "(509) 924-0960",
+        "Street_Address": "9241 E Frederick Ave",
+        "City": " Spokane",
+        "State": "WA",
+        "Zip_Code": "99206"
+      },
+      "geometry": {
+        "x": -117.28052707091818,
+        "y": 47.68556246137318
+      }
+    }
+  ]
+}

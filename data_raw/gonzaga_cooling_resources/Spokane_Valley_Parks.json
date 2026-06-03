@@ -1,0 +1,246 @@
+{
+  "title": "Parks",
+  "url": "https://services7.arcgis.com/YGmp70c76pih9ea2/arcgis/rest/services/City_of_Spokane_Valley_Cooling_Resources/FeatureServer/4",
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 3,
+        "Name": "Browns Park",
+        "Address": "3101 S Pines Road Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Walking_Track": "Yes",
+        "Sports": "Volleyball Court, Skate Park, Basketball Court",
+        "Street_Address": "3101 S Pines Road",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.23825138334077,
+        "y": 47.629351282625734
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 4,
+        "Name": "Castle Park",
+        "Address": "3415 S University Road Spokane Valley, WA 99206",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "No",
+        "Play_Equipment": "Yes",
+        "Walking_Track": "No",
+        "Sports": "No",
+        "Street_Address": "3415 S University Road",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99206"
+      },
+      "geometry": {
+        "x": -117.26043887216616,
+        "y": 47.626057513181934
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 5,
+        "Name": "Centennial Trail",
+        "Address": "2663-2733 N Harvard Road Liberty Lake, WA 99019",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "No",
+        "Public_Bathroom": "Yes",
+        "Shelter": "No",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Walking_Track": "No",
+        "Sports": "Trails",
+        "Street_Address": "2663-2733 N Harvard Road",
+        "City": " Liberty Lake",
+        "State": " WA",
+        "Zip_Code": "99019"
+      },
+      "geometry": {
+        "x": -117.11077371645214,
+        "y": 47.6826512883323
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 6,
+        "Name": "Edgecliff Park",
+        "Address": "800 S Park Rd, Spokane Valley, WA",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Walking_Track": "No",
+        "Sports": "Baseball/Softball Diamond, Tennis Courts, Basketball Court, Pickleball Court",
+        "Street_Address": "800 S Park Rd",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99212"
+      },
+      "geometry": {
+        "x": -117.30494796233918,
+        "y": 47.650070428328235
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 7,
+        "Name": "Greenacres Park",
+        "Address": "1311 N Long Road Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Walking_Track": "Yes",
+        "Sports": "Disc Golf, Play Fields",
+        "Street_Address": "1311 N Long Road",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.16619071410449,
+        "y": 47.66937015971351
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 8,
+        "Name": "Mirabeau Point Park",
+        "Address": "13500 Mirabeau Parkway Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Walking_Track": "No",
+        "Sports": "Play Field",
+        "Street_Address": "13500 Mirabeau Park",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22623891999267,
+        "y": 47.685348714696254
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 9,
+        "Name": "Discovery Playground",
+        "Address": "2426 N Discovery Pl, Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Walking_Track": "No",
+        "Sports": "No",
+        "Street_Address": "2426 N Discovery Pl",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22388366130431,
+        "y": 47.67838693144592
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 10,
+        "Name": "Sullivan Park",
+        "Address": "1901 N Sullivan Road Spokane Valley, WA 99216",
+        "Maintenance": "311",
+        "Electricity": "No",
+        "Public_Bathroom": "No",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "No",
+        "Walking_Track": "No",
+        "Sports": "Western Dance Hall, Radio-Controlled Car Club Track, Spokane River Access, Trails",
+        "Street_Address": "1901 N Sullivan Road",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.19844084094369,
+        "y": 47.67514600060378
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 11,
+        "Name": "Terrace View Park",
+        "Address": "13525 E 24th Avenue Spokane Valley, WA 99216",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "Yes",
+        "Public_Bathroom": "Yes",
+        "Shelter": "Yes",
+        "Splash_Pad": "No",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Walking_Track": "No",
+        "Sports": "Baseball/Softball Diamond, Basketball Court, Horseshoe Pit, Lazy River, Swimming",
+        "Street_Address": "13525 E 24th Avenue",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99216"
+      },
+      "geometry": {
+        "x": -117.22222120400511,
+        "y": 47.63680877655379
+      }
+    },
+    {
+      "attributes": {
+        "OBJECTID": 12,
+        "Name": "Valley Mission Park",
+        "Address": "11123 E Mission Spokane Valley, WA 99206",
+        "Maintenance": "(509) 720-5200",
+        "Electricity": "Yes",
+        "Public_Bathroom": "No",
+        "Shelter": "Yes",
+        "Splash_Pad": "Yes",
+        "ADA": "Yes",
+        "Play_Equipment": "Yes",
+        "Walking_Track": "No",
+        "Sports": "Baseball/Softball Diamond, Basketball Court, Tennis Courts, Swimming",
+        "Street_Address": "11123 E Mission",
+        "City": " Spokane Valley",
+        "State": " WA",
+        "Zip_Code": "99206"
+      },
+      "geometry": {
+        "x": -117.25532783799957,
+        "y": 47.67341853554261
+      }
+    }
+  ]
+}
