@@ -692,8 +692,8 @@ def draw_layers(
 
 
 def draw_callout_box(ax, title: str, body: str, y: float) -> None:
-    ax.text(0, y, title, fontsize=9.5, weight="bold", color="#222222", ha="left", va="top")
-    ax.text(0, y - 0.075, textwrap.fill(body, 48), fontsize=8.2, color="#3f4447", ha="left", va="top", linespacing=1.25)
+    ax.text(0, y, title, fontsize=9.2, weight="bold", color="#222222", ha="left", va="top")
+    ax.text(0, y - 0.052, textwrap.fill(body, 44), fontsize=7.8, color="#3f4447", ha="left", va="top", linespacing=1.2)
 
 
 def draw_map(
@@ -706,10 +706,10 @@ def draw_map(
 ) -> None:
     colors = {"Low": "#dceff4", "Medium": "#f5cf7a", "High": "#b85852"}
     urban_extent = (-117.52, 47.58, -117.18, 47.76)
-    fig = plt.figure(figsize=(14, 9), facecolor="white")
-    main_ax = fig.add_axes([0.045, 0.145, 0.61, 0.72])
-    county_ax = fig.add_axes([0.70, 0.60, 0.23, 0.27])
-    info_ax = fig.add_axes([0.70, 0.155, 0.25, 0.38])
+    fig = plt.figure(figsize=(14, 9.5), facecolor="white")
+    main_ax = fig.add_axes([0.045, 0.16, 0.61, 0.69])
+    county_ax = fig.add_axes([0.735, 0.66, 0.18, 0.22])
+    info_ax = fig.add_axes([0.70, 0.105, 0.285, 0.50])
     info_ax.axis("off")
 
     draw_layers(main_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, detail=True, labels=False)
@@ -767,63 +767,63 @@ def draw_map(
     fig.legend(
         handles=legend_items,
         loc="lower center",
-        bbox_to_anchor=(0.39, 0.055),
+        bbox_to_anchor=(0.39, 0.075),
         ncol=5,
         frameon=False,
         fontsize=7.7,
     )
 
-    top = summary.head(5).copy()
-    info_ax.text(0, 1.0, "Key Finding", fontsize=11.5, weight="bold", color="#222222", ha="left", va="top")
+    top = summary.head(4).copy()
+    info_ax.text(0, 1.0, "Key Finding", fontsize=11.2, weight="bold", color="#222222", ha="left", va="top")
     info_ax.text(
         0,
-        0.94,
+        0.935,
         textwrap.fill(
             "Highest-ranked tracts combine high heat-wave risk, social vulnerability, vehicle-access barriers, and cooling-center distance.",
-            50,
+            46,
         ),
-        fontsize=8.3,
+        fontsize=8.0,
         color="#3f4447",
         ha="left",
         va="top",
-        linespacing=1.22,
+        linespacing=1.18,
     )
-    info_ax.text(0, 0.785, "Top Priority Tracts", fontsize=11.5, weight="bold", color="#222222", ha="left", va="top")
-    info_ax.text(0.50, 0.785, "H/S/V/A", fontsize=7.8, weight="bold", color="#4a4f52", ha="left", va="top")
-    y = 0.725
+    info_ax.text(0, 0.765, "Top Priority Tracts", fontsize=11.2, weight="bold", color="#222222", ha="left", va="top")
+    info_ax.text(0.52, 0.765, "H/S/V/A", fontsize=7.5, weight="bold", color="#4a4f52", ha="left", va="top")
+    y = 0.705
     for _, row in top.iterrows():
         tract = row["NAME"].replace("Census Tract ", "").replace(", Spokane, WA", "")
-        info_ax.text(0, y, f"Tract {tract}", fontsize=8.8, weight="bold", ha="left", va="top", color="#222222")
+        info_ax.text(0, y, f"Tract {tract}", fontsize=8.5, weight="bold", ha="left", va="top", color="#222222")
         components = (
             f'{int(row["HEAT_CONCERN_SCORE"])}/'
             f'{int(row["SOVI_CONCERN_SCORE"])}/'
             f'{int(row["TRANSPORT_BARRIER_SCORE"])}/'
             f'{int(row["COOLING_ACCESS_SCORE"])}'
         )
-        info_ax.text(0.50, y, components, fontsize=8.3, ha="left", va="top", color="#4a4f52")
+        info_ax.text(0.52, y, components, fontsize=8.0, ha="left", va="top", color="#4a4f52")
         info_ax.text(
-            0.70,
+            0.72,
             y,
             f'Score {int(row["FINAL_CONCERN_SCORE"])} | {row["NEAREST_COOLING_MI"]:.1f} mi',
-            fontsize=8.3,
+            fontsize=8.0,
             ha="left",
             va="top",
             color="#4a4f52",
         )
-        y -= 0.06
+        y -= 0.072
 
-    info_ax.plot([0, 1], [y + 0.02, y + 0.02], color="#d5d1c8", linewidth=0.8)
+    info_ax.plot([0, 1], [y + 0.028, y + 0.028], color="#d5d1c8", linewidth=0.8)
     draw_callout_box(
         info_ax,
         "Score",
-        "H/S/V/A columns show heat, social vulnerability, vehicle-access barrier, and cooling-access component scores.",
-        y - 0.025,
+        "H/S/V/A means heat, social vulnerability, vehicle-access barrier, and cooling access.",
+        y - 0.01,
     )
     draw_callout_box(
         info_ax,
         "Caution",
-        "Distances use Census tract internal points. Classes are relative within Spokane County. Facility status, hours, capacity, and transit travel time are not modeled.",
-        y - 0.205,
+        "Distances use tract internal points. Classes are relative. Facility status, hours, capacity, and transit travel time are not modeled.",
+        y - 0.175,
     )
     info_ax.set_xlim(0, 1)
     info_ax.set_ylim(0, 1)
