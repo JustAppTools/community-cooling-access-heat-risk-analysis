@@ -529,16 +529,17 @@ def project_xy(lon: float, lat: float) -> tuple[float, float]:
     return geom.centroid.X, geom.centroid.Y
 
 
-def draw_scale_bar(ax, miles: int = 10) -> None:
+def draw_scale_bar(ax, miles: int = 5, *, location: tuple[float, float] = (0.06, 0.06)) -> None:
     x0, x1 = ax.get_xlim()
     y0, y1 = ax.get_ylim()
     length = miles * 1609.344
-    start_x = x0 + (x1 - x0) * 0.06
-    start_y = y0 + (y1 - y0) * 0.055
-    ax.plot([start_x, start_x + length], [start_y, start_y], color="#2f3437", linewidth=2.2, solid_capstyle="butt")
-    ax.plot([start_x, start_x], [start_y - 850, start_y + 850], color="#2f3437", linewidth=1.1)
-    ax.plot([start_x + length, start_x + length], [start_y - 850, start_y + 850], color="#2f3437", linewidth=1.1)
-    ax.text(start_x + length / 2, start_y + 1500, f"{miles} mi", ha="center", va="bottom", fontsize=8, color="#2f3437")
+    start_x = x0 + (x1 - x0) * location[0]
+    start_y = y0 + (y1 - y0) * location[1]
+    tick = (y1 - y0) * 0.012
+    ax.plot([start_x, start_x + length], [start_y, start_y], color="#333333", linewidth=1.8, solid_capstyle="butt", zorder=20)
+    ax.plot([start_x, start_x], [start_y - tick, start_y + tick], color="#333333", linewidth=1.0, zorder=20)
+    ax.plot([start_x + length, start_x + length], [start_y - tick, start_y + tick], color="#333333", linewidth=1.0, zorder=20)
+    ax.text(start_x + length / 2, start_y + tick * 1.7, f"{miles} mi", ha="center", va="bottom", fontsize=7.5, color="#333333", zorder=20)
 
 
 def draw_north_arrow(ax) -> None:
@@ -563,10 +564,35 @@ def set_extent_from_wgs(ax, xmin: float, ymin: float, xmax: float, ymax: float) 
     ax.set_ylim(ll[1], ur[1])
 
 
-def draw_layers(ax, tracts_fc: Path, county_fc: Path, roads_fc: Path, all_resources_fc: Path, *, inset: bool = False) -> None:
-    colors = {"Low": "#d9edf7", "Medium": "#f6d37a", "High": "#c84f4a"}
+def extent_patch_from_wgs(xmin: float, ymin: float, xmax: float, ymax: float) -> patches.Rectangle:
+    ll = project_xy(xmin, ymin)
+    ur = project_xy(xmax, ymax)
+    return patches.Rectangle(
+        ll,
+        ur[0] - ll[0],
+        ur[1] - ll[1],
+        fill=False,
+        edgecolor="#1f4e5f",
+        linewidth=1.4,
+        linestyle="--",
+        zorder=25,
+    )
+
+
+def draw_layers(
+    ax,
+    tracts_fc: Path,
+    county_fc: Path,
+    roads_fc: Path,
+    all_resources_fc: Path,
+    *,
+    detail: bool = False,
+    labels: bool = False,
+    resources: bool = True,
+) -> None:
+    colors = {"Low": "#dceff4", "Medium": "#f5cf7a", "High": "#b85852"}
     ax.set_facecolor("#f8f7f2")
-    tract_edge = "#ffffff" if not inset else "#f5f5f0"
+    tract_edge = "#ffffff" if detail else "#f2efe7"
     for geom, concern in arcpy.da.SearchCursor(str(tracts_fc), ["SHAPE@", "CONCERN_CLASS"]):
         for part in polygon_parts(geom):
             ax.add_patch(
@@ -575,58 +601,74 @@ def draw_layers(ax, tracts_fc: Path, county_fc: Path, roads_fc: Path, all_resour
                     closed=True,
                     facecolor=colors.get(concern, "#dddddd"),
                     edgecolor=tract_edge,
-                    linewidth=0.4 if not inset else 0.35,
+                    linewidth=0.45 if detail else 0.35,
                     zorder=1,
                 )
             )
 
     for geom, mtfcc in arcpy.da.SearchCursor(str(roads_fc), ["SHAPE@", "MTFCC"]):
-        color = "#9b9690" if mtfcc == "S1100" else "#bdb7af"
-        width = 0.65 if mtfcc == "S1100" else 0.38
+        color = "#8e8b85" if mtfcc == "S1100" else "#c2bdb5"
+        width = 0.9 if mtfcc == "S1100" else 0.45
         for part in line_parts(geom):
             xs, ys = zip(*part)
-            ax.plot(xs, ys, color=color, linewidth=width if not inset else width * 1.4, alpha=0.65, zorder=3)
+            ax.plot(xs, ys, color=color, linewidth=width if detail else width * 0.65, alpha=0.58, zorder=3)
 
-    supplemental_x, supplemental_y = [], []
-    primary_x, primary_y = [], []
-    for geom, access_use in arcpy.da.SearchCursor(str(all_resources_fc), ["SHAPE@", "AccessUse"]):
-        if access_use == 1:
-            primary_x.append(geom.centroid.X)
-            primary_y.append(geom.centroid.Y)
-        else:
-            supplemental_x.append(geom.centroid.X)
-            supplemental_y.append(geom.centroid.Y)
-    ax.scatter(
-        supplemental_x,
-        supplemental_y,
-        s=10 if not inset else 16,
-        c="#4fa7a0",
-        edgecolors="white",
-        linewidths=0.35,
-        alpha=0.8,
-        zorder=5,
-    )
-    ax.scatter(
-        primary_x,
-        primary_y,
-        s=34 if not inset else 48,
-        marker="^",
-        c="#165a8f",
-        edgecolors="white",
-        linewidths=0.65,
-        zorder=6,
-    )
+    if resources:
+        supplemental_x, supplemental_y = [], []
+        primary_x, primary_y = [], []
+        for geom, access_use in arcpy.da.SearchCursor(str(all_resources_fc), ["SHAPE@", "AccessUse"]):
+            if access_use == 1:
+                primary_x.append(geom.centroid.X)
+                primary_y.append(geom.centroid.Y)
+            else:
+                supplemental_x.append(geom.centroid.X)
+                supplemental_y.append(geom.centroid.Y)
+        ax.scatter(
+            supplemental_x,
+            supplemental_y,
+            s=11 if detail else 7,
+            c="#4fa7a0",
+            edgecolors="white",
+            linewidths=0.25,
+            alpha=0.42 if detail else 0.28,
+            zorder=5,
+        )
+        ax.scatter(
+            primary_x,
+            primary_y,
+            s=52 if detail else 26,
+            marker="P",
+            c="#155e8a",
+            edgecolors="white",
+            linewidths=0.75,
+            zorder=6,
+        )
 
     for geom in arcpy.da.SearchCursor(str(county_fc), ["SHAPE@"]):
         for part in polygon_parts(geom[0]):
             ax.add_patch(patches.Polygon(part, closed=True, fill=False, edgecolor="#2f3437", linewidth=1.0, zorder=7))
 
-    if not inset:
+    if labels:
         for name, lon, lat in PLACE_LABELS:
             x, y = project_xy(lon, lat)
-            ax.text(x, y, name, fontsize=7.5, color="#363a3d", ha="center", va="center", zorder=8)
+            ax.text(
+                x,
+                y,
+                name,
+                fontsize=7.2 if not detail else 8,
+                color="#303437",
+                ha="center",
+                va="center",
+                zorder=8,
+                bbox={"boxstyle": "round,pad=0.12", "facecolor": "white", "edgecolor": "none", "alpha": 0.65},
+            )
     ax.set_aspect("equal")
     ax.axis("off")
+
+
+def draw_callout_box(ax, title: str, body: str, y: float) -> None:
+    ax.text(0, y, title, fontsize=9.5, weight="bold", color="#222222", ha="left", va="top")
+    ax.text(0, y - 0.075, textwrap.fill(body, 48), fontsize=8.2, color="#3f4447", ha="left", va="top", linespacing=1.25)
 
 
 def draw_map(
@@ -637,36 +679,51 @@ def draw_map(
     all_resources_fc: Path,
     summary: pd.DataFrame,
 ) -> None:
-    colors = {"Low": "#d9edf7", "Medium": "#f6d37a", "High": "#c84f4a"}
+    colors = {"Low": "#dceff4", "Medium": "#f5cf7a", "High": "#b85852"}
+    urban_extent = (-117.52, 47.58, -117.18, 47.76)
     fig = plt.figure(figsize=(14, 9), facecolor="white")
-    ax = fig.add_axes([0.035, 0.095, 0.58, 0.78])
-    inset_ax = fig.add_axes([0.66, 0.47, 0.30, 0.36])
-    info_ax = fig.add_axes([0.66, 0.12, 0.31, 0.29])
+    main_ax = fig.add_axes([0.045, 0.145, 0.61, 0.72])
+    county_ax = fig.add_axes([0.70, 0.60, 0.23, 0.27])
+    info_ax = fig.add_axes([0.70, 0.155, 0.25, 0.38])
     info_ax.axis("off")
 
-    draw_layers(ax, tracts_fc, county_fc, roads_fc, all_resources_fc)
-    draw_layers(inset_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, inset=True)
-    set_extent_from_wgs(inset_ax, -117.52, 47.58, -117.18, 47.76)
-    inset_ax.set_title("Urban Core Inset", fontsize=10, weight="bold", loc="left", pad=4)
+    draw_layers(main_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, detail=True, labels=False)
+    set_extent_from_wgs(main_ax, *urban_extent)
+    main_ax.set_title("Spokane Urban Core Detail", fontsize=12, weight="bold", loc="left", pad=5)
+
+    draw_layers(county_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, detail=False, labels=False, resources=False)
+    county_ax.add_patch(extent_patch_from_wgs(*urban_extent))
+    county_ax.set_title("County Context", fontsize=10, weight="bold", loc="left", pad=4)
+    county_ax.text(
+        0.5,
+        0.09,
+        "dashed box = detail map",
+        transform=county_ax.transAxes,
+        ha="center",
+        va="center",
+        fontsize=7,
+        color="#303437",
+        bbox={"boxstyle": "round,pad=0.16", "facecolor": "white", "edgecolor": "none", "alpha": 0.72},
+    )
 
     extent = arcpy.Describe(str(county_fc)).extent
     pad_x = (extent.XMax - extent.XMin) * 0.04
     pad_y = (extent.YMax - extent.YMin) * 0.04
-    ax.set_xlim(extent.XMin - pad_x, extent.XMax + pad_x)
-    ax.set_ylim(extent.YMin - pad_y, extent.YMax + pad_y)
-    draw_scale_bar(ax, 10)
-    draw_north_arrow(ax)
+    county_ax.set_xlim(extent.XMin - pad_x, extent.XMax + pad_x)
+    county_ax.set_ylim(extent.YMin - pad_y, extent.YMax + pad_y)
+    draw_scale_bar(main_ax, 5, location=(0.055, 0.055))
+    draw_north_arrow(main_ax)
 
     class_counts = summary["CONCERN_CLASS"].value_counts().reindex(["Low", "Medium", "High"]).fillna(0).astype(int)
     primary_count = int(arcpy.management.GetCount(str(primary_resources_fc))[0])
     all_count = int(arcpy.management.GetCount(str(all_resources_fc))[0])
-    fig.text(0.035, 0.95, "Spokane County Cooling Access & Heat Risk Screening", fontsize=22, weight="bold", ha="left")
+    fig.text(0.045, 0.955, "Spokane Cooling Access & Heat Risk Screening", fontsize=19, weight="bold", ha="left")
     fig.text(
-        0.035,
-        0.92,
-        f"{len(summary)} Census tracts | {primary_count} cooling centers/spaces used for access scoring | "
-        f"{all_count} total mapped cooling resources",
-        fontsize=10,
+        0.045,
+        0.925,
+        f"Relative screening score, not an official heat-response designation | "
+        f"{primary_count} cooling centers/spaces used for access scoring | {all_count} total mapped resources",
+        fontsize=9.5,
         color="#4a4f52",
         ha="left",
     )
@@ -675,43 +732,60 @@ def draw_map(
         patches.Patch(facecolor=colors["Low"], edgecolor="white", label=f"Low concern ({class_counts['Low']})"),
         patches.Patch(facecolor=colors["Medium"], edgecolor="white", label=f"Medium concern ({class_counts['Medium']})"),
         patches.Patch(facecolor=colors["High"], edgecolor="white", label=f"High concern ({class_counts['High']})"),
-        mlines.Line2D([], [], color="#165a8f", marker="^", linestyle="None", markersize=8, label="Cooling centers/spaces"),
-        mlines.Line2D([], [], color="#4fa7a0", marker="o", linestyle="None", markersize=6, label="Supplemental cooling resources"),
+        mlines.Line2D([], [], color="#155e8a", marker="P", linestyle="None", markersize=8, label="Cooling centers/spaces"),
+        mlines.Line2D([], [], color="#4fa7a0", marker="o", linestyle="None", markersize=6, alpha=0.55, label="Supplemental resources"),
         mlines.Line2D([], [], color="#9b9690", linewidth=1.2, label="Major roads"),
     ]
     fig.legend(
         handles=legend_items,
-        loc="lower left",
-        bbox_to_anchor=(0.045, 0.015),
+        loc="lower center",
+        bbox_to_anchor=(0.39, 0.055),
         ncol=3,
         frameon=False,
         fontsize=8.5,
     )
 
-    info_text = "\n\n".join(
-        [
-            "Screening score\n"
-            + textwrap.fill(
-                "Heat-wave risk + social vulnerability + no-vehicle households + distance to nearest cooling center/space.",
-                60,
-            ),
-            "Access method\n"
-            + textwrap.fill(
-                "Distance uses Census tract internal points and Gonzaga/SRHD cooling centers and spaces. "
-                "Pools, splash pads, drinking fountains, and parks are mapped as supplemental context only.",
-                60,
-            ),
-            "Interpretation\n"
-            + textwrap.fill(
-                "Classes are relative tertiles within Spokane County. This is not an official heat-response map.",
-                60,
-            ),
-        ]
+    top = summary.head(5).copy()
+    info_ax.text(0, 1.0, "Top Priority Tracts", fontsize=11.5, weight="bold", color="#222222", ha="left", va="top")
+    y = 0.925
+    for _, row in top.iterrows():
+        tract = row["NAME"].replace("Census Tract ", "").replace(", Spokane, WA", "")
+        info_ax.text(0, y, f"Tract {tract}", fontsize=8.8, weight="bold", ha="left", va="top", color="#222222")
+        info_ax.text(
+            0.52,
+            y,
+            f'Score {int(row["FINAL_CONCERN_SCORE"])} | {row["NEAREST_COOLING_MI"]:.1f} mi',
+            fontsize=8.6,
+            ha="left",
+            va="top",
+            color="#4a4f52",
+        )
+        y -= 0.072
+
+    info_ax.plot([0, 1], [y + 0.02, y + 0.02], color="#d5d1c8", linewidth=0.8)
+    draw_callout_box(
+        info_ax,
+        "Score",
+        "Heat-wave risk, social vulnerability, no-vehicle households, and distance to nearest cooling center/space.",
+        y - 0.025,
     )
-    info_ax.text(0, 1, info_text, ha="left", va="top", fontsize=9.2, color="#303437", linespacing=1.35)
+    draw_callout_box(
+        info_ax,
+        "Access",
+        "Distances use Census tract internal points. Supplemental parks, pools, splash pads, and fountains are shown but not scored.",
+        y - 0.255,
+    )
+    draw_callout_box(
+        info_ax,
+        "Caution",
+        "Classes are relative within Spokane County. Facility status, hours, capacity, and transit travel time are not modeled.",
+        y - 0.505,
+    )
+    info_ax.set_xlim(0, 1)
+    info_ax.set_ylim(0, 1)
 
     fig.text(
-        0.035,
+        0.045,
         0.006,
         "Sources: SRHD/Gonzaga Spokane Regional Cooling Resources; Census TIGER/Line 2024; Census Reporter ACS; FEMA National Risk Index.",
         ha="left",
