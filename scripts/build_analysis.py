@@ -854,17 +854,17 @@ def draw_component_chart(ax, top: pd.DataFrame, y0: float) -> None:
         ("A", "COOLING_ACCESS_SCORE", "#1f4e5f"),
     ]
     ax.text(0, y0, "Why They Rank High", fontsize=9.4, weight="bold", color="#222222", ha="left", va="top")
-    ax.text(0, y0 - 0.035, "All four reach maximum factor scores; mileage shows access severity.", fontsize=7.3, color="#4a4f52", ha="left", va="top")
+    ax.text(0, y0 - 0.036, "All four reach maximum factor scores; mileage shows access severity.", fontsize=7.3, color="#4a4f52", ha="left", va="top")
     legend_x = 0.0
     for label, _, color in factor_fields:
-        ax.add_patch(patches.Rectangle((legend_x, y0 - 0.075), 0.018, 0.016, transform=ax.transAxes, facecolor=color, edgecolor="none"))
-        ax.text(legend_x + 0.024, y0 - 0.066, label, transform=ax.transAxes, fontsize=6.8, color="#4a4f52", ha="left", va="center")
-        legend_x += 0.085
+        ax.add_patch(patches.Rectangle((legend_x, y0 - 0.098), 0.018, 0.016, transform=ax.transAxes, facecolor=color, edgecolor="none"))
+        ax.text(legend_x + 0.024, y0 - 0.089, label, transform=ax.transAxes, fontsize=6.8, color="#4a4f52", ha="left", va="center")
+        legend_x += 0.090
 
     bar_x = 0.18
     bar_w = 0.63
     bar_h = 0.018
-    row_y = y0 - 0.112
+    row_y = y0 - 0.138
     for rank, (_, row) in enumerate(top.iterrows(), start=1):
         ax.text(0.0, row_y + bar_h / 2, str(rank), fontsize=7.0, weight="bold", color="#1f4e5f", ha="left", va="center")
         left = bar_x
@@ -883,7 +883,7 @@ def draw_component_chart(ax, top: pd.DataFrame, y0: float) -> None:
             ha="left",
             va="center",
         )
-        row_y -= 0.033
+        row_y -= 0.036
 
 
 def draw_map(
@@ -898,8 +898,8 @@ def draw_map(
     urban_extent = (-117.50, 47.585, -117.22, 47.755)
     fig = plt.figure(figsize=(14, 9.5), facecolor="white")
     main_ax = fig.add_axes([0.045, 0.16, 0.61, 0.69])
-    county_ax = fig.add_axes([0.735, 0.66, 0.18, 0.22])
-    info_ax = fig.add_axes([0.70, 0.105, 0.285, 0.50])
+    county_ax = fig.add_axes([0.735, 0.705, 0.18, 0.18])
+    info_ax = fig.add_axes([0.70, 0.073, 0.285, 0.575])
     info_ax.axis("off")
 
     draw_layers(main_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, detail=True, labels=False)
@@ -963,14 +963,14 @@ def draw_map(
         va="top",
         linespacing=1.18,
     )
-    info_ax.text(0, 0.765, "Top Priority Tracts", fontsize=11.2, weight="bold", color="#222222", ha="left", va="top")
-    info_ax.text(0, 0.728, "Countywide rank; detail map labels visible top tracts.", fontsize=7.4, color="#4a4f52", ha="left", va="top")
-    info_ax.text(0.50, 0.690, "H", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
-    info_ax.text(0.57, 0.690, "S", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
-    info_ax.text(0.64, 0.690, "V", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
-    info_ax.text(0.71, 0.690, "A", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
-    info_ax.text(0.80, 0.690, "Total | mi", fontsize=7.4, weight="bold", color="#4a4f52", ha="left", va="top")
-    y = 0.650
+    info_ax.text(0, 0.775, "Top Priority Tracts", fontsize=11.2, weight="bold", color="#222222", ha="left", va="top")
+    info_ax.text(0, 0.741, "Countywide rank; detail map labels visible top tracts.", fontsize=7.4, color="#4a4f52", ha="left", va="top")
+    info_ax.text(0.50, 0.700, "H", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
+    info_ax.text(0.57, 0.700, "S", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
+    info_ax.text(0.64, 0.700, "V", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
+    info_ax.text(0.71, 0.700, "A", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
+    info_ax.text(0.80, 0.700, "Total | mi", fontsize=7.4, weight="bold", color="#4a4f52", ha="left", va="top")
+    y = 0.665
     for rank, (_, row) in enumerate(top.iterrows(), start=1):
         tract = row["NAME"].replace("Census Tract ", "").replace(", Spokane, WA", "")
         info_ax.text(
@@ -998,13 +998,13 @@ def draw_map(
             va="top",
             color="#4a4f52",
         )
-        y -= 0.058
+        y -= 0.056
 
     info_ax.plot([0, 1], [y + 0.023, y + 0.023], color="#d5d1c8", linewidth=0.8)
-    draw_component_chart(info_ax, top, y - 0.012)
+    draw_component_chart(info_ax, top, y - 0.018)
     info_ax.text(
         0,
-        0.130,
+        0.128,
         "H: heat | S: social vulnerability | V: vehicle-access barrier | A: cooling access. Each factor is scored 0-3.",
         fontsize=7.2,
         color="#4a4f52",
@@ -1012,10 +1012,10 @@ def draw_map(
         va="top",
         wrap=True,
     )
-    info_ax.text(0, 0.062, "Caution", fontsize=8.4, weight="bold", color="#222222", ha="left", va="top")
+    info_ax.text(0, 0.070, "Caution", fontsize=8.4, weight="bold", color="#222222", ha="left", va="top")
     info_ax.text(
         0,
-        0.032,
+        0.044,
         textwrap.fill("Distances use tract internal points. Facility status, hours, capacity, and transit travel time are not modeled.", 50),
         fontsize=7.1,
         color="#4a4f52",
