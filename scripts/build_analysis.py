@@ -839,7 +839,8 @@ def draw_grouped_legend(fig, colors: dict[str, str], class_counts: pd.Series) ->
 
     legend_ax.plot([0.70, 0.70], [0.04, 0.86], transform=legend_ax.transAxes, color="#ddd8cf", linewidth=0.8)
     heading(0.74, "Context")
-    marker_item(0.74, 0.58, "o", "#4fa7a0", "Supplemental resources", 26)
+    legend_ax.scatter([0.756], [0.58], transform=legend_ax.transAxes, s=26, marker="o", c="#4fa7a0", edgecolors="white", linewidths=0.6)
+    legend_ax.text(0.79, 0.58, "Supplemental resources", transform=legend_ax.transAxes, fontsize=7.2, color="#303437", ha="left", va="center")
     legend_ax.plot([0.744, 0.775], [0.30, 0.30], transform=legend_ax.transAxes, color="#9b9690", linewidth=1.2)
     legend_ax.text(0.79, 0.30, "Major roads", transform=legend_ax.transAxes, fontsize=7.2, color="#303437", ha="left", va="center")
     legend_ax.plot([0.744, 0.775], [0.02, 0.02], transform=legend_ax.transAxes, color="#1f4e5f", linewidth=2.0)
