@@ -62,10 +62,10 @@ PLACE_LABELS = [
 ]
 
 URBAN_LABELS = [
-    ("Downtown Spokane", -117.4235, 47.6588),
-    ("North Spokane", -117.421, 47.705),
-    ("Spokane Valley", -117.2394, 47.6732),
-    ("South Hill", -117.395, 47.628),
+    ("Downtown Spokane", -117.4235, 47.6588, 0, -950),
+    ("North Spokane", -117.421, 47.705, 0, 0),
+    ("Spokane Valley", -117.2394, 47.6732, 0, 0),
+    ("South Hill", -117.395, 47.628, 0, 0),
 ]
 
 
@@ -719,18 +719,18 @@ def draw_layers(
 
 
 def draw_urban_labels(ax) -> None:
-    for name, lon, lat in URBAN_LABELS:
+    for name, lon, lat, dx, dy in URBAN_LABELS:
         x, y = project_xy(lon, lat)
         ax.text(
-            x,
-            y,
+            x + dx,
+            y + dy,
             name,
             fontsize=7.5,
             color="#303437",
             ha="center",
             va="center",
             zorder=4,
-            bbox={"boxstyle": "round,pad=0.14", "facecolor": "white", "edgecolor": "none", "alpha": 0.54},
+            bbox={"boxstyle": "round,pad=0.16", "facecolor": "white", "edgecolor": "none", "alpha": 0.72},
         )
 
 
