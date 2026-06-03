@@ -898,7 +898,7 @@ def draw_map(
     urban_extent = (-117.50, 47.585, -117.22, 47.755)
     fig = plt.figure(figsize=(14, 9.5), facecolor="white")
     main_ax = fig.add_axes([0.045, 0.16, 0.61, 0.69])
-    county_ax = fig.add_axes([0.735, 0.705, 0.18, 0.18])
+    county_ax = fig.add_axes([0.735, 0.685, 0.18, 0.18])
     info_ax = fig.add_axes([0.70, 0.073, 0.285, 0.575])
     info_ax.axis("off")
 
