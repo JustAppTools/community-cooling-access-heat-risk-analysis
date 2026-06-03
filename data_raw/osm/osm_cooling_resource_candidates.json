@@ -1,0 +1,1106 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-06-03T19:23:00Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 3139518229,
+      "lat": 47.6738124,
+      "lon": -117.3614295,
+      "tags": {
+        "amenity": "library"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8436053006,
+      "lat": 47.6515772,
+      "lon": -117.3662576,
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "3016",
+        "addr:state": "WA",
+        "addr:street": "East 5th Avenue",
+        "amenity": "community_centre",
+        "name": "Jacobs Well Community Center"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9476509608,
+      "lat": 47.6933027,
+      "lon": -117.4374351,
+      "tags": {
+        "amenity": "community_centre",
+        "community_centre": "youth_centre",
+        "name": "IEYSA United Youth Soccer"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11363386716,
+      "lat": 47.6293923,
+      "lon": -117.6700037,
+      "tags": {
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11388891138,
+      "lat": 47.6952587,
+      "lon": -117.3730095,
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "4110",
+        "addr:postcode": "99207",
+        "addr:state": "WA",
+        "addr:street": "North Cook Street",
+        "amenity": "library",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Hillyard Library",
+        "opening_hours": "Mo-Th 09:00-19:00; Fr,Sa 10:00-17:00; Su 12:00-16:00",
+        "operator": "Spokane Library System",
+        "operator:type": "public",
+        "phone": "+1-509-444-5308",
+        "website": "https://www.spokanelibrary.org/hillyard/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11967084138,
+      "lat": 47.6717931,
+      "lon": -117.0942897,
+      "tags": {
+        "amenity": "library",
+        "name": "Liberty Lake Library"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12396829814,
+      "lat": 47.7889885,
+      "lon": -117.3218796,
+      "tags": {
+        "amenity": "library",
+        "name": "MSHS Library",
+        "operator": "MSHS",
+        "operator:type": "private"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12462415052,
+      "lat": 47.7176328,
+      "lon": -117.4366189,
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "1762",
+        "addr:state": "WA",
+        "addr:street": "West Five Mile Road",
+        "amenity": "library",
+        "internet_access": "no",
+        "name": "Five Mile Library Kiosk",
+        "opening_hours": "24/7",
+        "operator": "Spokane Public Library",
+        "operator:type": "public",
+        "operator:wikidata": "Q30258375",
+        "website": "https://www.spokanelibrary.org/five-mile"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12462415057,
+      "lat": 47.6152599,
+      "lon": -117.4288053,
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "4235",
+        "addr:state": "WA",
+        "addr:street": "South Cheney-Spokane Road",
+        "amenity": "library",
+        "building": "roof",
+        "internet_access": "no",
+        "layer": "1",
+        "name": "Latah Library Kiosk",
+        "opening_hours": "24/7",
+        "operator": "Spokane Public Library",
+        "operator:type": "public",
+        "operator:wikidata": "Q30258375",
+        "website": "https://www.spokanelibrary.org/latah/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12462415058,
+      "lat": 47.6836093,
+      "lon": -117.3960799,
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "2828",
+        "addr:state": "WA",
+        "addr:street": "North Nevada Street",
+        "amenity": "library",
+        "building": "roof",
+        "internet_access": "no",
+        "layer": "1",
+        "name": "Logan Library Kiosk",
+        "opening_hours": "24/7",
+        "operator": "Spokane Public Library",
+        "operator:type": "public",
+        "operator:wikidata": "Q30258375",
+        "website": "https://www.spokanelibrary.org/logan/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13736101557,
+      "lat": 47.8107946,
+      "lon": -117.5627977,
+      "tags": {
+        "addr:city": "Nine Mile Falls",
+        "addr:housenumber": "5919",
+        "addr:postcode": "99026",
+        "addr:state": "WA",
+        "addr:street": "WA 291",
+        "addr:unit": "2",
+        "air_conditioning": "yes",
+        "amenity": "library",
+        "check_date": "2026-05-15",
+        "check_date:internet_access": "2026-05-15",
+        "internet_access": "wlan;terminal",
+        "internet_access:fee": "customers",
+        "name": "Lakeside Library",
+        "opening_hours": "Mo-Fr 10:00-17:00",
+        "operator": "Libraries of Stevens County",
+        "operator:type": "government",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 40008650,
+      "center": {
+        "lat": 47.6665948,
+        "lon": -117.4007614
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:state": "WA",
+        "amenity": "library",
+        "building": "yes",
+        "check_date": "2023-06-30",
+        "name": "Foley Library",
+        "operator": "Gonzaga University",
+        "wikidata": "Q5464325"
+      }
+    },
+    {
+      "type": "way",
+      "id": 41588017,
+      "center": {
+        "lat": 47.6594245,
+        "lon": -117.4255171
+      },
+      "tags": {
+        "access": "yes",
+        "addr:city": "Spokane",
+        "addr:housenumber": "906",
+        "addr:postcode": "99201",
+        "addr:state": "WA",
+        "addr:street": "West Main Avenue",
+        "air_conditioning": "yes",
+        "amenity": "library",
+        "books": "adults;children",
+        "building": "civic",
+        "building:levels": "3",
+        "check_date": "2025-11-11",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Central Library",
+        "opening_hours": "Mo-Th 09:00-19:00; Fr-Sa 10:00-17:00; Su 12:00-16:00",
+        "operator": "Spokane Public Library",
+        "operator:type": "public",
+        "phone": "+1-509-444-5300",
+        "polling_station": "yes",
+        "website": "https://www.spokanelibrary.org/downtown/",
+        "wheelchair": "yes",
+        "wikidata": "Q69764663"
+      }
+    },
+    {
+      "type": "way",
+      "id": 44642940,
+      "center": {
+        "lat": 47.6243207,
+        "lon": -117.3906656
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "3324",
+        "addr:postcode": "99203",
+        "addr:state": "WA",
+        "addr:street": "South Perry Street",
+        "amenity": "library",
+        "building": "civic",
+        "name": "South Hill Library",
+        "operator": "Spokane Library System",
+        "phone": "+1-509-444-5385",
+        "website": "https://www.spokanelibrary.org/south-hill/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 190820520,
+      "center": {
+        "lat": 47.4905835,
+        "lon": -117.5839059
+      },
+      "tags": {
+        "addr:city": "Cheney",
+        "addr:housenumber": "320",
+        "addr:postcode": "99004",
+        "addr:state": "WA",
+        "addr:street": "Media Lane",
+        "air_conditioning": "yes",
+        "amenity": "library",
+        "baby_feeding": "room",
+        "building": "university",
+        "building:levels": "3",
+        "internet_access": "yes",
+        "name": "John F. Kennedy Library",
+        "operator": "Eastern Washington University",
+        "operator:type": "university",
+        "source": "Local_Knowledge"
+      }
+    },
+    {
+      "type": "way",
+      "id": 224780561,
+      "center": {
+        "lat": 47.7533361,
+        "lon": -117.4169675
+      },
+      "tags": {
+        "amenity": "library",
+        "building": "yes",
+        "internet_access": "wlan",
+        "name": "Harriet Cheney Cowles Memorial Library",
+        "operator": "Whitworth University",
+        "operator:type": "university"
+      }
+    },
+    {
+      "type": "way",
+      "id": 224786073,
+      "center": {
+        "lat": 47.6444819,
+        "lon": -117.5927129
+      },
+      "tags": {
+        "access": "yes",
+        "addr:housenumber": "1213",
+        "addr:street": "South Lundstrom Street",
+        "air_conditioning": "yes",
+        "amenity": "library",
+        "building": "yes",
+        "internet_access": "wlan",
+        "name": "Airway Heights Library",
+        "opening_hours": "Tu,Th 10:00-20:00; We,Sa 10:00-18:00",
+        "operator": "Spokane County Library District",
+        "phone": "+1-509-893-8250"
+      }
+    },
+    {
+      "type": "way",
+      "id": 224812053,
+      "center": {
+        "lat": 47.6739168,
+        "lon": -117.360021
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "college",
+        "community_centre": "student_union",
+        "name": "Lair Student Center",
+        "operator": "Spokane Colleges"
+      }
+    },
+    {
+      "type": "way",
+      "id": 225322530,
+      "center": {
+        "lat": 47.6768412,
+        "lon": -117.4635042
+      },
+      "tags": {
+        "addr:housenumber": "3410",
+        "addr:street": "West Whistalks Way",
+        "air_conditioning": "yes",
+        "amenity": "library",
+        "building": "college",
+        "building:levels": "2",
+        "internet_access": "yes",
+        "internet_access:fee": "customers",
+        "name": "Library",
+        "operator": "Spokane Colleges",
+        "roof:levels": "0"
+      }
+    },
+    {
+      "type": "way",
+      "id": 225511720,
+      "center": {
+        "lat": 47.6763852,
+        "lon": -117.4648747
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "college",
+        "building:levels": "1",
+        "community_centre": "student_union",
+        "name": "Student Union Building",
+        "operator": "Spokane Colleges",
+        "roof:levels": "0"
+      }
+    },
+    {
+      "type": "way",
+      "id": 254741159,
+      "center": {
+        "lat": 47.4885769,
+        "lon": -117.5743706
+      },
+      "tags": {
+        "addr:city": "Cheney",
+        "addr:housenumber": "610",
+        "addr:postcode": "99004",
+        "addr:state": "WA",
+        "addr:street": "1st Street",
+        "air_conditioning": "yes",
+        "amenity": "library",
+        "building": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Cheney Library",
+        "opening_hours": "Mo-We 10:00-20:00; Th-Sa 10:00-18:00; Su 13:00-17:00",
+        "operator": "Spokane County Library District",
+        "operator:type": "government",
+        "phone": "+1-509-893-8280"
+      }
+    },
+    {
+      "type": "way",
+      "id": 262970448,
+      "center": {
+        "lat": 47.4288947,
+        "lon": -117.3798826
+      },
+      "tags": {
+        "addr:city": "Spangle",
+        "addr:housenumber": "165",
+        "addr:state": "WA",
+        "addr:street": "North Main Street",
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Spangle Servcie Club"
+      }
+    },
+    {
+      "type": "way",
+      "id": 311323270,
+      "center": {
+        "lat": 47.6920742,
+        "lon": -117.4013782
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Boys & Girls Club of Spokane County"
+      }
+    },
+    {
+      "type": "way",
+      "id": 365743020,
+      "center": {
+        "lat": 47.7164336,
+        "lon": -116.9489462
+      },
+      "tags": {
+        "addr:city": "Post Falls",
+        "addr:housenumber": "821",
+        "addr:postcode": "83854",
+        "addr:state": "ID",
+        "addr:street": "North Spokane Street",
+        "amenity": "library",
+        "building": "yes",
+        "name": "Post Falls Library"
+      }
+    },
+    {
+      "type": "way",
+      "id": 412910839,
+      "center": {
+        "lat": 47.7002382,
+        "lon": -117.4423285
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housename": "Spokane Public Library",
+        "addr:housenumber": "2111",
+        "addr:postcode": "99205",
+        "addr:state": "WA",
+        "addr:street": "West Wellesley Avenue",
+        "amenity": "library",
+        "building": "civic",
+        "check_date": "2026-05-10",
+        "internet_access": "yes",
+        "name": "Shadle Library",
+        "opening_hours": "Su 12:00-16:00; Mo-Sa 09:00-18:00",
+        "operator": "Spokane Library System",
+        "phone": "+1-509-444-5390",
+        "website": "https://www.spokanelibrary.org/shadle/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 414058475,
+      "center": {
+        "lat": 47.6547549,
+        "lon": -117.4304339
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "1222",
+        "addr:postcode": "99201",
+        "addr:state": "WA",
+        "addr:street": "West 2nd Avenue",
+        "amenity": "community_centre",
+        "building": "yes",
+        "community_centre:for": "senior",
+        "name": "Meals on Wheels",
+        "phone": "+1-509-747-3257",
+        "website": "https://www.mowspokane.org/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 419616288,
+      "center": {
+        "lat": 47.7404277,
+        "lon": -117.4825843
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "4090",
+        "addr:postcode": "99208",
+        "addr:state": "WA",
+        "addr:street": "West Barnes Road",
+        "amenity": "library",
+        "building": "civic",
+        "building:levels": "1",
+        "internet_access": "wlan",
+        "name": "Indian Trail Library",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Spokane Library System",
+        "phone": "+1-509-444-5395",
+        "roof:levels": "0",
+        "website": "https://www.spokanelibrary.org/indian-trail/",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422897575,
+      "center": {
+        "lat": 47.6314719,
+        "lon": -117.363747
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "3151",
+        "addr:postcode": "99223",
+        "addr:state": "WA",
+        "addr:street": "East 27th Avenue",
+        "amenity": "community_centre",
+        "building": "government",
+        "name": "South Side Community Center",
+        "operator": "Spokane Parks",
+        "phone": "+1-509-535-0803",
+        "source": "esri/Spokane_WA_Buildings",
+        "website": "https://southsidescc.org/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 435914238,
+      "center": {
+        "lat": 47.6699678,
+        "lon": -117.8802375
+      },
+      "tags": {
+        "addr:city": "Reardan",
+        "addr:housenumber": "120",
+        "addr:postcode": "99029",
+        "addr:street": "North Lake Street",
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Reardan Community Hall"
+      }
+    },
+    {
+      "type": "way",
+      "id": 438775635,
+      "center": {
+        "lat": 47.8568418,
+        "lon": -117.6432773
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Tum Tum Community Center"
+      }
+    },
+    {
+      "type": "way",
+      "id": 443838376,
+      "center": {
+        "lat": 47.6570217,
+        "lon": -117.4462106
+      },
+      "tags": {
+        "amenity": "library",
+        "building": "yes",
+        "name": "Joel E. Ferris Library & Archive"
+      }
+    },
+    {
+      "type": "way",
+      "id": 444682035,
+      "center": {
+        "lat": 47.6594907,
+        "lon": -117.4323657
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "214",
+        "addr:state": "WA",
+        "addr:street": "North Cedar Street",
+        "amenity": "community_centre",
+        "building": "yes",
+        "building:levels": "1",
+        "check_date": "2024-09-14",
+        "name": "Recovery Cafe Spokane"
+      }
+    },
+    {
+      "type": "way",
+      "id": 446729879,
+      "center": {
+        "lat": 47.2368587,
+        "lon": -117.3700251
+      },
+      "tags": {
+        "addr:city": "Rosalia",
+        "addr:country": "US",
+        "addr:housenumber": "402",
+        "addr:postcode": "99170",
+        "addr:state": "WA",
+        "addr:street": "South Whitman Avenue",
+        "amenity": "library",
+        "building": "yes",
+        "email": "rosalia@whitcolib.org",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "internet_access:ssid": "WCL-Librarynet",
+        "name": "Alice Porter Memorial Library",
+        "operator": "Whitman County Rural Library District",
+        "operator:type": "public",
+        "phone": "+1-509-523-3109",
+        "website": "https://www.whitcolib.org/about/locations-and-hours/rosalia-library/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 450040002,
+      "center": {
+        "lat": 47.670519,
+        "lon": -117.4293863
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "1125",
+        "addr:postcode": "99201",
+        "addr:state": "WA",
+        "addr:street": "West Sinto Avenue",
+        "amenity": "community_centre",
+        "building": "yes",
+        "building:levels": "2",
+        "community_centre:for": "senior",
+        "name": "Sinto Senior Activity Center",
+        "operator": "Spokane Parks and Recreation",
+        "phone": "+1-509-327-2861",
+        "website": "http://www.sintocenter.com/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 460458898,
+      "center": {
+        "lat": 47.6483825,
+        "lon": -117.4195962
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "507",
+        "addr:postcode": "99205",
+        "addr:state": "WA",
+        "addr:street": "West 7th Avenue",
+        "amenity": "community_centre",
+        "building": "public",
+        "check_date": "2024-12-17",
+        "name": "Corbin Art Center",
+        "old_name": "D. C. Corbin House",
+        "phone": "+1-509-625-6677",
+        "website": "https://my.spokanecity.org/recreation/corbin-art/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 461976961,
+      "center": {
+        "lat": 47.5994621,
+        "lon": -117.3695767
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:country": "US",
+        "addr:housenumber": "6004",
+        "addr:postcode": "99223",
+        "addr:state": "WA",
+        "addr:street": "South Regal Street",
+        "amenity": "library",
+        "building": "yes",
+        "name": "Moran Prairie Library",
+        "opening_hours": "Mo-We 10:00-20:00; Th-Sa 10:00-18:00; Su 13:00-17:00",
+        "operator": "Spokane County Library District",
+        "phone": "+1-509-893-8340",
+        "website": "https://www.scld.org/locations/moran-prairie/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 466044082,
+      "center": {
+        "lat": 47.6705524,
+        "lon": -117.4390761
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "The Native Project"
+      }
+    },
+    {
+      "type": "way",
+      "id": 496407753,
+      "center": {
+        "lat": 47.6691144,
+        "lon": -117.881672
+      },
+      "tags": {
+        "addr:city": "Reardan",
+        "addr:housenumber": "120",
+        "addr:postcode": "99029",
+        "addr:state": "WA",
+        "addr:street": "South Oak Street",
+        "amenity": "library",
+        "building": "yes",
+        "contact:email": "library@townofreardan.com",
+        "name": "Rearden Memorial Library",
+        "phone": "+1-509-994-9997",
+        "website": "https://www.reardan.lib.wa.us/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 502360259,
+      "center": {
+        "lat": 47.6964123,
+        "lon": -117.2819535
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "4322",
+        "addr:postcode": "99212",
+        "addr:state": "WA",
+        "addr:street": "N Argonne Road",
+        "amenity": "library",
+        "building": "yes",
+        "name": "Argonne Library",
+        "opening_hours": "Mo-We 10:00-20:00; Th-Sa 10:00-18:00",
+        "operator": "Spokane County Library District",
+        "phone": "+1-509-893-8260",
+        "website": "https://www.scld.org/hours-and-locations/argonne/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 514161151,
+      "center": {
+        "lat": 47.6999369,
+        "lon": -117.1059055
+      },
+      "tags": {
+        "addr:city": "Otis Orchards-East Farms",
+        "addr:housenumber": "22324",
+        "addr:postcode": "99027",
+        "addr:street": "East Wellesley Avenue",
+        "amenity": "library",
+        "building": "yes",
+        "name": "Otis Orchards Library",
+        "opening_hours": "Tu,We 10:00-20:00; Th,Sa 10:00-18:00",
+        "operator": "Spokane County Library District",
+        "phone": "+1-509-893-8390",
+        "source": "local knowledge"
+      }
+    },
+    {
+      "type": "way",
+      "id": 578787609,
+      "center": {
+        "lat": 47.3855783,
+        "lon": -117.1701518
+      },
+      "tags": {
+        "addr:housenumber": "305",
+        "addr:street": "East Main Street",
+        "amenity": "library",
+        "building": "yes",
+        "name": "Fairfield Library",
+        "opening_hours": "Tu 10:00-20:00; Th,Sa 10:00-18:00",
+        "phone": "+1-509-893-8320"
+      }
+    },
+    {
+      "type": "way",
+      "id": 638838515,
+      "center": {
+        "lat": 47.571247,
+        "lon": -117.6788843
+      },
+      "tags": {
+        "addr:housenumber": "321",
+        "addr:street": "East Herb Street",
+        "amenity": "library",
+        "building": "yes",
+        "building:levels": "1",
+        "name": "Medical Lake Library",
+        "opening_hours": "Mo,We 10:00-20:00; Tu,Sa 10:00-18:00",
+        "phone": "+1-509-893-8330",
+        "roof:levels": "1",
+        "roof:shape": "gabled"
+      }
+    },
+    {
+      "type": "way",
+      "id": 837614251,
+      "center": {
+        "lat": 47.6511761,
+        "lon": -117.3775609
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "yes",
+        "ele": "580",
+        "gnis:feature_id": "1504654",
+        "name": "East Central Community Center",
+        "website": "http://www.ecspokane.org/",
+        "wikidata": "Q49485335"
+      }
+    },
+    {
+      "type": "way",
+      "id": 845873212,
+      "center": {
+        "lat": 48.0149277,
+        "lon": -116.9811203
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "yes",
+        "building:levels": "1",
+        "name": "Blanchard Grange Hall"
+      }
+    },
+    {
+      "type": "way",
+      "id": 846595046,
+      "center": {
+        "lat": 48.014343,
+        "lon": -116.9787585
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Blanchard Community Center"
+      }
+    },
+    {
+      "type": "way",
+      "id": 863470209,
+      "center": {
+        "lat": 47.9521109,
+        "lon": -117.4608702
+      },
+      "tags": {
+        "addr:city": "Deer Park",
+        "addr:housenumber": "208",
+        "addr:postcode": "99006",
+        "addr:state": "WA",
+        "addr:street": "South Forest Avenue",
+        "amenity": "library",
+        "building": "civic",
+        "check_date:opening_hours": "2022-07-21",
+        "name": "Deer Park Library",
+        "opening_hours": "Mo-We 10:00-20:00; Th-Sa 10:00-18:00; Su 13:00-17:00",
+        "phone": "+1-509-893-8300"
+      }
+    },
+    {
+      "type": "way",
+      "id": 881513207,
+      "center": {
+        "lat": 48.0625455,
+        "lon": -117.6329515
+      },
+      "tags": {
+        "amenity": "library",
+        "building": "yes",
+        "name": "Loon Lake Library"
+      }
+    },
+    {
+      "type": "way",
+      "id": 881803499,
+      "center": {
+        "lat": 47.9964489,
+        "lon": -117.5607837
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Clayton Grange 456"
+      }
+    },
+    {
+      "type": "way",
+      "id": 942791968,
+      "center": {
+        "lat": 47.7507737,
+        "lon": -117.4089965
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "44",
+        "addr:state": "WA",
+        "addr:street": "East Hawthorne Road",
+        "amenity": "library",
+        "building": "yes",
+        "name": "North Spokane Library",
+        "opening_hours": "Mo-Th 09:00-20:00; Fr,Sa 09:00-18:00; Su 13:00-17:00",
+        "phone": "+1-509-893-8350"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1002136634,
+      "center": {
+        "lat": 47.6523574,
+        "lon": -117.3851072
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "402",
+        "addr:postcode": "99202",
+        "addr:state": "WA",
+        "addr:street": "South Pittsburg Street",
+        "amenity": "library",
+        "building": "civic",
+        "building:levels": "1",
+        "name": "Liberty Park Library",
+        "opening_hours": "Mo-Th 09:00-19:00; Fr 10:00-17:00; Su 12:00-16:00",
+        "operator": "Spokane Library System",
+        "phone": "+1-509-444-5300",
+        "website": "https://www.spokanelibrary.org/liberty-park/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1021840334,
+      "center": {
+        "lat": 47.3990997,
+        "lon": -116.9149027
+      },
+      "tags": {
+        "addr:housenumber": "160",
+        "addr:state": "ID",
+        "addr:street": "Mitch Michael Drive",
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Worley Longhouse"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1021840337,
+      "center": {
+        "lat": 47.401051,
+        "lon": -116.9200876
+      },
+      "tags": {
+        "addr:city": "Worley",
+        "addr:housenumber": "9824",
+        "addr:state": "ID",
+        "addr:street": "West F Street",
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Worley Grange"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1042076562,
+      "center": {
+        "lat": 47.6447086,
+        "lon": -117.3896818
+      },
+      "tags": {
+        "addr:state": "WA",
+        "amenity": "community_centre",
+        "building": "yes",
+        "community_centre:for": "lgbtq",
+        "lgbtq": "primary",
+        "name": "Odyssey Youth Movement",
+        "source": "esri/Spokane_WA_Buildings",
+        "website": "https://www.odysseyyouth.org/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1133153564,
+      "center": {
+        "lat": 47.6575517,
+        "lon": -117.2685747
+      },
+      "tags": {
+        "addr:city": "Spokane Valley",
+        "addr:housenumber": "22",
+        "addr:postcode": "99206",
+        "addr:state": "WA",
+        "addr:street": "North Herald Road",
+        "amenity": "library",
+        "building": "yes",
+        "name": "Spokane Valley Library",
+        "opening_hours": "Mo-Th 09:00-20:00; Fr,Sa 09:00-18:00; Su 13:00-17:00",
+        "operator": "Spokane County Library District",
+        "phone": "+1-509-893-8400"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1347241322,
+      "center": {
+        "lat": 47.6724784,
+        "lon": -117.44352
+      },
+      "tags": {
+        "addr:city": "Spokane",
+        "addr:housenumber": "1603",
+        "addr:state": "WA",
+        "addr:street": "North Belt Street",
+        "amenity": "library",
+        "building": "roof",
+        "internet_access": "wlan",
+        "layer": "1",
+        "name": "West Central Library Kiosk",
+        "opening_hours": "24/7",
+        "operator": "Spokane Public Library",
+        "operator:type": "public",
+        "operator:wikidata": "Q30258375",
+        "website": "https://www.spokanelibrary.org/west-central"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1355423852,
+      "center": {
+        "lat": 47.222587,
+        "lon": -117.0733362
+      },
+      "tags": {
+        "amenity": "library",
+        "building": "yes",
+        "name": "Tekoa Museum & Library"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1454018136,
+      "center": {
+        "lat": 47.8594318,
+        "lon": -117.2940553
+      },
+      "tags": {
+        "addr:city": "Chattaroy",
+        "addr:housenumber": "8216",
+        "addr:postcode": "99003",
+        "addr:state": "WA",
+        "addr:street": "East Big Meadows Road",
+        "amenity": "community_centre",
+        "building": "yes",
+        "community_centre": "village_hall",
+        "name": "Old Valley Prairie Hall"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1514106053,
+      "center": {
+        "lat": 47.3849929,
+        "lon": -117.1702567
+      },
+      "tags": {
+        "addr:city": "Fairfield",
+        "addr:housenumber": "304",
+        "addr:postcode": "99012",
+        "addr:state": "WA",
+        "addr:street": "East Main Street",
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "Fairfield Community Center"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 6711802,
+      "center": {
+        "lat": 47.6725923,
+        "lon": -117.4433169
+      },
+      "tags": {
+        "amenity": "community_centre",
+        "building": "yes",
+        "name": "West Central Community Center",
+        "operator": "Spokane Parks and Recreation",
+        "type": "multipolygon"
+      }
+    }
+  ]
+}

@@ -10,13 +10,13 @@ The planned unit of analysis is Census tracts or block groups within the selecte
 
 ## Core Inputs
 
-Planned input categories:
+Input categories used in the first build:
 
-- Study boundary: county or city boundary.
-- Cooling resources: libraries, community centers, parks, official cooling centers, public shelters, or other public facilities.
-- Vulnerable population indicators: older adults, young children, poverty, disability, limited English, no vehicle access, or CDC/ATSDR SVI percentile.
-- Heat exposure indicators: developed land, impervious surface, low tree canopy proxy, or FEMA heat-wave risk context.
-- Access context: distance to nearest cooling resource and count of resources within a defined travel buffer.
+- Study boundary: Spokane County, Washington.
+- Cooling resources: OpenStreetMap libraries and community centres, clipped to Spokane County.
+- Vulnerable population indicators: ACS poverty, age-sensitive population, no-vehicle households, and FEMA National Risk Index social vulnerability score.
+- Heat context: FEMA National Risk Index heat-wave risk score and heat-wave annualized frequency.
+- Access context: centroid distance to nearest cooling-resource candidate and counts within 3 and 5 miles.
 
 ## Processing Steps
 
@@ -33,12 +33,12 @@ Planned input categories:
 
 ## Candidate Score Design
 
-The starter score can use a simple additive model:
+The first-build score uses a simple additive model:
 
-- Heat exposure concern: 1 to 3
-- Social vulnerability concern: 1 to 3
-- No-vehicle or transportation-barrier concern: 1 to 3
-- Cooling-resource distance concern: 1 to 3
+- FEMA heat-wave risk concern: 1 to 3
+- FEMA social vulnerability concern: 1 to 3
+- ACS no-vehicle household concern: 1 to 3
+- Nearest cooling-resource distance concern: 1 to 3
 
 Final score range: 4 to 12.
 
@@ -48,9 +48,9 @@ Candidate final classes:
 - Medium: 7 to 9
 - High: 10 to 12
 
-Breaks should be reviewed after the actual data distribution is known. Tertiles are acceptable for portfolio screening, but clearly state that they are relative within the study area.
+The first build uses tertile breaks within Spokane County. These classes are relative screening classes, not absolute public-health thresholds.
 
-## Planned Outputs
+## Outputs
 
 The final map should show:
 
@@ -66,6 +66,14 @@ Supporting outputs may include:
 - Bar chart of concern-class counts.
 - Small locator map or inset.
 
+Current outputs:
+
+- `outputs/maps/spokane_cooling_access_heat_risk_map.png`
+- `outputs/maps/spokane_cooling_access_heat_risk_map.pdf`
+- `outputs/figures/concern_class_counts.png`
+- `data_processed/cooling_heat_risk_tract_summary.csv`
+- `outputs/high_concern_tracts.csv`
+
 ## Limitations
 
-The project does not measure indoor temperature, household air-conditioning access, real-time cooling-center activation, travel time, transit schedules, building capacity, operating hours, or individual health outcomes. Distances should be interpreted as screening indicators only.
+The project does not measure indoor temperature, household air-conditioning access, real-time cooling-center activation, travel time, transit schedules, building capacity, operating hours, or individual health outcomes. Distances are centroid-based straight-line distances and should be interpreted as screening indicators only.

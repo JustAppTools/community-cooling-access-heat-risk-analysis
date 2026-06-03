@@ -11,10 +11,14 @@ Demographics and social vulnerability
   https://learn.arcgis.com/en/paths/census-acs-living-atlas/
 - Census data portal:
   https://data.census.gov/
+- Census Reporter API:
+  https://api.censusreporter.org/
 - CDC/ATSDR Social Vulnerability Index:
   https://www.atsdr.cdc.gov/place-health/php/svi/index.html
 - CDC Social Vulnerability FeatureServer example:
   https://services.arcgis.com/F7DSX1DSNSiWmOqh/arcgis/rest/services/CDC_Social_Vulnerability/FeatureServer
+- FEMA National Risk Index Census Tracts FeatureServer:
+  https://services.arcgis.com/XG15cJAlne2vxtgt/arcgis/rest/services/National_Risk_Index_Census_Tracts/FeatureServer/0
 
 Heat and land-cover context
 - Multi-Resolution Land Characteristics Consortium NLCD:
@@ -27,6 +31,8 @@ Heat and land-cover context
 Cooling resources and public facilities
 - Spokane Public Library locations:
   https://www.spokanelibrary.org/locations/
+- OpenStreetMap Overpass API:
+  https://overpass-api.de/
 - Spokane County GIS and open data starting point:
   https://www.spokanecounty.org/1211/Geographic-Information-Systems-GIS
 - City of Spokane GIS/open data starting point:

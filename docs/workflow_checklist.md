@@ -6,32 +6,32 @@
 - [x] Clone repository locally.
 - [x] Create ArcGIS Pro project folder structure.
 - [x] Add starter README, methodology, and data-source references.
-- [ ] Confirm final study area.
-- [ ] Create or verify ArcGIS Pro `.aprx` and file geodatabase.
+- [x] Confirm first-build study area.
+- [x] Create or verify ArcGIS Pro `.aprx` and file geodatabase.
 
 ## Data Acquisition
 
-- [ ] Download or connect to study boundary.
-- [ ] Collect Census/ACS demographic variables.
-- [ ] Add CDC/ATSDR SVI layer or table.
-- [ ] Add heat-exposure layer such as NLCD land cover or impervious surface.
-- [ ] Collect public cooling-resource candidates.
-- [ ] Document source dates and access URLs.
+- [x] Download or connect to study boundary.
+- [x] Collect Census/ACS demographic variables.
+- [x] Add FEMA NRI social vulnerability fields.
+- [x] Add FEMA NRI heat-wave risk fields.
+- [x] Collect public cooling-resource candidates.
+- [x] Document source dates and access URLs.
 
 ## Analysis
 
-- [ ] Project all local analysis layers.
-- [ ] Clip layers to study area.
-- [ ] Clean and categorize cooling resources.
-- [ ] Calculate nearest cooling-resource distance.
-- [ ] Summarize resource counts within selected distance thresholds.
-- [ ] Build concern-score fields.
+- [x] Project all local analysis layers.
+- [x] Clip layers to study area.
+- [x] Clean and categorize cooling resources.
+- [x] Calculate nearest cooling-resource distance.
+- [x] Summarize resource counts within selected distance thresholds.
+- [x] Build concern-score fields.
 - [ ] Review outliers and data-quality issues.
 
 ## Outputs
 
-- [ ] Create final map layout.
-- [ ] Export map to PNG and PDF.
-- [ ] Create ranked high-concern table.
-- [ ] Update README with final results.
-- [ ] Add limitations and version notes.
+- [x] Create first map layout.
+- [x] Export map to PNG and PDF.
+- [x] Create ranked high-concern table.
+- [x] Update README with final results.
+- [x] Add limitations and version notes.
