@@ -34,5 +34,7 @@
 - [x] Export map to PNG and PDF.
 - [x] Create ranked high-concern table.
 - [x] Create top high-concern tract chart.
+- [x] Create cooling access distance map.
+- [x] Create largest access-gap chart.
 - [x] Update README with final results.
 - [x] Add limitations and version notes.

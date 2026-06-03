@@ -51,8 +51,10 @@ Current workflow:
 - File geodatabase: `data_processed/Community_Cooling_Access_Heat_Risk.gdb`
 - Final map export: `outputs/maps/spokane_cooling_access_heat_risk_map.png`
 - Final map PDF: `outputs/maps/spokane_cooling_access_heat_risk_map.pdf`
+- Cooling access distance map: `outputs/maps/spokane_cooling_access_distance_map.png`
 - Concern-class chart: `outputs/figures/concern_class_counts.png`
 - Top high-concern tract chart: `outputs/figures/top_high_concern_tracts.png`
+- Largest access-gap chart: `outputs/figures/largest_access_gaps.png`
 - Tract summary: `data_processed/cooling_heat_risk_tract_summary.csv`
 - Ranked high-concern table: `outputs/high_concern_tracts.csv`
 - Reproducible build script: `scripts/build_analysis.py`
@@ -61,13 +63,24 @@ Current workflow:
 
 ![Cooling access and heat risk screening map](outputs/maps/spokane_cooling_access_heat_risk_map.png)
 
+![Cooling center access distance map](outputs/maps/spokane_cooling_access_distance_map.png)
+
 ![Concern class counts](outputs/figures/concern_class_counts.png)
 
 ![Top high-concern tracts](outputs/figures/top_high_concern_tracts.png)
 
+![Largest cooling access gaps](outputs/figures/largest_access_gaps.png)
+
 ## Results Summary
 
 The improved analysis build includes 130 Spokane County Census tracts, 34 cooling centers/spaces used for access scoring, and 235 total mapped cooling resources. Supplemental resources include 92 parks, 69 drinking fountains, 26 splash pads, and 14 public pools.
+
+The main map includes a key finding callout and H/S/V/A component scores for the top priority tracts:
+
+- H: FEMA heat-wave risk concern
+- S: FEMA social vulnerability concern
+- V: ACS no-vehicle household concern
+- A: cooling-center/space access-distance concern
 
 Concern class counts:
 

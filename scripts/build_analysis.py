@@ -369,6 +369,17 @@ def fetch_gonzaga_cooling_resources(county_fc: Path) -> tuple[Path, Path]:
     return primary_resources, all_resources
 
 
+def facility_group(resource_type: str | None) -> str:
+    text = (resource_type or "").lower()
+    if "library" in text:
+        return "Library"
+    if "senior" in text:
+        return "Senior/community"
+    if "community" in text or "recreation" in text:
+        return "Community/recreation"
+    return "Other cooling space"
+
+
 def percentile_scores(values: pd.Series) -> pd.Series:
     cleaned = pd.to_numeric(values, errors="coerce").fillna(0)
     q1 = cleaned.quantile(1 / 3)
@@ -615,11 +626,17 @@ def draw_layers(
 
     if resources:
         supplemental_x, supplemental_y = [], []
-        primary_x, primary_y = [], []
-        for geom, access_use in arcpy.da.SearchCursor(str(all_resources_fc), ["SHAPE@", "AccessUse"]):
+        primary_by_group = {
+            "Library": ([], []),
+            "Community/recreation": ([], []),
+            "Senior/community": ([], []),
+            "Other cooling space": ([], []),
+        }
+        for geom, access_use, resource_type in arcpy.da.SearchCursor(str(all_resources_fc), ["SHAPE@", "AccessUse", "ResourceType"]):
             if access_use == 1:
-                primary_x.append(geom.centroid.X)
-                primary_y.append(geom.centroid.Y)
+                xs, ys = primary_by_group[facility_group(resource_type)]
+                xs.append(geom.centroid.X)
+                ys.append(geom.centroid.Y)
             else:
                 supplemental_x.append(geom.centroid.X)
                 supplemental_y.append(geom.centroid.Y)
@@ -633,16 +650,24 @@ def draw_layers(
             alpha=0.42 if detail else 0.28,
             zorder=5,
         )
-        ax.scatter(
-            primary_x,
-            primary_y,
-            s=52 if detail else 26,
-            marker="P",
-            c="#155e8a",
-            edgecolors="white",
-            linewidths=0.75,
-            zorder=6,
-        )
+        symbol_specs = {
+            "Library": {"marker": "P", "color": "#155e8a", "size": 54},
+            "Community/recreation": {"marker": "s", "color": "#206f5b", "size": 42},
+            "Senior/community": {"marker": "^", "color": "#6f4e9b", "size": 48},
+            "Other cooling space": {"marker": "D", "color": "#9a5a20", "size": 38},
+        }
+        for group, (xs, ys) in primary_by_group.items():
+            spec = symbol_specs[group]
+            ax.scatter(
+                xs,
+                ys,
+                s=spec["size"] if detail else spec["size"] * 0.55,
+                marker=spec["marker"],
+                c=spec["color"],
+                edgecolors="white",
+                linewidths=0.75,
+                zorder=6,
+            )
 
     for geom in arcpy.da.SearchCursor(str(county_fc), ["SHAPE@"]):
         for part in polygon_parts(geom[0]):
@@ -732,54 +757,73 @@ def draw_map(
         patches.Patch(facecolor=colors["Low"], edgecolor="white", label=f"Low concern ({class_counts['Low']})"),
         patches.Patch(facecolor=colors["Medium"], edgecolor="white", label=f"Medium concern ({class_counts['Medium']})"),
         patches.Patch(facecolor=colors["High"], edgecolor="white", label=f"High concern ({class_counts['High']})"),
-        mlines.Line2D([], [], color="#155e8a", marker="P", linestyle="None", markersize=8, label="Cooling centers/spaces"),
-        mlines.Line2D([], [], color="#4fa7a0", marker="o", linestyle="None", markersize=6, alpha=0.55, label="Supplemental resources"),
+        mlines.Line2D([], [], color="#155e8a", marker="P", linestyle="None", markersize=7, label="Libraries"),
+        mlines.Line2D([], [], color="#206f5b", marker="s", linestyle="None", markersize=6, label="Community/rec"),
+        mlines.Line2D([], [], color="#6f4e9b", marker="^", linestyle="None", markersize=7, label="Senior/community"),
+        mlines.Line2D([], [], color="#9a5a20", marker="D", linestyle="None", markersize=6, label="Other cooling spaces"),
+        mlines.Line2D([], [], color="#4fa7a0", marker="o", linestyle="None", markersize=5, alpha=0.55, label="Supplemental resources"),
         mlines.Line2D([], [], color="#9b9690", linewidth=1.2, label="Major roads"),
     ]
     fig.legend(
         handles=legend_items,
         loc="lower center",
         bbox_to_anchor=(0.39, 0.055),
-        ncol=3,
+        ncol=5,
         frameon=False,
-        fontsize=8.5,
+        fontsize=7.7,
     )
 
     top = summary.head(5).copy()
-    info_ax.text(0, 1.0, "Top Priority Tracts", fontsize=11.5, weight="bold", color="#222222", ha="left", va="top")
-    y = 0.925
+    info_ax.text(0, 1.0, "Key Finding", fontsize=11.5, weight="bold", color="#222222", ha="left", va="top")
+    info_ax.text(
+        0,
+        0.94,
+        textwrap.fill(
+            "Highest-ranked tracts combine high heat-wave risk, social vulnerability, vehicle-access barriers, and cooling-center distance.",
+            50,
+        ),
+        fontsize=8.3,
+        color="#3f4447",
+        ha="left",
+        va="top",
+        linespacing=1.22,
+    )
+    info_ax.text(0, 0.785, "Top Priority Tracts", fontsize=11.5, weight="bold", color="#222222", ha="left", va="top")
+    info_ax.text(0.50, 0.785, "H/S/V/A", fontsize=7.8, weight="bold", color="#4a4f52", ha="left", va="top")
+    y = 0.725
     for _, row in top.iterrows():
         tract = row["NAME"].replace("Census Tract ", "").replace(", Spokane, WA", "")
         info_ax.text(0, y, f"Tract {tract}", fontsize=8.8, weight="bold", ha="left", va="top", color="#222222")
+        components = (
+            f'{int(row["HEAT_CONCERN_SCORE"])}/'
+            f'{int(row["SOVI_CONCERN_SCORE"])}/'
+            f'{int(row["TRANSPORT_BARRIER_SCORE"])}/'
+            f'{int(row["COOLING_ACCESS_SCORE"])}'
+        )
+        info_ax.text(0.50, y, components, fontsize=8.3, ha="left", va="top", color="#4a4f52")
         info_ax.text(
-            0.52,
+            0.70,
             y,
             f'Score {int(row["FINAL_CONCERN_SCORE"])} | {row["NEAREST_COOLING_MI"]:.1f} mi',
-            fontsize=8.6,
+            fontsize=8.3,
             ha="left",
             va="top",
             color="#4a4f52",
         )
-        y -= 0.072
+        y -= 0.06
 
     info_ax.plot([0, 1], [y + 0.02, y + 0.02], color="#d5d1c8", linewidth=0.8)
     draw_callout_box(
         info_ax,
         "Score",
-        "Heat-wave risk, social vulnerability, no-vehicle households, and distance to nearest cooling center/space.",
+        "H/S/V/A columns show heat, social vulnerability, vehicle-access barrier, and cooling-access component scores.",
         y - 0.025,
     )
     draw_callout_box(
         info_ax,
-        "Access",
-        "Distances use Census tract internal points. Supplemental parks, pools, splash pads, and fountains are shown but not scored.",
-        y - 0.255,
-    )
-    draw_callout_box(
-        info_ax,
         "Caution",
-        "Classes are relative within Spokane County. Facility status, hours, capacity, and transit travel time are not modeled.",
-        y - 0.505,
+        "Distances use Census tract internal points. Classes are relative within Spokane County. Facility status, hours, capacity, and transit travel time are not modeled.",
+        y - 0.205,
     )
     info_ax.set_xlim(0, 1)
     info_ax.set_ylim(0, 1)
@@ -840,6 +884,147 @@ def draw_top_tracts_chart(summary: pd.DataFrame) -> None:
     plt.close(fig)
 
 
+def access_distance_class(distance: float | None) -> str:
+    if distance is None or pd.isna(distance):
+        return "No value"
+    if distance <= 1.5:
+        return "0-1.5 mi"
+    if distance <= 3:
+        return "1.5-3 mi"
+    if distance <= 5:
+        return "3-5 mi"
+    return ">5 mi"
+
+
+def draw_access_distance_map(
+    tracts_fc: Path,
+    county_fc: Path,
+    roads_fc: Path,
+    all_resources_fc: Path,
+    summary: pd.DataFrame,
+) -> None:
+    colors = {
+        "0-1.5 mi": "#d9f0d3",
+        "1.5-3 mi": "#f6e3a1",
+        "3-5 mi": "#e8a16f",
+        ">5 mi": "#b85852",
+        "No value": "#dddddd",
+    }
+    fig = plt.figure(figsize=(11, 8), facecolor="white")
+    ax = fig.add_axes([0.055, 0.13, 0.72, 0.74])
+    info_ax = fig.add_axes([0.80, 0.18, 0.16, 0.62])
+    info_ax.axis("off")
+
+    ax.set_facecolor("#f8f7f2")
+    for geom, distance in arcpy.da.SearchCursor(str(tracts_fc), ["SHAPE@", "NEAREST_COOLING_MI"]):
+        cls = access_distance_class(distance)
+        for part in polygon_parts(geom):
+            ax.add_patch(
+                patches.Polygon(
+                    part,
+                    closed=True,
+                    facecolor=colors[cls],
+                    edgecolor="#ffffff",
+                    linewidth=0.45,
+                    zorder=1,
+                )
+            )
+
+    for geom, mtfcc in arcpy.da.SearchCursor(str(roads_fc), ["SHAPE@", "MTFCC"]):
+        color = "#8e8b85" if mtfcc == "S1100" else "#c2bdb5"
+        width = 0.9 if mtfcc == "S1100" else 0.45
+        for part in line_parts(geom):
+            xs, ys = zip(*part)
+            ax.plot(xs, ys, color=color, linewidth=width, alpha=0.58, zorder=3)
+
+    primary_by_group = {
+        "Library": ([], []),
+        "Community/recreation": ([], []),
+        "Senior/community": ([], []),
+        "Other cooling space": ([], []),
+    }
+    for geom, access_use, resource_type in arcpy.da.SearchCursor(str(all_resources_fc), ["SHAPE@", "AccessUse", "ResourceType"]):
+        if access_use == 1:
+            xs, ys = primary_by_group[facility_group(resource_type)]
+            xs.append(geom.centroid.X)
+            ys.append(geom.centroid.Y)
+    symbol_specs = {
+        "Library": {"marker": "P", "color": "#155e8a", "size": 54},
+        "Community/recreation": {"marker": "s", "color": "#206f5b", "size": 42},
+        "Senior/community": {"marker": "^", "color": "#6f4e9b", "size": 48},
+        "Other cooling space": {"marker": "D", "color": "#9a5a20", "size": 38},
+    }
+    for group, (xs, ys) in primary_by_group.items():
+        spec = symbol_specs[group]
+        ax.scatter(xs, ys, s=spec["size"], marker=spec["marker"], c=spec["color"], edgecolors="white", linewidths=0.75, zorder=6)
+
+    for geom in arcpy.da.SearchCursor(str(county_fc), ["SHAPE@"]):
+        for part in polygon_parts(geom[0]):
+            ax.add_patch(patches.Polygon(part, closed=True, fill=False, edgecolor="#2f3437", linewidth=1.0, zorder=7))
+
+    set_extent_from_wgs(ax, -117.52, 47.58, -117.18, 47.76)
+    ax.set_aspect("equal")
+    ax.axis("off")
+    draw_scale_bar(ax, 5, location=(0.055, 0.055))
+
+    fig.text(0.055, 0.94, "Cooling Center/Space Access Distance", fontsize=18, weight="bold", ha="left")
+    fig.text(
+        0.055,
+        0.91,
+        "Straight-line distance from Census tract internal point to nearest Gonzaga/SRHD cooling center or cooling space",
+        fontsize=9,
+        color="#4a4f52",
+        ha="left",
+    )
+
+    counts = summary["NEAREST_COOLING_MI"].apply(access_distance_class).value_counts().reindex(
+        ["0-1.5 mi", "1.5-3 mi", "3-5 mi", ">5 mi"]
+    ).fillna(0).astype(int)
+    info_ax.text(0, 1, "Distance Classes", fontsize=11, weight="bold", ha="left", va="top")
+    y = 0.90
+    for label in ["0-1.5 mi", "1.5-3 mi", "3-5 mi", ">5 mi"]:
+        info_ax.add_patch(patches.Rectangle((0, y - 0.035), 0.14, 0.035, facecolor=colors[label], edgecolor="none"))
+        info_ax.text(0.18, y - 0.017, f"{label} ({counts[label]})", fontsize=8.6, ha="left", va="center")
+        y -= 0.08
+    info_ax.text(
+        0,
+        y - 0.02,
+        textwrap.fill("This map isolates physical proximity only. It does not include heat, vulnerability, transit, operating hours, or facility capacity.", 33),
+        fontsize=8.2,
+        color="#3f4447",
+        ha="left",
+        va="top",
+        linespacing=1.25,
+    )
+    fig.text(
+        0.055,
+        0.025,
+        "Sources: SRHD/Gonzaga Spokane Regional Cooling Resources; Census TIGER/Line 2024.",
+        ha="left",
+        fontsize=7.5,
+        color="#4a4f52",
+    )
+    fig.savefig(MAPS / "spokane_cooling_access_distance_map.png", dpi=220)
+    fig.savefig(MAPS / "spokane_cooling_access_distance_map.pdf")
+    plt.close(fig)
+
+
+def draw_access_gap_chart(summary: pd.DataFrame) -> None:
+    top = summary.sort_values("NEAREST_COOLING_MI", ascending=False).head(10).sort_values("NEAREST_COOLING_MI")
+    labels = top["NAME"].str.replace(", Spokane, WA", "", regex=False)
+    fig, ax = plt.subplots(figsize=(8.4, 5.2))
+    ax.barh(labels, top["NEAREST_COOLING_MI"], color="#e8a16f", edgecolor="#2f3437", linewidth=0.5)
+    ax.set_xlabel("Miles to nearest cooling center/space")
+    ax.set_title("Largest Cooling Center/Space Access Gaps", fontsize=13, weight="bold", loc="left")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.grid(axis="x", alpha=0.25)
+    for y, (_, row) in enumerate(top.iterrows()):
+        ax.text(row["NEAREST_COOLING_MI"] + 0.12, y, f'{row["NEAREST_COOLING_MI"]:.1f} mi', va="center", fontsize=8.5, color="#4a4f52")
+    fig.tight_layout()
+    fig.savefig(FIGURES / "largest_access_gaps.png", dpi=220)
+    plt.close(fig)
+
+
 def main() -> None:
     ensure_dirs()
     arcpy.env.workspace = str(GDB)
@@ -853,14 +1038,18 @@ def main() -> None:
     primary_resources_fc, all_resources_fc = fetch_gonzaga_cooling_resources(county_fc)
     summary = build_summary(tracts_fc, primary_resources_fc, acs, nri)
     draw_map(tracts_fc, county_fc, roads_fc, primary_resources_fc, all_resources_fc, summary)
+    draw_access_distance_map(tracts_fc, county_fc, roads_fc, all_resources_fc, summary)
     draw_chart(summary)
     draw_top_tracts_chart(summary)
+    draw_access_gap_chart(summary)
 
     print(f"Created {PROCESSED / 'cooling_heat_risk_tract_summary.csv'}")
     print(f"Created {OUTPUTS / 'high_concern_tracts.csv'}")
     print(f"Created {MAPS / 'spokane_cooling_access_heat_risk_map.png'}")
+    print(f"Created {MAPS / 'spokane_cooling_access_distance_map.png'}")
     print(f"Created {FIGURES / 'concern_class_counts.png'}")
     print(f"Created {FIGURES / 'top_high_concern_tracts.png'}")
+    print(f"Created {FIGURES / 'largest_access_gaps.png'}")
 
 
 if __name__ == "__main__":

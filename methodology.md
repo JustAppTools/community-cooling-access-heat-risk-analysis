@@ -71,10 +71,15 @@ Current outputs:
 
 - `outputs/maps/spokane_cooling_access_heat_risk_map.png`
 - `outputs/maps/spokane_cooling_access_heat_risk_map.pdf`
+- `outputs/maps/spokane_cooling_access_distance_map.png`
+- `outputs/maps/spokane_cooling_access_distance_map.pdf`
 - `outputs/figures/concern_class_counts.png`
 - `outputs/figures/top_high_concern_tracts.png`
+- `outputs/figures/largest_access_gaps.png`
 - `data_processed/cooling_heat_risk_tract_summary.csv`
 - `outputs/high_concern_tracts.csv`
+
+The H/S/V/A shorthand used in the map callout means heat-wave risk, social vulnerability, vehicle-access barrier, and cooling-access distance.
 
 ## Limitations
 
