@@ -660,11 +660,11 @@ def draw_layers(
         ax.scatter(
             supplemental_x,
             supplemental_y,
-            s=8 if detail else 5,
+            s=6 if detail else 4,
             c="#4fa7a0",
             edgecolors="white",
-            linewidths=0.18,
-            alpha=0.26 if detail else 0.18,
+            linewidths=0.12,
+            alpha=0.18 if detail else 0.12,
             zorder=5,
         )
         symbol_specs = {
@@ -678,11 +678,21 @@ def draw_layers(
             ax.scatter(
                 xs,
                 ys,
+                s=(spec["size"] if detail else spec["size"] * 0.55) * 1.62,
+                marker=spec["marker"],
+                c="white",
+                edgecolors="white",
+                linewidths=0,
+                zorder=5.8,
+            )
+            ax.scatter(
+                xs,
+                ys,
                 s=spec["size"] if detail else spec["size"] * 0.55,
                 marker=spec["marker"],
                 c=spec["color"],
                 edgecolors="white",
-                linewidths=0.75,
+                linewidths=0.95,
                 zorder=6,
             )
 
@@ -733,6 +743,7 @@ def draw_top_tract_outlines(
     halo_width: float = 3.2,
     badge_font: float = 7.4,
     badge_pad: float = 0.22,
+    show_badges: bool = True,
 ) -> None:
     top_order = {str(row.GEOID): idx for idx, row in enumerate(summary.head(4).itertuples(), start=1)}
     x0, x1 = ax.get_xlim()
@@ -771,7 +782,7 @@ def draw_top_tract_outlines(
         if visible_points:
             label_x = sum(x for x, _ in visible_points) / len(visible_points)
             label_y = sum(y for _, y in visible_points) / len(visible_points)
-        if x0 <= label_x <= x1 and y0 <= label_y <= y1:
+        if show_badges and x0 <= label_x <= x1 and y0 <= label_y <= y1:
             ax.text(
                 label_x,
                 label_y,
@@ -798,7 +809,7 @@ def draw_callout_box(ax, title: str, body: str, y: float) -> None:
 
 
 def draw_grouped_legend(fig, colors: dict[str, str], class_counts: pd.Series) -> None:
-    legend_ax = fig.add_axes([0.10, 0.066, 0.60, 0.075])
+    legend_ax = fig.add_axes([0.055, 0.073, 0.62, 0.072])
     legend_ax.axis("off")
 
     def heading(x: float, label: str) -> None:
@@ -835,6 +846,46 @@ def draw_grouped_legend(fig, colors: dict[str, str], class_counts: pd.Series) ->
     legend_ax.text(0.79, 0.02, "Top priority tract", transform=legend_ax.transAxes, fontsize=7.2, color="#303437", ha="left", va="center")
 
 
+def draw_component_chart(ax, top: pd.DataFrame, y0: float) -> None:
+    factor_fields = [
+        ("H", "HEAT_CONCERN_SCORE", "#b85852"),
+        ("S", "SOVI_CONCERN_SCORE", "#6f4e9b"),
+        ("V", "TRANSPORT_BARRIER_SCORE", "#d99a31"),
+        ("A", "COOLING_ACCESS_SCORE", "#1f4e5f"),
+    ]
+    ax.text(0, y0, "Why They Rank High", fontsize=9.4, weight="bold", color="#222222", ha="left", va="top")
+    ax.text(0, y0 - 0.035, "All four reach maximum factor scores; mileage shows access severity.", fontsize=7.3, color="#4a4f52", ha="left", va="top")
+    legend_x = 0.0
+    for label, _, color in factor_fields:
+        ax.add_patch(patches.Rectangle((legend_x, y0 - 0.075), 0.018, 0.016, transform=ax.transAxes, facecolor=color, edgecolor="none"))
+        ax.text(legend_x + 0.024, y0 - 0.066, label, transform=ax.transAxes, fontsize=6.8, color="#4a4f52", ha="left", va="center")
+        legend_x += 0.085
+
+    bar_x = 0.18
+    bar_w = 0.63
+    bar_h = 0.018
+    row_y = y0 - 0.112
+    for rank, (_, row) in enumerate(top.iterrows(), start=1):
+        ax.text(0.0, row_y + bar_h / 2, str(rank), fontsize=7.0, weight="bold", color="#1f4e5f", ha="left", va="center")
+        left = bar_x
+        for _, field, color in factor_fields:
+            width = bar_w * (float(row[field]) / 12.0)
+            ax.add_patch(
+                patches.Rectangle((left, row_y), width, bar_h, transform=ax.transAxes, facecolor=color, edgecolor="white", linewidth=0.35)
+            )
+            left += width
+        ax.text(
+            bar_x + bar_w + 0.035,
+            row_y + bar_h / 2,
+            f'{int(row["FINAL_CONCERN_SCORE"])}',
+            fontsize=7.0,
+            color="#4a4f52",
+            ha="left",
+            va="center",
+        )
+        row_y -= 0.033
+
+
 def draw_map(
     tracts_fc: Path,
     county_fc: Path,
@@ -844,7 +895,7 @@ def draw_map(
     summary: pd.DataFrame,
 ) -> None:
     colors = {"Low": "#dceff4", "Medium": "#f5cf7a", "High": "#b85852"}
-    urban_extent = (-117.52, 47.58, -117.18, 47.76)
+    urban_extent = (-117.50, 47.585, -117.22, 47.755)
     fig = plt.figure(figsize=(14, 9.5), facecolor="white")
     main_ax = fig.add_axes([0.045, 0.16, 0.61, 0.69])
     county_ax = fig.add_axes([0.735, 0.66, 0.18, 0.22])
@@ -853,7 +904,7 @@ def draw_map(
 
     draw_layers(main_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, detail=True, labels=False)
     set_extent_from_wgs(main_ax, *urban_extent)
-    draw_top_tract_outlines(main_ax, tracts_fc, summary)
+    draw_top_tract_outlines(main_ax, tracts_fc, summary, outline_width=1.7, halo_width=2.8, badge_font=6.8, badge_pad=0.16)
     draw_urban_labels(main_ax)
     main_ax.set_title("Spokane Urban Core Detail", fontsize=12, weight="bold", loc="left", pad=5)
 
@@ -877,7 +928,7 @@ def draw_map(
     pad_y = (extent.YMax - extent.YMin) * 0.04
     county_ax.set_xlim(extent.XMin - pad_x, extent.XMax + pad_x)
     county_ax.set_ylim(extent.YMin - pad_y, extent.YMax + pad_y)
-    draw_top_tract_outlines(county_ax, tracts_fc, summary, outline_width=1.1, halo_width=2.0, badge_font=5.3, badge_pad=0.12)
+    draw_top_tract_outlines(county_ax, tracts_fc, summary, outline_width=1.1, halo_width=2.0, show_badges=False)
     draw_scale_bar(main_ax, 5, location=(0.62, 0.07))
     draw_north_arrow(main_ax)
 
@@ -903,7 +954,7 @@ def draw_map(
         0,
         0.935,
         textwrap.fill(
-            "This screening flags places where heat exposure and cooling-access gaps stack together. The highest-ranked tracts are mostly outer urban or edge areas, not just the downtown core.",
+            "Use the ranked tracts to target cooling outreach, pop-up cooling options, and site verification where heat exposure and access gaps stack together.",
             46,
         ),
         fontsize=8.0,
@@ -913,10 +964,13 @@ def draw_map(
         linespacing=1.18,
     )
     info_ax.text(0, 0.765, "Top Priority Tracts", fontsize=11.2, weight="bold", color="#222222", ha="left", va="top")
-    info_ax.text(0, 0.728, "Countywide rank; numbers match the map and inset.", fontsize=7.4, color="#4a4f52", ha="left", va="top")
-    info_ax.text(0.50, 0.690, "Score factors", fontsize=7.4, weight="bold", color="#4a4f52", ha="left", va="top")
-    info_ax.text(0.78, 0.690, "Total | mi", fontsize=7.4, weight="bold", color="#4a4f52", ha="left", va="top")
-    y = 0.648
+    info_ax.text(0, 0.728, "Countywide rank; detail map labels visible top tracts.", fontsize=7.4, color="#4a4f52", ha="left", va="top")
+    info_ax.text(0.50, 0.690, "H", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
+    info_ax.text(0.57, 0.690, "S", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
+    info_ax.text(0.64, 0.690, "V", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
+    info_ax.text(0.71, 0.690, "A", fontsize=7.4, weight="bold", color="#4a4f52", ha="center", va="top")
+    info_ax.text(0.80, 0.690, "Total | mi", fontsize=7.4, weight="bold", color="#4a4f52", ha="left", va="top")
+    y = 0.650
     for rank, (_, row) in enumerate(top.iterrows(), start=1):
         tract = row["NAME"].replace("Census Tract ", "").replace(", Spokane, WA", "")
         info_ax.text(
@@ -931,15 +985,12 @@ def draw_map(
             bbox={"boxstyle": "round,pad=0.18", "facecolor": "#1f4e5f", "edgecolor": "none", "alpha": 0.96},
         )
         info_ax.text(0.06, y, f"Tract {tract}", fontsize=8.5, weight="bold", ha="left", va="top", color="#222222")
-        components = (
-            f'{int(row["HEAT_CONCERN_SCORE"])}/'
-            f'{int(row["SOVI_CONCERN_SCORE"])}/'
-            f'{int(row["TRANSPORT_BARRIER_SCORE"])}/'
-            f'{int(row["COOLING_ACCESS_SCORE"])}'
-        )
-        info_ax.text(0.50, y, components, fontsize=8.0, ha="left", va="top", color="#4a4f52")
+        info_ax.text(0.50, y, f'{int(row["HEAT_CONCERN_SCORE"])}', fontsize=8.0, ha="center", va="top", color="#4a4f52")
+        info_ax.text(0.57, y, f'{int(row["SOVI_CONCERN_SCORE"])}', fontsize=8.0, ha="center", va="top", color="#4a4f52")
+        info_ax.text(0.64, y, f'{int(row["TRANSPORT_BARRIER_SCORE"])}', fontsize=8.0, ha="center", va="top", color="#4a4f52")
+        info_ax.text(0.71, y, f'{int(row["COOLING_ACCESS_SCORE"])}', fontsize=8.0, ha="center", va="top", color="#4a4f52")
         info_ax.text(
-            0.78,
+            0.80,
             y,
             f'{int(row["FINAL_CONCERN_SCORE"])} | {row["NEAREST_COOLING_MI"]:.1f}',
             fontsize=8.0,
@@ -947,20 +998,30 @@ def draw_map(
             va="top",
             color="#4a4f52",
         )
-        y -= 0.066
+        y -= 0.058
 
-    info_ax.plot([0, 1], [y + 0.025, y + 0.025], color="#d5d1c8", linewidth=0.8)
-    draw_callout_box(
-        info_ax,
-        "Score",
-        "Score factors are heat, social vulnerability, vehicle-access barrier, and cooling access; each is scored 0-3.",
-        y - 0.01,
+    info_ax.plot([0, 1], [y + 0.023, y + 0.023], color="#d5d1c8", linewidth=0.8)
+    draw_component_chart(info_ax, top, y - 0.012)
+    info_ax.text(
+        0,
+        0.130,
+        "H: heat | S: social vulnerability | V: vehicle-access barrier | A: cooling access. Each factor is scored 0-3.",
+        fontsize=7.2,
+        color="#4a4f52",
+        ha="left",
+        va="top",
+        wrap=True,
     )
-    draw_callout_box(
-        info_ax,
-        "Caution",
-        "Distances use tract internal points. Classes are relative. Facility status, hours, capacity, and transit travel time are not modeled.",
-        y - 0.175,
+    info_ax.text(0, 0.062, "Caution", fontsize=8.4, weight="bold", color="#222222", ha="left", va="top")
+    info_ax.text(
+        0,
+        0.032,
+        textwrap.fill("Distances use tract internal points. Facility status, hours, capacity, and transit travel time are not modeled.", 50),
+        fontsize=7.1,
+        color="#4a4f52",
+        ha="left",
+        va="top",
+        linespacing=1.15,
     )
     info_ax.set_xlim(0, 1)
     info_ax.set_ylim(0, 1)
@@ -971,8 +1032,17 @@ def draw_map(
         "Sources: SRHD/Gonzaga Spokane Regional Cooling Resources; Census TIGER/Line 2024; Census Reporter ACS; FEMA National Risk Index.",
         ha="left",
         va="bottom",
-        fontsize=7.5,
-        color="#4a4f52",
+        fontsize=6.8,
+        color="#6b7175",
+    )
+    fig.text(
+        0.985,
+        0.006,
+        "By: Victor Suarez | (c) 2026 Victor Suarez",
+        ha="right",
+        va="bottom",
+        fontsize=6.8,
+        color="#6b7175",
     )
 
     fig.savefig(MAPS / "spokane_cooling_access_heat_risk_map.png", dpi=220)
