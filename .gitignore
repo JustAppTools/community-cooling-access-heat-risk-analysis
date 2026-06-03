@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ArcGIS Pro local/session files
+*.lock
+*.sr.lock
+*.aprx.lock
+*.tmp
+*.bak
+
+# Local exports that can be regenerated
+outputs/temp/
+data_raw/downloads/
+data_processed/ImportLog/

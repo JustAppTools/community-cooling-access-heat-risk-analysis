@@ -1,0 +1,39 @@
+Community Cooling Access & Heat Risk Analysis - Working Data Sources
+
+Study boundary and roads
+- U.S. Census TIGER/Line Shapefiles:
+  https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+- TIGER/Line 2024 Roads:
+  https://www.census.gov/cgi-bin/geo/shapefiles/index.php?layergroup=Roads&year=2024
+
+Demographics and social vulnerability
+- ArcGIS Living Atlas ACS learning path:
+  https://learn.arcgis.com/en/paths/census-acs-living-atlas/
+- Census data portal:
+  https://data.census.gov/
+- CDC/ATSDR Social Vulnerability Index:
+  https://www.atsdr.cdc.gov/place-health/php/svi/index.html
+- CDC Social Vulnerability FeatureServer example:
+  https://services.arcgis.com/F7DSX1DSNSiWmOqh/arcgis/rest/services/CDC_Social_Vulnerability/FeatureServer
+
+Heat and land-cover context
+- Multi-Resolution Land Characteristics Consortium NLCD:
+  https://www.mrlc.gov/
+- FEMA National Risk Index data resources:
+  https://hazards.fema.gov/nri/data-resources
+- FEMA National Risk Index heat-wave context:
+  https://hazards.fema.gov/nri/
+
+Cooling resources and public facilities
+- Spokane Public Library locations:
+  https://www.spokanelibrary.org/locations/
+- Spokane County GIS and open data starting point:
+  https://www.spokanecounty.org/1211/Geographic-Information-Systems-GIS
+- City of Spokane GIS/open data starting point:
+  https://my.spokanecity.org/opendata/
+- HIFLD Open overview:
+  https://www.arcgis.com/home/item.html?id=a887fea190a84bd493eb6a3de0cbf99e
+
+Basemap and cartographic context
+- Esri Living Atlas:
+  https://livingatlas.arcgis.com/
