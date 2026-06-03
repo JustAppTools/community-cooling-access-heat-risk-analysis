@@ -62,6 +62,13 @@ PLACE_LABELS = [
     ("Liberty Lake", -117.1182, 47.6759),
 ]
 
+URBAN_LABELS = [
+    ("Downtown Spokane", -117.4235, 47.6588),
+    ("North Spokane", -117.421, 47.705),
+    ("Spokane Valley", -117.2394, 47.6732),
+    ("South Hill", -117.395, 47.628),
+]
+
 
 def ensure_dirs() -> None:
     for path in [
@@ -547,10 +554,23 @@ def draw_scale_bar(ax, miles: int = 5, *, location: tuple[float, float] = (0.06,
     start_x = x0 + (x1 - x0) * location[0]
     start_y = y0 + (y1 - y0) * location[1]
     tick = (y1 - y0) * 0.012
-    ax.plot([start_x, start_x + length], [start_y, start_y], color="#333333", linewidth=1.8, solid_capstyle="butt", zorder=20)
-    ax.plot([start_x, start_x], [start_y - tick, start_y + tick], color="#333333", linewidth=1.0, zorder=20)
-    ax.plot([start_x + length, start_x + length], [start_y - tick, start_y + tick], color="#333333", linewidth=1.0, zorder=20)
-    ax.text(start_x + length / 2, start_y + tick * 1.7, f"{miles} mi", ha="center", va="bottom", fontsize=7.5, color="#333333", zorder=20)
+    pad_x = (x1 - x0) * 0.012
+    pad_y = (y1 - y0) * 0.018
+    ax.add_patch(
+        patches.Rectangle(
+            (start_x - pad_x, start_y - pad_y),
+            length + pad_x * 2,
+            pad_y * 3.0,
+            facecolor="white",
+            edgecolor="none",
+            alpha=0.72,
+            zorder=19,
+        )
+    )
+    ax.plot([start_x, start_x + length], [start_y, start_y], color="#3f4447", linewidth=1.35, solid_capstyle="butt", zorder=20)
+    ax.plot([start_x, start_x], [start_y - tick, start_y + tick], color="#3f4447", linewidth=0.8, zorder=20)
+    ax.plot([start_x + length, start_x + length], [start_y - tick, start_y + tick], color="#3f4447", linewidth=0.8, zorder=20)
+    ax.text(start_x + length / 2, start_y + tick * 1.45, f"{miles} mi", ha="center", va="bottom", fontsize=7.2, color="#3f4447", zorder=20)
 
 
 def draw_north_arrow(ax) -> None:
@@ -643,11 +663,11 @@ def draw_layers(
         ax.scatter(
             supplemental_x,
             supplemental_y,
-            s=11 if detail else 7,
+            s=8 if detail else 5,
             c="#4fa7a0",
             edgecolors="white",
-            linewidths=0.25,
-            alpha=0.42 if detail else 0.28,
+            linewidths=0.18,
+            alpha=0.26 if detail else 0.18,
             zorder=5,
         )
         symbol_specs = {
@@ -691,6 +711,41 @@ def draw_layers(
     ax.axis("off")
 
 
+def draw_urban_labels(ax) -> None:
+    for name, lon, lat in URBAN_LABELS:
+        x, y = project_xy(lon, lat)
+        ax.text(
+            x,
+            y,
+            name,
+            fontsize=7.5,
+            color="#303437",
+            ha="center",
+            va="center",
+            zorder=24,
+            bbox={"boxstyle": "round,pad=0.14", "facecolor": "white", "edgecolor": "none", "alpha": 0.62},
+        )
+
+
+def draw_top_tract_outlines(ax, tracts_fc: Path, summary: pd.DataFrame) -> None:
+    top_geoids = set(summary.head(4)["GEOID"])
+    for geoid, geom in arcpy.da.SearchCursor(str(tracts_fc), ["GEOID", "SHAPE@"]):
+        if geoid not in top_geoids:
+            continue
+        for part in polygon_parts(geom):
+            ax.add_patch(
+                patches.Polygon(
+                    part,
+                    closed=True,
+                    fill=False,
+                    edgecolor="#3b2e2a",
+                    linewidth=1.25,
+                    alpha=0.92,
+                    zorder=22,
+                )
+            )
+
+
 def draw_callout_box(ax, title: str, body: str, y: float) -> None:
     ax.text(0, y, title, fontsize=9.2, weight="bold", color="#222222", ha="left", va="top")
     ax.text(0, y - 0.052, textwrap.fill(body, 44), fontsize=7.8, color="#3f4447", ha="left", va="top", linespacing=1.2)
@@ -714,6 +769,8 @@ def draw_map(
 
     draw_layers(main_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, detail=True, labels=False)
     set_extent_from_wgs(main_ax, *urban_extent)
+    draw_top_tract_outlines(main_ax, tracts_fc, summary)
+    draw_urban_labels(main_ax)
     main_ax.set_title("Spokane Urban Core Detail", fontsize=12, weight="bold", loc="left", pad=5)
 
     draw_layers(county_ax, tracts_fc, county_fc, roads_fc, all_resources_fc, detail=False, labels=False, resources=False)
@@ -779,7 +836,7 @@ def draw_map(
         0,
         0.935,
         textwrap.fill(
-            "Highest-ranked tracts combine high heat-wave risk, social vulnerability, vehicle-access barriers, and cooling-center distance.",
+            "Highest-ranked tracts appear in outer urban and edge areas where vulnerability, vehicle-access barriers, and cooling-center distance overlap.",
             46,
         ),
         fontsize=8.0,
@@ -816,7 +873,7 @@ def draw_map(
     draw_callout_box(
         info_ax,
         "Score",
-        "H/S/V/A means heat, social vulnerability, vehicle-access barrier, and cooling access.",
+        "H/S/V/A: heat, social vulnerability, vehicle-access barrier, and cooling access.",
         y - 0.01,
     )
     draw_callout_box(
