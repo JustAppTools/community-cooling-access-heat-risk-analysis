@@ -17,7 +17,6 @@ from pathlib import Path
 
 import arcpy
 import matplotlib.pyplot as plt
-import matplotlib.lines as mlines
 import matplotlib.patches as patches
 import pandas as pd
 import requests
@@ -554,23 +553,21 @@ def draw_scale_bar(ax, miles: int = 5, *, location: tuple[float, float] = (0.06,
     start_x = x0 + (x1 - x0) * location[0]
     start_y = y0 + (y1 - y0) * location[1]
     tick = (y1 - y0) * 0.012
-    pad_x = (x1 - x0) * 0.012
-    pad_y = (y1 - y0) * 0.018
-    ax.add_patch(
-        patches.Rectangle(
-            (start_x - pad_x, start_y - pad_y),
-            length + pad_x * 2,
-            pad_y * 3.0,
-            facecolor="white",
-            edgecolor="none",
-            alpha=0.72,
-            zorder=19,
-        )
-    )
+    ax.plot([start_x, start_x + length], [start_y, start_y], color="white", linewidth=3.1, solid_capstyle="butt", zorder=19)
     ax.plot([start_x, start_x + length], [start_y, start_y], color="#3f4447", linewidth=1.35, solid_capstyle="butt", zorder=20)
     ax.plot([start_x, start_x], [start_y - tick, start_y + tick], color="#3f4447", linewidth=0.8, zorder=20)
     ax.plot([start_x + length, start_x + length], [start_y - tick, start_y + tick], color="#3f4447", linewidth=0.8, zorder=20)
-    ax.text(start_x + length / 2, start_y + tick * 1.45, f"{miles} mi", ha="center", va="bottom", fontsize=7.2, color="#3f4447", zorder=20)
+    ax.text(
+        start_x + length / 2,
+        start_y + tick * 1.45,
+        f"{miles} mi",
+        ha="center",
+        va="bottom",
+        fontsize=7.2,
+        color="#303437",
+        bbox={"boxstyle": "round,pad=0.08", "facecolor": "white", "edgecolor": "none", "alpha": 0.72},
+        zorder=20,
+    )
 
 
 def draw_north_arrow(ax) -> None:
@@ -722,33 +719,120 @@ def draw_urban_labels(ax) -> None:
             color="#303437",
             ha="center",
             va="center",
-            zorder=24,
-            bbox={"boxstyle": "round,pad=0.14", "facecolor": "white", "edgecolor": "none", "alpha": 0.62},
+            zorder=4,
+            bbox={"boxstyle": "round,pad=0.14", "facecolor": "white", "edgecolor": "none", "alpha": 0.54},
         )
 
 
-def draw_top_tract_outlines(ax, tracts_fc: Path, summary: pd.DataFrame) -> None:
-    top_geoids = set(summary.head(4)["GEOID"])
+def draw_top_tract_outlines(
+    ax,
+    tracts_fc: Path,
+    summary: pd.DataFrame,
+    *,
+    outline_width: float = 1.9,
+    halo_width: float = 3.2,
+    badge_font: float = 7.4,
+    badge_pad: float = 0.22,
+) -> None:
+    top_order = {str(row.GEOID): idx for idx, row in enumerate(summary.head(4).itertuples(), start=1)}
+    x0, x1 = ax.get_xlim()
+    y0, y1 = ax.get_ylim()
     for geoid, geom in arcpy.da.SearchCursor(str(tracts_fc), ["GEOID", "SHAPE@"]):
-        if geoid not in top_geoids:
+        rank = top_order.get(str(geoid))
+        if rank is None:
             continue
+        visible_points = []
         for part in polygon_parts(geom):
+            visible_points.extend([(x, y) for x, y in part if x0 <= x <= x1 and y0 <= y <= y1])
             ax.add_patch(
                 patches.Polygon(
                     part,
                     closed=True,
                     fill=False,
-                    edgecolor="#3b2e2a",
-                    linewidth=1.25,
-                    alpha=0.92,
+                    edgecolor="white",
+                    linewidth=halo_width,
+                    alpha=0.9,
+                    zorder=21,
+                )
+            )
+            ax.add_patch(
+                patches.Polygon(
+                    part,
+                    closed=True,
+                    fill=False,
+                    edgecolor="#1f4e5f",
+                    linewidth=outline_width,
+                    alpha=0.98,
                     zorder=22,
                 )
+            )
+        anchor = geom.centroid
+        label_x, label_y = anchor.X, anchor.Y
+        if visible_points:
+            label_x = sum(x for x, _ in visible_points) / len(visible_points)
+            label_y = sum(y for _, y in visible_points) / len(visible_points)
+        if x0 <= label_x <= x1 and y0 <= label_y <= y1:
+            ax.text(
+                label_x,
+                label_y,
+                str(rank),
+                fontsize=badge_font,
+                weight="bold",
+                color="white",
+                ha="center",
+                va="center",
+                bbox={
+                    "boxstyle": f"round,pad={badge_pad}",
+                    "facecolor": "#1f4e5f",
+                    "edgecolor": "white",
+                    "linewidth": 0.7,
+                    "alpha": 0.96,
+                },
+                zorder=25,
             )
 
 
 def draw_callout_box(ax, title: str, body: str, y: float) -> None:
     ax.text(0, y, title, fontsize=9.2, weight="bold", color="#222222", ha="left", va="top")
     ax.text(0, y - 0.052, textwrap.fill(body, 44), fontsize=7.8, color="#3f4447", ha="left", va="top", linespacing=1.2)
+
+
+def draw_grouped_legend(fig, colors: dict[str, str], class_counts: pd.Series) -> None:
+    legend_ax = fig.add_axes([0.10, 0.066, 0.60, 0.075])
+    legend_ax.axis("off")
+
+    def heading(x: float, label: str) -> None:
+        legend_ax.text(x, 0.92, label, transform=legend_ax.transAxes, fontsize=7.4, weight="bold", color="#222222", ha="left", va="top")
+
+    def patch_item(x: float, y: float, color: str, label: str) -> None:
+        legend_ax.add_patch(
+            patches.Rectangle((x, y - 0.07), 0.025, 0.12, transform=legend_ax.transAxes, facecolor=color, edgecolor="white", linewidth=0.5)
+        )
+        legend_ax.text(x + 0.034, y, label, transform=legend_ax.transAxes, fontsize=7.2, color="#303437", ha="left", va="center")
+
+    def marker_item(x: float, y: float, marker: str, color: str, label: str, size: float = 36) -> None:
+        legend_ax.scatter([x + 0.012], [y], transform=legend_ax.transAxes, s=size, marker=marker, c=color, edgecolors="white", linewidths=0.6)
+        legend_ax.text(x + 0.034, y, label, transform=legend_ax.transAxes, fontsize=7.2, color="#303437", ha="left", va="center")
+
+    heading(0.00, "Concern class")
+    patch_item(0.00, 0.58, colors["Low"], f"Low ({class_counts['Low']})")
+    patch_item(0.00, 0.30, colors["Medium"], f"Medium ({class_counts['Medium']})")
+    patch_item(0.00, 0.02, colors["High"], f"High ({class_counts['High']})")
+
+    legend_ax.plot([0.245, 0.245], [0.04, 0.86], transform=legend_ax.transAxes, color="#ddd8cf", linewidth=0.8)
+    heading(0.28, "Scored cooling resources")
+    marker_item(0.28, 0.58, "P", "#155e8a", "Libraries", 42)
+    marker_item(0.28, 0.30, "s", "#206f5b", "Community/rec", 34)
+    marker_item(0.50, 0.58, "^", "#6f4e9b", "Senior/community", 42)
+    marker_item(0.50, 0.30, "D", "#9a5a20", "Other spaces", 34)
+
+    legend_ax.plot([0.70, 0.70], [0.04, 0.86], transform=legend_ax.transAxes, color="#ddd8cf", linewidth=0.8)
+    heading(0.74, "Context")
+    marker_item(0.74, 0.58, "o", "#4fa7a0", "Supplemental resources", 26)
+    legend_ax.plot([0.744, 0.775], [0.30, 0.30], transform=legend_ax.transAxes, color="#9b9690", linewidth=1.2)
+    legend_ax.text(0.79, 0.30, "Major roads", transform=legend_ax.transAxes, fontsize=7.2, color="#303437", ha="left", va="center")
+    legend_ax.plot([0.744, 0.775], [0.02, 0.02], transform=legend_ax.transAxes, color="#1f4e5f", linewidth=2.0)
+    legend_ax.text(0.79, 0.02, "Top priority tract", transform=legend_ax.transAxes, fontsize=7.2, color="#303437", ha="left", va="center")
 
 
 def draw_map(
@@ -778,14 +862,14 @@ def draw_map(
     county_ax.set_title("County Context", fontsize=10, weight="bold", loc="left", pad=4)
     county_ax.text(
         0.5,
-        0.09,
-        "dashed box = detail map",
+        -0.06,
+        "Dashed box shows detail extent",
         transform=county_ax.transAxes,
         ha="center",
         va="center",
         fontsize=7,
         color="#303437",
-        bbox={"boxstyle": "round,pad=0.16", "facecolor": "white", "edgecolor": "none", "alpha": 0.72},
+        clip_on=False,
     )
 
     extent = arcpy.Describe(str(county_fc)).extent
@@ -793,7 +877,8 @@ def draw_map(
     pad_y = (extent.YMax - extent.YMin) * 0.04
     county_ax.set_xlim(extent.XMin - pad_x, extent.XMax + pad_x)
     county_ax.set_ylim(extent.YMin - pad_y, extent.YMax + pad_y)
-    draw_scale_bar(main_ax, 5, location=(0.055, 0.055))
+    draw_top_tract_outlines(county_ax, tracts_fc, summary, outline_width=1.1, halo_width=2.0, badge_font=5.3, badge_pad=0.12)
+    draw_scale_bar(main_ax, 5, location=(0.62, 0.07))
     draw_north_arrow(main_ax)
 
     class_counts = summary["CONCERN_CLASS"].value_counts().reindex(["Low", "Medium", "High"]).fillna(0).astype(int)
@@ -803,32 +888,14 @@ def draw_map(
     fig.text(
         0.045,
         0.925,
-        f"Relative screening score, not an official heat-response designation | "
-        f"{primary_count} cooling centers/spaces used for access scoring | {all_count} total mapped resources",
-        fontsize=9.5,
+        f"Relative score for heat risk, social vulnerability, vehicle access, and cooling-resource distance | "
+        f"not an official designation | {primary_count} scored cooling resources | {all_count} mapped resources",
+        fontsize=8.9,
         color="#4a4f52",
         ha="left",
     )
 
-    legend_items = [
-        patches.Patch(facecolor=colors["Low"], edgecolor="white", label=f"Low concern ({class_counts['Low']})"),
-        patches.Patch(facecolor=colors["Medium"], edgecolor="white", label=f"Medium concern ({class_counts['Medium']})"),
-        patches.Patch(facecolor=colors["High"], edgecolor="white", label=f"High concern ({class_counts['High']})"),
-        mlines.Line2D([], [], color="#155e8a", marker="P", linestyle="None", markersize=7, label="Libraries"),
-        mlines.Line2D([], [], color="#206f5b", marker="s", linestyle="None", markersize=6, label="Community/rec"),
-        mlines.Line2D([], [], color="#6f4e9b", marker="^", linestyle="None", markersize=7, label="Senior/community"),
-        mlines.Line2D([], [], color="#9a5a20", marker="D", linestyle="None", markersize=6, label="Other cooling spaces"),
-        mlines.Line2D([], [], color="#4fa7a0", marker="o", linestyle="None", markersize=5, alpha=0.55, label="Supplemental resources"),
-        mlines.Line2D([], [], color="#9b9690", linewidth=1.2, label="Major roads"),
-    ]
-    fig.legend(
-        handles=legend_items,
-        loc="lower center",
-        bbox_to_anchor=(0.39, 0.075),
-        ncol=5,
-        frameon=False,
-        fontsize=7.7,
-    )
+    draw_grouped_legend(fig, colors, class_counts)
 
     top = summary.head(4).copy()
     info_ax.text(0, 1.0, "Key Finding", fontsize=11.2, weight="bold", color="#222222", ha="left", va="top")
@@ -836,7 +903,7 @@ def draw_map(
         0,
         0.935,
         textwrap.fill(
-            "Highest-ranked tracts appear in outer urban and edge areas where vulnerability, vehicle-access barriers, and cooling-center distance overlap.",
+            "This screening flags places where heat exposure and cooling-access gaps stack together. The highest-ranked tracts are mostly outer urban or edge areas, not just the downtown core.",
             46,
         ),
         fontsize=8.0,
@@ -846,34 +913,47 @@ def draw_map(
         linespacing=1.18,
     )
     info_ax.text(0, 0.765, "Top Priority Tracts", fontsize=11.2, weight="bold", color="#222222", ha="left", va="top")
-    info_ax.text(0.52, 0.765, "H/S/V/A", fontsize=7.5, weight="bold", color="#4a4f52", ha="left", va="top")
-    y = 0.705
-    for _, row in top.iterrows():
+    info_ax.text(0, 0.728, "Countywide rank; numbers match the map and inset.", fontsize=7.4, color="#4a4f52", ha="left", va="top")
+    info_ax.text(0.50, 0.690, "Score factors", fontsize=7.4, weight="bold", color="#4a4f52", ha="left", va="top")
+    info_ax.text(0.78, 0.690, "Total | mi", fontsize=7.4, weight="bold", color="#4a4f52", ha="left", va="top")
+    y = 0.648
+    for rank, (_, row) in enumerate(top.iterrows(), start=1):
         tract = row["NAME"].replace("Census Tract ", "").replace(", Spokane, WA", "")
-        info_ax.text(0, y, f"Tract {tract}", fontsize=8.5, weight="bold", ha="left", va="top", color="#222222")
+        info_ax.text(
+            0.015,
+            y - 0.002,
+            str(rank),
+            fontsize=7.2,
+            weight="bold",
+            ha="center",
+            va="center",
+            color="white",
+            bbox={"boxstyle": "round,pad=0.18", "facecolor": "#1f4e5f", "edgecolor": "none", "alpha": 0.96},
+        )
+        info_ax.text(0.06, y, f"Tract {tract}", fontsize=8.5, weight="bold", ha="left", va="top", color="#222222")
         components = (
             f'{int(row["HEAT_CONCERN_SCORE"])}/'
             f'{int(row["SOVI_CONCERN_SCORE"])}/'
             f'{int(row["TRANSPORT_BARRIER_SCORE"])}/'
             f'{int(row["COOLING_ACCESS_SCORE"])}'
         )
-        info_ax.text(0.52, y, components, fontsize=8.0, ha="left", va="top", color="#4a4f52")
+        info_ax.text(0.50, y, components, fontsize=8.0, ha="left", va="top", color="#4a4f52")
         info_ax.text(
-            0.72,
+            0.78,
             y,
-            f'Score {int(row["FINAL_CONCERN_SCORE"])} | {row["NEAREST_COOLING_MI"]:.1f} mi',
+            f'{int(row["FINAL_CONCERN_SCORE"])} | {row["NEAREST_COOLING_MI"]:.1f}',
             fontsize=8.0,
             ha="left",
             va="top",
             color="#4a4f52",
         )
-        y -= 0.072
+        y -= 0.066
 
-    info_ax.plot([0, 1], [y + 0.028, y + 0.028], color="#d5d1c8", linewidth=0.8)
+    info_ax.plot([0, 1], [y + 0.025, y + 0.025], color="#d5d1c8", linewidth=0.8)
     draw_callout_box(
         info_ax,
         "Score",
-        "H/S/V/A: heat, social vulnerability, vehicle-access barrier, and cooling access.",
+        "Score factors are heat, social vulnerability, vehicle-access barrier, and cooling access; each is scored 0-3.",
         y - 0.01,
     )
     draw_callout_box(
